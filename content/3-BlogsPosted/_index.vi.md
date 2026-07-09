@@ -14,5 +14,5 @@ Blog này giới thiệu cách Amazon EKS Auto Mode kết hợp với Istio Ambi
 ### [Blog 2 - Triển khai hạ tầng Multi-Turn RL cho Amazon Nova trên Amazon SageMaker HyperPod](3.2-Blog2/)
 Blog này giới thiệu kiến trúc tham khảo triển khai hạ tầng Multi-Turn Reinforcement Learning (RL) sử dụng Amazon SageMaker HyperPod và Amazon Nova. Nội dung trình bày cách AWS xây dựng quy trình huấn luyện theo kiến trúc hướng sự kiện, tự động cấp phát tài nguyên và huấn luyện AI Agent thông qua cơ chế đánh giá bằng phần thưởng để xử lý các tác vụ nhiều bước.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+### [Blog 3 - Các thực tiễn tốt nhất cho Multi-Turn Reinforcement Learning trên Amazon SageMaker AI](3.3-Blog3/)
+Blog này giới thiệu các thực tiễn tốt nhất khi huấn luyện AI Agent đa lượt bằng Reinforcement Learning trên Amazon SageMaker AI. Nội dung tập trung vào việc xây dựng môi trường Sandbox an toàn, thiết kế Reward Function để tránh Reward Hacking, quản lý Trajectory và Turn Budget, cũng như đánh giá hiệu quả của AI Agent nhằm xây dựng các hệ thống AI ổn định và sẵn sàng cho môi trường thực tế.

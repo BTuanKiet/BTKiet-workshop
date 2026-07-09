@@ -70,6 +70,5 @@ Việc kết hợp Amazon EKS Auto Mode và Istio Ambient Mesh mang lại nhiề
 
 ## Tài liệu tham khảo
 
-AWS Containers Blog:
-
-https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/
+- AWS Containers Blog:
+  https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/

@@ -14,5 +14,5 @@ This blog introduces how Amazon EKS Auto Mode and Istio Ambient Mesh work togeth
 ### [Blog 2 - Deploying Multi-Turn RL Infrastructure for Amazon Nova on Amazon SageMaker HyperPod](3.2-Blog2/)
 This blog presents the reference architecture for deploying Multi-Turn Reinforcement Learning (RL) infrastructure using Amazon SageMaker HyperPod and Amazon Nova. It explains how AWS combines an event-driven architecture, automated infrastructure provisioning, and reward-based training to efficiently train AI agents capable of handling complex multi-step tasks.
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 3 - Best Practices for Multi-Turn Reinforcement Learning in Amazon SageMaker AI](3.3-Blog3/)
+This blog introduces the best practices for training multi-turn AI Agents using Reinforcement Learning on Amazon SageMaker AI. It covers key concepts such as building isolated sandbox environments, preventing reward hacking through effective reward design, managing trajectory and turn budgets, and evaluating agent performance to develop more reliable and production-ready AI systems.
