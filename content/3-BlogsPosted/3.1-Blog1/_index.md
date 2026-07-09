@@ -73,5 +73,4 @@ Using Amazon EKS Auto Mode together with Istio Ambient Mesh provides several adv
 
 ## Reference
 
-- AWS Containers Blog: 
-  https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/
+- [AWS Containers Blog – Better Together: Amazon EKS Auto Mode and Istio Ambient Mesh](https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/)

@@ -87,5 +87,4 @@ By following these best practices, developers can build AI agents that learn mor
 
 ### Original AWS Blog
 
-- AWS Machine Learning Blog:
-  https://aws.amazon.com/vi/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/?content_source=fb&fb_content_id=Q9-wBQEJUL5h_O8ySkuTEnaHjxaW2smXbC9wKJyqsMGcQlBKtBYimWtpyl_G3FcymQ&channel_type=fb&fbclid=IwY2xjawS8MfBleHRuA2FlbQIxMABicmlkETFndGZjVE9uWm1KRVN1YXNsc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHnJPJzkU_M1BLV5kqeI0HcEK-dQtgN6SmDsBmdNdVaKG3eKQgT3lRRyScSEg_aem_3fqZyU7W-foVEusoPh6Esw
+- [AWS Machine Learning Blog – Best Practices for Multi-Turn Reinforcement Learning in Amazon SageMaker AI](https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/)
