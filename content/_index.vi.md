@@ -9,7 +9,7 @@ chapter: false
 ### Thông tin sinh viên:
 &emsp; **Họ và tên:** Bùi Tuấn Kiệt
 
-&emsp; **Số điện thoại:** 00356524204
+&emsp; **Số điện thoại:** 0356524204
 
 &emsp; **Email:** kietbuituan20@gmail.com
 
