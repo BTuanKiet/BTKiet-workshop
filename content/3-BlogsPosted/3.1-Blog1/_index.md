@@ -69,7 +69,7 @@ Using Amazon EKS Auto Mode together with Istio Ambient Mesh provides several adv
 
 ## Architecture Overview
 
-![EKS Auto Mode and Istio Ambient Mesh Architecture](static/images/3-BlogsPosted/3.1-Blog1/c-170-1.jpg)
+![EKS Auto Mode and Istio Ambient Mesh Architecture](/images/3-BlogsPosted/3.1-Blog1/c-170-1.jpg)
 
 ## Reference
 
