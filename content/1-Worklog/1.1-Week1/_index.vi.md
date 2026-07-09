@@ -17,7 +17,7 @@ pre: " <b> 1.1. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | [Tài liệu đơn vị](https://hcm-rules.awsfcaj.com/vi/) |
+| Thứ 2 | Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | [Nội quy - Hướng dẫn](https://hcm-rules.awsfcaj.com/vi/) |
 | Thứ 3 | Tìm hiểu tổng quan về Cloud. Thực hành các bước tạo tài khoản AWS Free Tier. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/vi/) |
 | Thứ 4 | Quản lý chi phí: Thiết lập AWS Budgets, sử dụng Cost Explorer. Tìm hiểu về dịch vụ AWS Support và các gói hỗ trợ. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/vi/) |
 | Thứ 5 | Quản trị IAM: Tạo User, Group và thiết lập chính sách phân quyền (Policies). Mạng cơ bản: Khởi tạo và cấu hình Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/vi/) |

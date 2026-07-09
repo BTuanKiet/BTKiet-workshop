@@ -16,7 +16,7 @@ pre: " <b> 1.1. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | [Company materials](https://hcm-rules.awsfcaj.com/) |
+| Monday | Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | [Rules and Guidelines](https://hcm-rules.awsfcaj.com/) |
 | Tuesday | Studied the overview of Cloud Computing. Practiced the steps for creating an AWS Free Tier account. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/) |
 | Wednesday | Cost management: set up AWS Budgets and used Cost Explorer. Learned about AWS Support services and support plans. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/) |
 | Thursday | IAM administration: created users and groups, and configured permission policies. Basic networking: created and configured an Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/) |
