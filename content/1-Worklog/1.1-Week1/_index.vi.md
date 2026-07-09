@@ -17,11 +17,11 @@ pre: " <b> 1.1. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Làm quen với các thành viên và cán bộ hướng dẫn (Nguyễn Gia Hưng). Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | Tài liệu đơn vị |
-| Thứ 3 | Tìm hiểu tổng quan về Cloud. Thực hành các bước tạo tài khoản AWS Free Tier. | 21/04/2026 | 21/04/2026 | AWS Documentation |
-| Thứ 4 | Quản lý chi phí: Thiết lập AWS Budgets, sử dụng Cost Explorer. Tìm hiểu về dịch vụ AWS Support và các gói hỗ trợ. | 22/04/2026 | 22/04/2026 | AWS Documentation |
-| Thứ 5 | Quản trị IAM: Tạo User, Group và thiết lập chính sách phân quyền (Policies). Mạng cơ bản: Khởi tạo và cấu hình Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | AWS Documentation |
-| Thứ 6 | Amazon EC2: Khởi tạo máy chủ ảo, quản lý Key Pair và kết nối SSH. Amazon S3: Tạo bucket, lưu trữ và cấu hình hosting website tĩnh. | 25/04/2026 | 26/04/2026 | AWS Documentation |
+| Thứ 2 | Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | [Tài liệu đơn vị](https://hcm-rules.awsfcaj.com/vi/) |
+| Thứ 3 | Tìm hiểu tổng quan về Cloud. Thực hành các bước tạo tài khoản AWS Free Tier. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/vi/) |
+| Thứ 4 | Quản lý chi phí: Thiết lập AWS Budgets, sử dụng Cost Explorer. Tìm hiểu về dịch vụ AWS Support và các gói hỗ trợ. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/vi/) |
+| Thứ 5 | Quản trị IAM: Tạo User, Group và thiết lập chính sách phân quyền (Policies). Mạng cơ bản: Khởi tạo và cấu hình Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/vi/) |
+| Thứ 6 | Amazon EC2: Khởi tạo máy chủ ảo, quản lý Key Pair và kết nối SSH. Amazon S3: Tạo bucket, lưu trữ và cấu hình hosting website tĩnh. | 25/04/2026 | 26/04/2026 | [AWS Documentation](https://000004.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 1
 - Hiểu tổng quan về AWS: Nắm được các nhóm dịch vụ cốt lõi và hoàn tất thiết lập tài khoản an toàn.

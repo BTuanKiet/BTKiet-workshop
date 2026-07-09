@@ -16,12 +16,12 @@ pre: " <b> 1.10. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS CDK for ECS: created Spring Boot microservices and used CDK v2 to define ECR, VPC, NAT Gateway, cluster, and Fargate service resources. | 22/06/2026 | 22/06/2026 | AWS Documentation |
-| Tuesday | CI/CD for Amazon EKS: created the required IAM roles and configured CodePipeline to automatically deploy source code to an EKS cluster. | 23/06/2026 | 23/06/2026 | AWS Documentation |
-| Wednesday | CI/CD for Amazon EC2: used the CodeSuite toolset to build a deployment pipeline for a Node.js application on a Linux server. | 24/06/2026 | 24/06/2026 | AWS Documentation |
-| Thursday | CI/CD for ECS Containers: completed the pipeline setup, configured Container Insights, and routed system logs through FireLens. | 25/06/2026 | 25/06/2026 | AWS Documentation |
-| Friday | AWS Storage Gateway: prepared S3 and EC2 environments, then deployed File Storage Gateway connected to an on-premises server. | 26/06/2026 | 26/06/2026 | AWS Documentation |
-| Saturday - Sunday | Amazon FSx for Windows: created a Multi-AZ file system, configured file shares and shadow copies, and expanded throughput capacity. | 27/06/2026 | 28/06/2026 | AWS Documentation |
+| Monday | AWS CDK for ECS: created Spring Boot microservices and used CDK v2 to define ECR, VPC, NAT Gateway, cluster, and Fargate service resources. | 22/06/2026 | 22/06/2026 | [AWS Documentation](https://000118.awsstudygroup.com/) |
+| Tuesday | CI/CD for Amazon EKS: created the required IAM roles and configured CodePipeline to automatically deploy source code to an EKS cluster. | 23/06/2026 | 23/06/2026 | [AWS Documentation](https://000017.awsstudygroup.com/) |
+| Wednesday | CI/CD for Amazon EC2: used the CodeSuite toolset to build a deployment pipeline for a Node.js application on a Linux server. | 24/06/2026 | 24/06/2026 | [AWS Documentation](https://000023.awsstudygroup.com/) |
+| Thursday | CI/CD for ECS Containers: completed the pipeline setup, configured Container Insights, and routed system logs through FireLens. | 25/06/2026 | 25/06/2026 | [AWS Documentation](https://000152.awsstudygroup.com/) |
+| Friday | AWS Storage Gateway: prepared S3 and EC2 environments, then deployed File Storage Gateway connected to an on-premises server. | 26/06/2026 | 26/06/2026 | [AWS Documentation](https://000024.awsstudygroup.com/) |
+| Saturday - Sunday | Amazon FSx for Windows: created a Multi-AZ file system, configured file shares and shadow copies, and expanded throughput capacity. | 27/06/2026 | 28/06/2026 | [AWS Documentation](https://000025.awsstudygroup.com/) |
 
 ### Main activities
 - Used AWS CDK to define container infrastructure and deploy microservices.

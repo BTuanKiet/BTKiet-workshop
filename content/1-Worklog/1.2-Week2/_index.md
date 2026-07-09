@@ -16,12 +16,12 @@ pre: " <b> 1.2. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | Amazon RDS: studied OLTP workloads, supported database engines, and automated management features such as backup and patching. | 27/04/2026 | 27/04/2026 | AWS Documentation |
-| Tuesday | Amazon Lightsail: practiced deploying WordPress and PrestaShop, and optimized costs on Lightsail. | 28/04/2026 | 28/04/2026 | AWS Documentation |
-| Wednesday | Lightsail Containers: learned how to build and deploy containerized applications from Docker images to Lightsail. | 29/04/2026 | 29/04/2026 | AWS Documentation |
-| Thursday | EC2 Auto Scaling: configured a launch template, load balancer, and Auto Scaling Group (ASG) for the FCJ Management application. | 30/04/2026 | 30/04/2026 | AWS Documentation |
-| Friday | Amazon CloudWatch: configured metrics and logs, and created alarms to notify system incidents. | 01/05/2026 | 01/05/2026 | AWS Documentation |
-| Saturday | Amazon Route 53: studied DNS and practiced setting up a hybrid DNS architecture with Route 53 Resolver. | 02/05/2026 | 03/05/2026 | AWS Documentation |
+| Monday | Amazon RDS: studied OLTP workloads, supported database engines, and automated management features such as backup and patching. | 27/04/2026 | 27/04/2026 | [AWS Documentation](https://000005.awsstudygroup.com/) |
+| Tuesday | Amazon Lightsail: practiced deploying WordPress and PrestaShop, and optimized costs on Lightsail. | 28/04/2026 | 28/04/2026 | [AWS Documentation](https://000045.awsstudygroup.com/) |
+| Wednesday | Lightsail Containers: learned how to build and deploy containerized applications from Docker images to Lightsail. | 29/04/2026 | 29/04/2026 | [AWS Documentation](https://000046.awsstudygroup.com/) |
+| Thursday | EC2 Auto Scaling: configured a launch template, load balancer, and Auto Scaling Group (ASG) for the FCJ Management application. | 30/04/2026 | 30/04/2026 | [AWS Documentation](https://000006.awsstudygroup.com/) |
+| Friday | Amazon CloudWatch: configured metrics and logs, and created alarms to notify system incidents. | 01/05/2026 | 01/05/2026 | [AWS Documentation](https://000008.awsstudygroup.com/) |
+| Saturday | Amazon Route 53: studied DNS and practiced setting up a hybrid DNS architecture with Route 53 Resolver. | 02/05/2026 | 03/05/2026 | [AWS Documentation](https://000010.awsstudygroup.com/) |
 
 ### Main activities
 - Studied Amazon RDS, OLTP workloads, supported database engines, and automated management features.

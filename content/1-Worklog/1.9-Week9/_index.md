@@ -16,12 +16,12 @@ pre: " <b> 1.9. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | SQS and SNS: built a pub/sub architecture and practiced message filtering to route events to specific subscribers. | 15/06/2026 | 15/06/2026 | AWS Documentation |
-| Tuesday | EBS Multi-Attach: attached multiple EC2 instances to one EBS volume and used NVMe reservations to coordinate access. | 16/06/2026 | 16/06/2026 | AWS Documentation |
-| Wednesday | MySQL HA Cluster: deployed a MySQL cluster using Multi-Attach and LVM, then automated recovery with a Systems Manager runbook. | 17/06/2026 | 17/06/2026 | AWS Documentation |
-| Thursday | Windows Failover Cluster: configured a failover cluster, cluster quorum, and shared storage components. | 18/06/2026 | 18/06/2026 | AWS Documentation |
-| Friday | Docker: containerized a sample application, used Docker Compose to manage containers, and pushed the completed image to Amazon ECR. | 19/06/2026 | 19/06/2026 | AWS Documentation |
-| Saturday - Sunday | Amazon ECS: created a cluster and task definitions, configured an Application Load Balancer, and deployed a blue/green model. | 20/06/2026 | 21/06/2026 | AWS Documentation |
+| Monday | SQS and SNS: built a pub/sub architecture and practiced message filtering to route events to specific subscribers. | 15/06/2026 | 15/06/2026 | [AWS Documentation](https://000077.awsstudygroup.com/) |
+| Tuesday | EBS Multi-Attach: attached multiple EC2 instances to one EBS volume and used NVMe reservations to coordinate access. | 16/06/2026 | 16/06/2026 | [AWS Documentation](https://100000.awsstudygroup.com/) |
+| Wednesday | MySQL HA Cluster: deployed a MySQL cluster using Multi-Attach and LVM, then automated recovery with a Systems Manager runbook. | 17/06/2026 | 17/06/2026 | [AWS Documentation](https://100001.awsstudygroup.com/) |
+| Thursday | Windows Failover Cluster: configured a failover cluster, cluster quorum, and shared storage components. | 18/06/2026 | 18/06/2026 | [AWS Documentation](https://100002.awsstudygroup.com/) |
+| Friday | Docker: containerized a sample application, used Docker Compose to manage containers, and pushed the completed image to Amazon ECR. | 19/06/2026 | 19/06/2026 | [AWS Documentation](https://000015.awsstudygroup.com/) |
+| Saturday - Sunday | Amazon ECS: created a cluster and task definitions, configured an Application Load Balancer, and deployed a blue/green model. | 20/06/2026 | 21/06/2026 | [AWS Documentation](https://000016.awsstudygroup.com/) |
 
 ### Main activities
 - Built a pub/sub messaging pattern with Amazon SQS and SNS.

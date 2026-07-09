@@ -16,12 +16,12 @@ pre: " <b> 1.4. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS Lambda: studied serverless computing and wrote a function to automatically start and stop EC2 instances for cost optimization. | 11/05/2026 | 11/05/2026 | AWS Documentation |
-| Tuesday | Tags and Resource Groups: added metadata tags to resources and created tag-based resource groups for centralized management. | 12/05/2026 | 12/05/2026 | AWS Documentation |
-| Wednesday | IAM Resource Tags: configured least-privilege policies based on tags to control EC2 access permissions. | 13/05/2026 | 13/05/2026 | AWS Documentation |
-| Thursday | AWS Systems Manager (SSM): practiced Patch Manager for batch patching and Run Command for executing commands across multiple servers. | 14/05/2026 | 14/05/2026 | AWS Documentation |
-| Friday | SSM Session Manager: connected remotely to Linux and Windows servers, both public and private, without opening SSH/RDP ports. | 15/05/2026 | 15/05/2026 | AWS Documentation |
-| Saturday | EC2 Right Sizing: used CloudWatch Agent to collect memory data and Compute Optimizer to choose optimized EC2 configurations. | 16/05/2026 | 17/05/2026 | AWS Documentation |
+| Monday | AWS Lambda: studied serverless computing and wrote a function to automatically start and stop EC2 instances for cost optimization. | 11/05/2026 | 11/05/2026 | [AWS Documentation](https://000022.awsstudygroup.com/) |
+| Tuesday | Tags and Resource Groups: added metadata tags to resources and created tag-based resource groups for centralized management. | 12/05/2026 | 12/05/2026 | [AWS Documentation](https://000027.awsstudygroup.com/) |
+| Wednesday | IAM Resource Tags: configured least-privilege policies based on tags to control EC2 access permissions. | 13/05/2026 | 13/05/2026 | [AWS Documentation](https://000028.awsstudygroup.com/) |
+| Thursday | AWS Systems Manager (SSM): practiced Patch Manager for batch patching and Run Command for executing commands across multiple servers. | 14/05/2026 | 14/05/2026 | [AWS Documentation](https://000031.awsstudygroup.com/) |
+| Friday | SSM Session Manager: connected remotely to Linux and Windows servers, both public and private, without opening SSH/RDP ports. | 15/05/2026 | 15/05/2026 | [AWS Documentation](https://000058.awsstudygroup.com/) |
+| Saturday | EC2 Right Sizing: used CloudWatch Agent to collect memory data and Compute Optimizer to choose optimized EC2 configurations. | 16/05/2026 | 17/05/2026 | [AWS Documentation](https://000032.awsstudygroup.com/) |
 
 ### Main activities
 - Built a Lambda function to automate EC2 start/stop tasks and reduce unnecessary costs.

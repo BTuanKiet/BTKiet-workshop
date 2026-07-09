@@ -16,11 +16,11 @@ pre: " <b> 1.6. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS Toolkit for VS Code: installed the extension, connected an AWS account, and practiced using Amazon Q and CodeWhisperer for code suggestions. | 25/05/2026 | 25/05/2026 | AWS Documentation |
-| Tuesday | IAM Permission Boundaries: studied self-service permission limits and created a boundary policy to prevent privilege escalation. | 26/05/2026 | 26/05/2026 | AWS Documentation |
-| Wednesday | IAM Policies and Conditions: configured additional security conditions based on source IP, working hours, and resource tags. | 27/05/2026 | 27/05/2026 | AWS Documentation |
-| Thursday | AWS Security Hub: activated the service, ran automated security standard checks, and managed centralized findings. | 28/05/2026 | 28/05/2026 | AWS Documentation |
-| Friday | VPC Endpoints for S3: configured Gateway Endpoint and Interface Endpoint access to S3 using AWS PrivateLink. | 29/05/2026 | 31/05/2026 | AWS Documentation |
+| Monday | AWS Toolkit for VS Code: installed the extension, connected an AWS account, and practiced using Amazon Q and CodeWhisperer for code suggestions. | 25/05/2026 | 25/05/2026 | [AWS Documentation](https://000087.awsstudygroup.com/) |
+| Tuesday | IAM Permission Boundaries: studied self-service permission limits and created a boundary policy to prevent privilege escalation. | 26/05/2026 | 26/05/2026 | [AWS Documentation](https://000030.awsstudygroup.com/) |
+| Wednesday | IAM Policies and Conditions: configured additional security conditions based on source IP, working hours, and resource tags. | 27/05/2026 | 27/05/2026 | [AWS Documentation](https://000044.awsstudygroup.com/) |
+| Thursday | AWS Security Hub: activated the service, ran automated security standard checks, and managed centralized findings. | 28/05/2026 | 28/05/2026 | [AWS Documentation](https://000018.awsstudygroup.com/) |
+| Friday | VPC Endpoints for S3: configured Gateway Endpoint and Interface Endpoint access to S3 using AWS PrivateLink. | 29/05/2026 | 31/05/2026 | [AWS Documentation](https://000111.awsstudygroup.com/) |
 
 ### Main activities
 - Installed AWS Toolkit for VS Code and explored Amazon Q and CodeWhisperer for AI-assisted development.

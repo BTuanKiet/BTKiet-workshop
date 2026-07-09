@@ -17,12 +17,12 @@ pre: " <b> 1.7. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | AWS Web Application Firewall (WAF): Tìm hiểu Web ACLs. Thực hành triển khai Managed Rules và Custom Rules bảo vệ ứng dụng mẫu. | 01/06/2026 | 01/06/2026 | AWS Documentation |
-| Thứ 3 | AWS Key Management Service (KMS): Thực hành mã hóa dữ liệu S3 Object. Ghi nhật ký truy cập khóa qua CloudTrail và truy vấn bằng Athena. | 02/06/2026 | 02/06/2026 | AWS Documentation |
-| Thứ 4 | Amazon Macie: Kích hoạt dịch vụ, thực hiện quét S3 bucket phát hiện thông tin nhận dạng cá nhân (PII) và đánh giá bảo mật bucket. | 03/06/2026 | 03/06/2026 | AWS Documentation |
-| Thứ 5 | AWS Secrets Manager: Quản lý mật khẩu RDS. Thiết lập tự động xoay vòng mật khẩu (Secret Rotation) và tích hợp với Fargate. | 04/06/2026 | 04/06/2026 | AWS Documentation |
-| Thứ 6 | AWS Firewall Manager: Thực hiện Audit và giới hạn Security Groups tập trung. Thiết lập chính sách bảo mật cho SSH và RDP. | 05/06/2026 | 05/06/2026 | AWS Documentation |
-| Thứ 7 | AWS GuardDuty: Tìm hiểu cơ chế phát hiện mối đe dọa. Thực hành xử lý các tình huống EC2 hoặc IAM credentials bị xâm nhập. | 06/06/2026 | 07/06/2026 | AWS Documentation |
+| Thứ 2 | AWS Web Application Firewall (WAF): Tìm hiểu Web ACLs. Thực hành triển khai Managed Rules và Custom Rules bảo vệ ứng dụng mẫu. | 01/06/2026 | 01/06/2026 | [AWS Documentation](https://000026.awsstudygroup.com/vi/) |
+| Thứ 3 | AWS Key Management Service (KMS): Thực hành mã hóa dữ liệu S3 Object. Ghi nhật ký truy cập khóa qua CloudTrail và truy vấn bằng Athena. | 02/06/2026 | 02/06/2026 | [AWS Documentation](https://000033.awsstudygroup.com/vi/) |
+| Thứ 4 | Amazon Macie: Kích hoạt dịch vụ, thực hiện quét S3 bucket phát hiện thông tin nhận dạng cá nhân (PII) và đánh giá bảo mật bucket. | 03/06/2026 | 03/06/2026 | [AWS Documentation](https://000090.awsstudygroup.com/vi/) |
+| Thứ 5 | AWS Secrets Manager: Quản lý mật khẩu RDS. Thiết lập tự động xoay vòng mật khẩu (Secret Rotation) và tích hợp với Fargate. | 04/06/2026 | 04/06/2026 | [AWS Documentation](https://000096.awsstudygroup.com/vi/) |
+| Thứ 6 | AWS Firewall Manager: Thực hiện Audit và giới hạn Security Groups tập trung. Thiết lập chính sách bảo mật cho SSH và RDP. | 05/06/2026 | 05/06/2026 | [AWS Documentation](https://000097.awsstudygroup.com/vi/) |
+| Thứ 7 | AWS GuardDuty: Tìm hiểu cơ chế phát hiện mối đe dọa. Thực hành xử lý các tình huống EC2 hoặc IAM credentials bị xâm nhập. | 06/06/2026 | 07/06/2026 | [AWS Documentation](https://000098.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 7
 - Bảo vệ tầng ứng dụng: Làm chủ AWS WAF nhằm lọc các request độc hại thông qua hệ thống managed rules và custom rules.

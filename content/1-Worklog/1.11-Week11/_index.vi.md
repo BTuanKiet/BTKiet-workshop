@@ -18,12 +18,12 @@ pre: " <b> 1.11. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Amazon DynamoDB Immersion Day: Nghiên cứu xây dựng ứng dụng nâng cao; Thực hành toàn bộ chuỗi bài Lab thực tế gồm LHOL, LADV, LGME và LMR. | 29/06/2026 | 29/06/2026 | AWS Documentation |
-| Thứ 3 | AWS Step Functions: Thực hành điều phối các workflow; Làm việc sâu với các trạng thái xử lý; Thiết lập cơ chế bẫy và xử lý lỗi (Retry/Catch). | 30/06/2026 | 30/06/2026 | AWS Documentation |
-| Thứ 4 | Workshop Hiệu suất Lưu trữ: Thực hiện tối ưu thông lượng khi thao tác với tệp nhỏ trên S3; Cấu hình chế độ hiệu suất nâng cao cho Amazon EFS. | 01/07/2026 | 01/07/2026 | AWS Documentation |
-| Thứ 5 | Tối ưu chi phí: Phân tích kỹ các loại hình Savings Plan; Thực hiện mua và áp dụng các gói tiết kiệm chi phí đối với hệ thống dịch vụ EC2 và RDS. | 02/07/2026 | 02/07/2026 | AWS Documentation |
-| Thứ 6 | Trực quan hóa chi phí: Triển khai giám sát chi phí theo tài khoản; Kiểm tra kỹ tỷ lệ bao phủ của SP và RI; Kết xuất các mẫu báo cáo EC2 tùy chỉnh. | 03/07/2026 | 03/07/2026 | AWS Documentation |
-| Thứ 7 - CN | Phân tích dữ liệu chi phí nâng cao: Xây dựng hoàn chỉnh nền tảng thu thập và phân tích các báo cáo chi phí chuyên sâu qua AWS Glue và Amazon Athena. | 04/07/2026 | 05/07/2026 | AWS Documentation |
+| Thứ 2 | Amazon DynamoDB Immersion Day: Nghiên cứu xây dựng ứng dụng nâng cao; Thực hành toàn bộ chuỗi bài Lab thực tế gồm LHOL, LADV, LGME và LMR. | 29/06/2026 | 29/06/2026 | [AWS Documentation](https://000039.awsstudygroup.com/vi/) |
+| Thứ 3 | AWS Step Functions: Thực hành điều phối các workflow; Làm việc sâu với các trạng thái xử lý; Thiết lập cơ chế bẫy và xử lý lỗi (Retry/Catch). | 30/06/2026 | 30/06/2026 | [AWS Documentation](https://000047.awsstudygroup.com/vi/) |
+| Thứ 4 | Workshop Hiệu suất Lưu trữ: Thực hiện tối ưu thông lượng khi thao tác với tệp nhỏ trên S3; Cấu hình chế độ hiệu suất nâng cao cho Amazon EFS. | 01/07/2026 | 01/07/2026 | [AWS Documentation](https://000068.awsstudygroup.com/vi/) |
+| Thứ 5 | Tối ưu chi phí: Phân tích kỹ các loại hình Savings Plan; Thực hiện mua và áp dụng các gói tiết kiệm chi phí đối với hệ thống dịch vụ EC2 và RDS. | 02/07/2026 | 02/07/2026 | [AWS Documentation](https://000042.awsstudygroup.com/vi/) |
+| Thứ 6 | Trực quan hóa chi phí: Triển khai giám sát chi phí theo tài khoản; Kiểm tra kỹ tỷ lệ bao phủ của SP và RI; Kết xuất các mẫu báo cáo EC2 tùy chỉnh. | 03/07/2026 | 03/07/2026 | [AWS Documentation](https://000034.awsstudygroup.com/vi/) |
+| Thứ 7 - CN | Phân tích dữ liệu chi phí nâng cao: Xây dựng hoàn chỉnh nền tảng thu thập và phân tích các báo cáo chi phí chuyên sâu qua AWS Glue và Amazon Athena. | 04/07/2026 | 05/07/2026 | [AWS Documentation](https://000040.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 11
 - Làm chủ NoSQL quy mô lớn: Thành thạo áp dụng các mẫu thiết kế nâng cao (Sparse GSI, Composite Keys) và có khả năng cấu hình Global Tables đạt độ trễ mili giây.

@@ -17,12 +17,12 @@ pre: " <b> 1.9. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | SQS & SNS: Xây dựng kiến trúc Pub/Sub. Thực hành lọc tin nhắn (Message Filtering) để điều hướng trực tiếp đến các subscriber cụ thể. | 15/06/2026 | 15/06/2026 | AWS Documentation |
-| Thứ 3 | EBS Multi-Attach: Kết nối đồng thời nhiều máy chủ EC2 vào một ổ đĩa EBS. Sử dụng hệ thống NVMe Reservation để điều phối quyền truy cập. | 16/06/2026 | 16/06/2026 | AWS Documentation |
-| Thứ 4 | MySQL HA Cluster: Triển khai MySQL Cluster dùng Multi-Attach và LVM. Tự động hóa quy trình khắc phục sự cố qua Systems Manager Runbook. | 17/06/2026 | 17/06/2026 | AWS Documentation |
-| Thứ 5 | Windows Failover Cluster: Thiết lập cụm máy chủ chịu lỗi, tiến hành cấu hình thành phần Cluster Quorum và Shared Storage. | 18/06/2026 | 18/06/2026 | AWS Documentation |
-| Thứ 6 | Docker: Đóng gói ứng dụng mẫu, sử dụng công cụ Docker Compose quản lý các container và đẩy image hoàn chỉnh lên Amazon ECR. | 19/06/2026 | 19/06/2026 | AWS Documentation |
-| Thứ 7 - CN | Amazon ECS: Khởi tạo Cluster, Task Definitions, thực hiện cấu hình Application Load Balancer và triển khai mô hình Blue/Green. | 20/06/2026 | 21/06/2026 | AWS Documentation |
+| Thứ 2 | SQS & SNS: Xây dựng kiến trúc Pub/Sub. Thực hành lọc tin nhắn (Message Filtering) để điều hướng trực tiếp đến các subscriber cụ thể. | 15/06/2026 | 15/06/2026 | [AWS Documentation](https://000077.awsstudygroup.com/vi/) |
+| Thứ 3 | EBS Multi-Attach: Kết nối đồng thời nhiều máy chủ EC2 vào một ổ đĩa EBS. Sử dụng hệ thống NVMe Reservation để điều phối quyền truy cập. | 16/06/2026 | 16/06/2026 | [AWS Documentation](https://100000.awsstudygroup.com/vi/) |
+| Thứ 4 | MySQL HA Cluster: Triển khai MySQL Cluster dùng Multi-Attach và LVM. Tự động hóa quy trình khắc phục sự cố qua Systems Manager Runbook. | 17/06/2026 | 17/06/2026 | [AWS Documentation](https://100001.awsstudygroup.com/vi/) |
+| Thứ 5 | Windows Failover Cluster: Thiết lập cụm máy chủ chịu lỗi, tiến hành cấu hình thành phần Cluster Quorum và Shared Storage. | 18/06/2026 | 18/06/2026 | [AWS Documentation](https://100002.awsstudygroup.com/vi/) |
+| Thứ 6 | Docker: Đóng gói ứng dụng mẫu, sử dụng công cụ Docker Compose quản lý các container và đẩy image hoàn chỉnh lên Amazon ECR. | 19/06/2026 | 19/06/2026 | [AWS Documentation](https://000015.awsstudygroup.com/vi/) |
+| Thứ 7 - CN | Amazon ECS: Khởi tạo Cluster, Task Definitions, thực hiện cấu hình Application Load Balancer và triển khai mô hình Blue/Green. | 20/06/2026 | 21/06/2026 | [AWS Documentation](https://000016.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 9
 - Xây dựng hệ thống linh hoạt: Hiểu cách phối hợp bộ đôi SNS và SQS để xếp hàng tin nhắn, giảm tải triệt để các logic định tuyến trực tiếp phức tạp.

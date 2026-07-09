@@ -17,12 +17,12 @@ pre: " <b> 1.2. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Amazon RDS: Tìm hiểu về OLTP, các loại DB engine hỗ trợ và tính năng quản lý tự động (backup, patching). | 27/04/2026 | 27/04/2026 | AWS Documentation |
-| Thứ 3 | Amazon Lightsail: Thực hành triển khai WordPress, PrestaShop và tối ưu hóa chi phí trên Lightsail. | 28/04/2026 | 28/04/2026 | AWS Documentation |
-| Thứ 4 | Lightsail Containers: Tìm hiểu cách xây dựng và triển khai ứng dụng container hóa từ Docker image lên Lightsail. | 29/04/2026 | 29/04/2026 | AWS Documentation |
-| Thứ 5 | EC2 Auto Scaling: Thiết lập Launch Template, Load Balancer và cấu hình Auto Scaling Group (ASG) cho ứng dụng FCJ Management. | 30/04/2026 | 30/04/2026 | AWS Documentation |
-| Thứ 6 | Amazon CloudWatch: Cấu hình giám sát Metrics, Logs và thiết lập Alarms để cảnh báo sự cố hệ thống. | 01/05/2026 | 01/05/2026 | AWS Documentation |
-| Thứ 7 | Amazon Route 53: Tìm hiểu về DNS và thực hành thiết lập kiến trúc Hybrid DNS với Route 53 Resolver. | 02/05/2026 | 03/05/2026 | AWS Documentation |
+| Thứ 2 | Amazon RDS: Tìm hiểu về OLTP, các loại DB engine hỗ trợ và tính năng quản lý tự động (backup, patching). | 27/04/2026 | 27/04/2026 | [AWS Documentation](https://000005.awsstudygroup.com/vi/) |
+| Thứ 3 | Amazon Lightsail: Thực hành triển khai WordPress, PrestaShop và tối ưu hóa chi phí trên Lightsail. | 28/04/2026 | 28/04/2026 | [AWS Documentation](https://000045.awsstudygroup.com/vi/) |
+| Thứ 4 | Lightsail Containers: Tìm hiểu cách xây dựng và triển khai ứng dụng container hóa từ Docker image lên Lightsail. | 29/04/2026 | 29/04/2026 | [AWS Documentation](https://000046.awsstudygroup.com/vi/) |
+| Thứ 5 | EC2 Auto Scaling: Thiết lập Launch Template, Load Balancer và cấu hình Auto Scaling Group (ASG) cho ứng dụng FCJ Management. | 30/04/2026 | 30/04/2026 | [AWS Documentation](https://000006.awsstudygroup.com/vi/) |
+| Thứ 6 | Amazon CloudWatch: Cấu hình giám sát Metrics, Logs và thiết lập Alarms để cảnh báo sự cố hệ thống. | 01/05/2026 | 01/05/2026 | [AWS Documentation](https://000008.awsstudygroup.com/vi/) |
+| Thứ 7 | Amazon Route 53: Tìm hiểu về DNS và thực hành thiết lập kiến trúc Hybrid DNS với Route 53 Resolver. | 02/05/2026 | 03/05/2026 | [AWS Documentation](https://000010.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 2
 - Làm chủ Cơ sở dữ liệu: Hiểu rõ cách triển khai Amazon RDS với cấu hình Multi-AZ để đảm bảo tính sẵn có cao và sử dụng Read Replicas để mở rộng khả năng đọc.

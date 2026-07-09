@@ -16,11 +16,11 @@ pre: " <b> 1.1. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | Met the team members and internship supervisor (Nguyen Gia Hung). Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | Company materials |
-| Tuesday | Studied the overview of Cloud Computing. Practiced the steps for creating an AWS Free Tier account. | 21/04/2026 | 21/04/2026 | AWS Documentation |
-| Wednesday | Cost management: set up AWS Budgets and used Cost Explorer. Learned about AWS Support services and support plans. | 22/04/2026 | 22/04/2026 | AWS Documentation |
-| Thursday | IAM administration: created users and groups, and configured permission policies. Basic networking: created and configured an Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | AWS Documentation |
-| Friday | Amazon EC2: launched a virtual server, managed a key pair, and connected via SSH. Amazon S3: created a bucket, stored objects, and configured static website hosting. | 25/04/2026 | 26/04/2026 | AWS Documentation |
+| Monday | Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | [Company materials](https://hcm-rules.awsfcaj.com/) |
+| Tuesday | Studied the overview of Cloud Computing. Practiced the steps for creating an AWS Free Tier account. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/) |
+| Wednesday | Cost management: set up AWS Budgets and used Cost Explorer. Learned about AWS Support services and support plans. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/) |
+| Thursday | IAM administration: created users and groups, and configured permission policies. Basic networking: created and configured an Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/) |
+| Friday | Amazon EC2: launched a virtual server, managed a key pair, and connected via SSH. Amazon S3: created a bucket, stored objects, and configured static website hosting. | 25/04/2026 | 26/04/2026 | [AWS Documentation](https://000004.awsstudygroup.com/) |
 
 ### Main activities
 - Reviewed internship rules and the AWS learning roadmap.

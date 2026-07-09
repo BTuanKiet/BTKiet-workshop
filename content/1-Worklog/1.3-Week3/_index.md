@@ -16,12 +16,12 @@ pre: " <b> 1.3. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS CLI: configured profiles with access keys, prepared the local environment, and practiced administrative commands for S3, EC2, IAM, and VPC. | 04/05/2026 | 04/05/2026 | AWS Documentation |
-| Tuesday | Amazon DynamoDB: studied NoSQL structures such as tables, items, attributes, primary keys, and secondary indexes. Practiced CRUD operations using the console and Python SDK. | 05/05/2026 | 05/05/2026 | AWS Documentation |
-| Wednesday | Amazon ElastiCache: created Redis clusters, configured subnet groups, and used the SDK to perform set/get data operations. | 06/05/2026 | 06/05/2026 | AWS Documentation |
-| Thursday | Networking workshop: practiced Transit Gateway and Site-to-Site VPN for hybrid cloud connectivity. Configured VPC Peering and VPC Endpoints for AWS services. | 07/05/2026 | 07/05/2026 | AWS Documentation |
-| Friday | Amazon CloudFront: created a distribution, configured S3/EC2 origins, set cache behaviors, and customized error pages. | 08/05/2026 | 08/05/2026 | AWS Documentation |
-| Saturday | Edge Computing: studied edge locations and deployed a Lambda@Edge function to CloudFront for request processing at the edge. | 09/05/2026 | 10/05/2026 | AWS Documentation |
+| Monday | AWS CLI: configured profiles with access keys, prepared the local environment, and practiced administrative commands for S3, EC2, IAM, and VPC. | 04/05/2026 | 04/05/2026 | [AWS Documentation](https://000011.awsstudygroup.com/) |
+| Tuesday | Amazon DynamoDB: studied NoSQL structures such as tables, items, attributes, primary keys, and secondary indexes. Practiced CRUD operations using the console and Python SDK. | 05/05/2026 | 05/05/2026 | [AWS Documentation](https://000060.awsstudygroup.com/) |
+| Wednesday | Amazon ElastiCache: created Redis clusters, configured subnet groups, and used the SDK to perform set/get data operations. | 06/05/2026 | 06/05/2026 | [AWS Documentation](https://000061.awsstudygroup.com/) |
+| Thursday | Networking workshop: practiced Transit Gateway and Site-to-Site VPN for hybrid cloud connectivity. Configured VPC Peering and VPC Endpoints for AWS services. | 07/05/2026 | 07/05/2026 | [AWS Documentation](https://000092.awsstudygroup.com/) |
+| Friday | Amazon CloudFront: created a distribution, configured S3/EC2 origins, set cache behaviors, and customized error pages. | 08/05/2026 | 08/05/2026 | [AWS Documentation](https://000094.awsstudygroup.com/) |
+| Saturday | Edge Computing: studied edge locations and deployed a Lambda@Edge function to CloudFront for request processing at the edge. | 09/05/2026 | 10/05/2026 | [AWS Documentation](https://000130.awsstudygroup.com/) |
 
 ### Main activities
 - Configured AWS CLI profiles and used CLI commands to manage S3, EC2, IAM, and VPC resources.
