@@ -24,8 +24,6 @@ Configure the WebACL as follows:
 - **Resource type:** Amazon CloudFront distributions
 - **Region:** US East (N. Virginia)
 
-> `[SCREENSHOT — WAF Create web ACL page with name and resource type filled in]`
-
 Add the following rules in order:
 
 **Rule 1 — Rate limiting:** Click **Add rules** → **Add my own rules and rule groups** → **Rule builder**. Set name to `RateLimitRule`, type **Rate-based rule**, rate limit **1000**, inspect **Source IP**. Set action to **Block**.
@@ -36,11 +34,9 @@ Add the following rules in order:
 
 Set default action to **Allow**, then click **Create web ACL**.
 
-> `[SCREENSHOT — WAF console showing kts-smart-agri-waf-prod with status Active and 3 rules listed]`
+After creation, click on the WebACL name, go to the **Overview** tab and copy the **Web ACL ARN** — it will be needed in Step 13 (CloudFront).
 
-After creation, click on the WebACL name, go to the **Overview** tab and copy the **Web ACL ARN** — it will be needed in Step 7 (CloudFront).
-
-> `[SCREENSHOT — WAF WebACL overview tab showing the ARN value]`
+![create waf](/images/5-Workshop/5.3-Implementation/waf.png)
 
 ---
 
@@ -65,8 +61,6 @@ Switch region back to **ap-southeast-1**. Navigate to **Cognito** → **User poo
 
 **User pool name:** `kts-smart-agri-user-pool-prod`
 
-> `[SCREENSHOT — Cognito User Pool creation page with name and email sign-in selected]`
-
 **App client:** On the **Integrate your app** step, set:
 - **App type:** Public client
 - **App client name:** `kts-smart-agri-client-prod`
@@ -75,7 +69,7 @@ Switch region back to **ap-southeast-1**. Navigate to **Cognito** → **User poo
 
 Click **Create user pool**.
 
-> `[SCREENSHOT — Cognito console showing the new user pool with status Active]`
+![create cognito](/images/5-Workshop/5.3-Implementation/cognito.png)
 
 After creation, note down:
 - **User Pool ID** (format: `ap-southeast-1_XXXXXXXXX`)
@@ -97,7 +91,7 @@ Navigate to **SQS** → **Create queue**.
 
 Click **Create queue** and copy the DLQ **ARN**.
 
-> `[SCREENSHOT — SQS queue creation page for the DLQ]`
+![create sqs](/images/5-Workshop/5.3-Implementation/create_sqs.png)
 
 **Queue 2 — Main inference queue:**
 - **Type:** Standard
@@ -108,7 +102,7 @@ Click **Create queue** and copy the DLQ **ARN**.
 
 Click **Create queue**.
 
-> `[SCREENSHOT — SQS console showing both queues created]`
+![all sqs](/images/5-Workshop/5.3-Implementation/sqs.png)
 
 After creating the main queue, navigate to it, go to the **Access policy** tab and click **Edit**. Replace the policy with the following (substitute your Account ID and region):
 
@@ -134,7 +128,7 @@ After creating the main queue, navigate to it, go to the **Access policy** tab a
 }
 ```
 
-> `[SCREENSHOT — SQS access policy editor with the S3 permission policy entered]`
+![access policy sqs](/images/5-Workshop/5.3-Implementation/access_policy_sqs.png)
 
 ---
 
@@ -161,7 +155,7 @@ After creation, go to the bucket → **Permissions** tab → **Cross-origin reso
 ]
 ```
 
-> `[SCREENSHOT — S3 CORS configuration editor with the PUT/HEAD rule]`
+![edit cors S3](/images/5-Workshop/5.3-Implementation/edit_cors_S3.png)
 
 Then go to **Properties** tab → **Event notifications** → **Create event notification**:
 - **Event name:** `SendToSQS`
@@ -169,7 +163,7 @@ Then go to **Properties** tab → **Event notifications** → **Create event not
 - **Prefix filter:** `uploads/`
 - **Destination:** SQS queue → select `kts-smart-agri-inference-prod`
 
-> `[SCREENSHOT — S3 event notification configuration pointing to the SQS queue]`
+![event notification S3](/images/5-Workshop/5.3-Implementation/event_notification_S3.png)
 
 **Bucket 2 — Archive bucket:**
 - **Bucket name:** `kts-smart-agri-archive-<ACCOUNT_ID>-prod`
@@ -182,7 +176,7 @@ After creation, go to **Management** tab → **Lifecycle rules** → **Create li
 - **Lifecycle rule actions:** Expire current versions of objects
 - **Days after object creation:** **90**
 
-> `[SCREENSHOT — S3 lifecycle rule set to expire objects after 90 days]`
+![lifecycle rule S3](/images/5-Workshop/5.3-Implementation/lifecycle_rule_S3.png)
 
 **Bucket 3 — CloudTrail bucket:**
 - **Bucket name:** `kts-smart-agri-cloudtrail-<ACCOUNT_ID>-prod`
@@ -216,7 +210,7 @@ After creation, go to **Permissions** → **Bucket policy** → **Edit**, and pa
 }
 ```
 
-> `[SCREENSHOT — S3 bucket policy editor for the CloudTrail bucket]`
+![bucket policy S3](/images/5-Workshop/5.3-Implementation/bucket_policy_S3.png)
 
 ---
 
@@ -229,7 +223,7 @@ Navigate to **DynamoDB** → **Tables** → **Create table**.
 - **Sort key:** `imageId` (String)
 - **Table settings:** Customize → **On-demand** capacity mode
 
-> `[SCREENSHOT — DynamoDB table creation with partition key userId and sort key imageId]`
+![create dynamodb table](/images/5-Workshop/5.3-Implementation/create_dynamodb_table.png)
 
 After the table is created, go to **Indexes** tab → **Create index** (Global Secondary Index):
 
@@ -238,7 +232,7 @@ After the table is created, go to **Indexes** tab → **Create index** (Global S
 - **Index name:** `userId-createdAt-index`
 - **Attribute projections:** All
 
-> `[SCREENSHOT — DynamoDB GSI creation form with userId and createdAt keys]`
+![create dynamodb gsi](/images/5-Workshop/5.3-Implementation/create_dynamodb_gsi.png)
 
 ---
 
@@ -252,7 +246,7 @@ Navigate to **ECR** (Elastic Container Registry) → **Repositories** → **Crea
 
 Click **Create repository** and copy the **Repository URI** — needed when pushing the Docker image.
 
-> `[SCREENSHOT — ECR repository created showing the URI in format <account>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-inference-prod]`
+![create ecr repository](/images/5-Workshop/5.3-Implementation/create_ecr_repository.png)
 
 ---
 
@@ -280,8 +274,6 @@ cd cloud-backend/functions/ai-inference
 docker build -t kts-smart-agri-ai-inference-prod .
 ```
 
-> `[SCREENSHOT — terminal showing Docker build progress with "Successfully built" at the end]`
-
 **Step 7.4 — Tag and push to ECR**
 
 ```bash
@@ -289,7 +281,7 @@ docker tag kts-smart-agri-ai-inference-prod:latest <ACCOUNT_ID>.dkr.ecr.ap-south
 docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-inference-prod:latest
 ```
 
-> `[SCREENSHOT — ECR console showing the pushed image with tag "latest" and size displayed]`
+![push image ecr](/images/5-Workshop/5.3-Implementation/push_image_ecr.png)
 
 ---
 
@@ -356,7 +348,22 @@ Attach `AWSLambdaBasicExecutionRole`, then add an inline policy:
 **Role 4: `kts-agri-data-maintenance-role-prod`**
 Attach `AWSLambdaBasicExecutionRole`, then add an inline policy allowing `s3:*` on the images bucket and `dynamodb:*` on the diagnosis table.
 
-> `[SCREENSHOT — IAM Roles console showing all four kts-agri roles created]`
+**Role 5: `kts-agri-data-maintenance-scheduler-role-prod`**
+This role is used by **Amazon EventBridge Scheduler** to invoke Lambda on a schedule, not as a Lambda execution role.
+When creating the role, select **AWS service** → **Scheduler** as the use case (or use a Custom trust policy with principal `scheduler.amazonaws.com`), then add an inline policy:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "lambda:InvokeFunction",
+    "Resource": "arn:aws:lambda:ap-southeast-1:<ACCOUNT_ID>:function:kts-smart-agri-data-maintenance-prod"
+  }]
+}
+```
+This role will be used as the **Execution role** when creating the **EventBridge Schedule** for the `kts-smart-agri-data-maintenance-prod` Lambda in Step 9.
+
+![iam role](/images/5-Workshop/5.3-Implementation/iam_role.png)
 
 ---
 
@@ -371,7 +378,7 @@ Navigate to **Lambda** → **Functions** → **Create function**.
 - **Architecture:** x86_64
 - **Execution role:** Use existing role → `kts-agri-presign-url-role-prod`
 
-After creation, upload `functions/presign-url/app.py` via **Code source** → **Upload from** → **.zip file** (zip the entire `presign-url/` folder including dependencies).
+After creation, upload code via **Code source** → **Upload from** → **.zip file** (zip the entire `presign-url/` folder including dependencies).
 
 Set **Environment variables**:
 - `IMAGES_BUCKET_NAME` = `kts-smart-agri-images-<ACCOUNT_ID>-prod`
@@ -380,7 +387,7 @@ Set **Environment variables**:
 
 Set **General configuration** → Timeout: **30 seconds**.
 
-> `[SCREENSHOT — Lambda function presign-url with code uploaded and environment variables set]`
+![Lambda function presign-url](/images/5-Workshop/5.3-Implementation/Lambda_function_presign-url.png)
 
 **Function 2 — ai-inference:**
 - **Container image**
@@ -399,19 +406,19 @@ Set **Environment variables**:
 
 Add **Trigger** → **SQS** → select `kts-smart-agri-inference-prod` → Batch size: **1** → Enable **Report batch item failures**.
 
-> `[SCREENSHOT — Lambda ai-inference showing container image URI, 1536 MB memory, 120s timeout, and SQS trigger]`
+![lambda ai-inference](/images/5-Workshop/5.3-Implementation/lambda_ai-inference.png)
 
 **Function 3 — get-result:**
-- Same as Function 1 but name `kts-smart-agri-get-result-prod`, role `kts-agri-get-result-role-prod`, upload `functions/get-result/`.
-- Environment variable: `DYNAMODB_TABLE_NAME` = `kts-smart-agri-diagnosis-prod`
+Same as Function 1 but name `kts-smart-agri-get-result-prod`, role `kts-agri-get-result-role-prod`, upload `functions/get-result/`.
+Environment variable: `DYNAMODB_TABLE_NAME` = `kts-smart-agri-diagnosis-prod`
 
 **Function 4 — data-maintenance:**
-- Name `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-role-prod`, upload `functions/data-maintenance/`.
+Name `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-role-prod`, upload `functions/data-maintenance/`.
 - Timeout: **300 seconds**
 - Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS=30`
 - Add **Trigger** → **EventBridge (CloudWatch Events)** → Create new rule → Schedule expression: `cron(0 0 ? * SUN *)`
 
-> `[SCREENSHOT — Lambda console showing all four kts-smart-agri functions listed]`
+![four function kts-smart-agri](/images/5-Workshop/5.3-Implementation/four_function_kts-smart-agri.png)
 
 ---
 
@@ -422,7 +429,7 @@ Navigate to **API Gateway** → **Create API** → **REST API** → **Build**.
 - **API name:** `kts-smart-agri-api-prod`
 - **API endpoint type:** Regional
 
-> `[SCREENSHOT — API Gateway creation page with REST API and Regional endpoint selected]`
+![create api gateway](/images/5-Workshop/5.3-Implementation/create_api_gateway.png)
 
 **Step 10.1 — Create Cognito Authorizer**
 
@@ -432,7 +439,7 @@ Go to **Authorizers** → **Create authorizer**:
 - **Cognito user pool:** select `kts-smart-agri-user-pool-prod`
 - **Token source:** `Authorization`
 
-> `[SCREENSHOT — API Gateway authorizer created with Cognito user pool linked]`
+![create cognito authorizer api gateway](/images/5-Workshop/5.3-Implementation/create_cognito_authorizer_api_gateway.png)
 
 **Step 10.2 — Create resources and methods**
 
@@ -449,13 +456,13 @@ For each resource, also create an **OPTIONS** method with **Mock integration** a
 - `Access-Control-Allow-Headers: 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
 - `Access-Control-Allow-Methods: 'GET,POST,PUT,DELETE,OPTIONS'`
 
-> `[SCREENSHOT — API Gateway resource tree showing /images, /images/presign, and /images/{imageId}/result]`
+![create resources vs methods api gateway](/images/5-Workshop/5.3-Implementation/create_resources_vs_methods_api_gateway.png)
 
 **Step 10.3 — Deploy the API**
 
 Click **Deploy API** → Create a new stage named `prod`. Note down the **Invoke URL** — this is the `ApiEndpoint` used in the frontend `.env`.
 
-> `[SCREENSHOT — API Gateway stage editor showing the Invoke URL for the prod stage]`
+![deploy api](/images/5-Workshop/5.3-Implementation/deploy_api.png)
 
 ---
 
@@ -471,7 +478,7 @@ After creation, click **Create subscription**:
 
 Check your inbox and click the confirmation link in the SNS subscription email.
 
-> `[SCREENSHOT — SNS topic with one email subscription showing status Confirmed]`
+![sns topic](/images/5-Workshop/5.3-Implementation/sns_topic.png)
 
 Navigate to **CloudWatch** → **Alarms** → **Create alarm**. Create the following three alarms, all with **SNS action** pointing to `kts-smart-agri-alerts-prod`:
 
@@ -481,7 +488,7 @@ Navigate to **CloudWatch** → **Alarms** → **Create alarm**. Create the follo
 
 **Alarm 3:** Metric: `AWS/DynamoDB` → `SystemErrors` → Table `kts-smart-agri-diagnosis-prod` → Period 5 min → Threshold >= 1 → Name `kts-agri-dynamodb-system-errors-prod`
 
-> `[SCREENSHOT — CloudWatch Alarms console showing all three alarms with status OK]`
+![cloudwatch alarms](/images/5-Workshop/5.3-Implementation/cloudwatch_alarms.png)
 
 ---
 
@@ -499,7 +506,7 @@ Under **Data events**, add an S3 data event:
 - **S3 bucket:** `kts-smart-agri-images-<ACCOUNT_ID>-prod`
 - **Read/Write:** All
 
-> `[SCREENSHOT — CloudTrail trail creation page with the images S3 bucket selected as data event source]`
+![create cloudtrail](/images/5-Workshop/5.3-Implementation/create_cloudtrail.png)
 
 ---
 
@@ -527,57 +534,6 @@ Navigate to **CloudFront** → **Distributions** → **Create distribution**.
 
 Click **Create distribution** and wait for the status to change from **Deploying** to **Enabled** (takes 5–10 minutes).
 
-> `[SCREENSHOT — CloudFront distribution showing status Enabled with the domain name displayed]`
+![create_cloudFront_distribution](/images/5-Workshop/5.3-Implementation/create_cloudFront_distribution.png)
 
 Copy the **Distribution domain name** (format: `xxxxxxxxxxxx.cloudfront.net`).
-
----
-
-## Step 14 — Configure and Run the Frontend
-
-On your local machine, navigate to `frontend-app/` and create a `.env` file:
-
-```env
-VITE_COGNITO_USER_POOL_ID=<User Pool ID from Step 2>
-VITE_COGNITO_USER_POOL_CLIENT_ID=<App Client ID from Step 2>
-VITE_API_BASE_URL=https://<API Gateway Invoke URL from Step 10>
-```
-
-Install dependencies and start the development server:
-
-```bash
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173` in your browser.
-
-> `[SCREENSHOT — browser showing the KTS Smart Agriculture login page]`
-
----
-
-## Step 15 — End-to-End Test
-
-**15.1 — Register:** Click **Create account**, enter your email and a password meeting the requirements (min 8 chars, uppercase, lowercase, number). Submit the form.
-
-> `[SCREENSHOT — registration form filled out]`
-
-**15.2 — Verify email:** Check your inbox for the Cognito verification code and enter it on the confirmation screen.
-
-> `[SCREENSHOT — email verification code input screen]`
-
-**15.3 — Log in:** Enter your credentials on the login page.
-
-> `[SCREENSHOT — dashboard after successful login]`
-
-**15.4 — Upload a plant image:** Navigate to the Upload page, select a JPG/PNG photo of a plant leaf, and click Upload. The progress bar indicates the direct S3 upload.
-
-> `[SCREENSHOT — upload page showing progress bar at 100%]`
-
-**15.5 — View result:** After upload, the page redirects to the result view. The image passes through S3 → SQS → AI Inference Lambda → DynamoDB. On first cold start, loading the ResNet50 + LeNet models takes approximately 20–30 seconds. Click **Refresh** if the status shows "Processing".
-
-> `[SCREENSHOT — result page showing disease class name and confidence percentage]`
-
-**15.6 — Verify in DynamoDB:** Navigate to **DynamoDB → Tables → kts-smart-agri-diagnosis-prod → Explore items** to confirm the record has `status: COMPLETED` with disease and confidence values written.
-
-> `[SCREENSHOT — DynamoDB item showing userId, imageId, status COMPLETED, disease name, and confidence]`

@@ -24,8 +24,6 @@ Cấu hình WebACL như sau:
 - **Resource type:** Amazon CloudFront distributions
 - **Region:** US East (N. Virginia)
 
-> `[SCREENSHOT — Trang tạo WAF Web ACL với tên và loại tài nguyên đã điền]`
-
 Thêm các rule theo thứ tự sau:
 
 **Rule 1 — Giới hạn tốc độ:** Nhấn **Add rules** → **Add my own rules and rule groups** → **Rule builder**. Đặt tên `RateLimitRule`, loại **Rate-based rule**, giới hạn **1000**, kiểm tra theo **Source IP**. Đặt action là **Block**.
@@ -36,11 +34,9 @@ Thêm các rule theo thứ tự sau:
 
 Đặt default action là **Allow**, sau đó nhấn **Create web ACL**.
 
-> `[SCREENSHOT — WAF console hiển thị kts-smart-agri-waf-prod với trạng thái Active và 3 rule]`
-
 Sau khi tạo xong, nhấn vào tên WebACL, vào tab **Overview** và sao chép **Web ACL ARN** — cần dùng ở Bước 13 (CloudFront).
 
-> `[SCREENSHOT — Tab Overview của WAF WebACL hiển thị giá trị ARN]`
+![create waf](/images/5-Workshop/5.3-Implementation/waf.png)
 
 ---
 
@@ -65,8 +61,6 @@ Chuyển region về **ap-southeast-1**. Điều hướng đến **Cognito** →
 
 **User pool name:** `kts-smart-agri-user-pool-prod`
 
-> `[SCREENSHOT — Trang tạo Cognito User Pool với tên và đăng nhập bằng email đã chọn]`
-
 **App client:** Ở bước **Integrate your app**, cấu hình:
 - **App type:** Public client
 - **App client name:** `kts-smart-agri-client-prod`
@@ -75,7 +69,7 @@ Chuyển region về **ap-southeast-1**. Điều hướng đến **Cognito** →
 
 Nhấn **Create user pool**.
 
-> `[SCREENSHOT — Cognito console hiển thị user pool mới với trạng thái Active]`
+![create cognito](/images/5-Workshop/5.3-Implementation/cognito.png)
 
 Sau khi tạo xong, ghi lại:
 - **User Pool ID** (định dạng: `ap-southeast-1_XXXXXXXXX`)
@@ -97,7 +91,7 @@ Hai giá trị này sẽ được điền vào `frontend-app/.env` ở bước s
 
 Nhấn **Create queue** và sao chép **ARN** của DLQ.
 
-> `[SCREENSHOT — Trang tạo SQS queue cho DLQ]`
+![create sqs](/images/5-Workshop/5.3-Implementation/create_sqs.png)
 
 **Queue 2 — Main inference queue:**
 - **Type:** Standard
@@ -108,7 +102,7 @@ Nhấn **Create queue** và sao chép **ARN** của DLQ.
 
 Nhấn **Create queue**.
 
-> `[SCREENSHOT — SQS console hiển thị cả hai queue đã tạo]`
+![all sqs](/images/5-Workshop/5.3-Implementation/sqs.png)
 
 Sau khi tạo xong main queue, vào queue đó, chuyển sang tab **Access policy** và nhấn **Edit**. Thay thế policy bằng nội dung sau (thay `<ACCOUNT_ID>` bằng Account ID của bạn):
 
@@ -134,7 +128,7 @@ Sau khi tạo xong main queue, vào queue đó, chuyển sang tab **Access polic
 }
 ```
 
-> `[SCREENSHOT — Editor access policy của SQS với policy cho phép S3 gửi message]`
+![access policy sqs](/images/5-Workshop/5.3-Implementation/access_policy_sqs.png)
 
 ---
 
@@ -161,7 +155,7 @@ Sau khi tạo xong, vào bucket → tab **Permissions** → **Cross-origin resou
 ]
 ```
 
-> `[SCREENSHOT — Editor cấu hình CORS của S3 với rule PUT/HEAD]`
+![edit cors S3](/images/5-Workshop/5.3-Implementation/edit_cors_S3.png)
 
 Tiếp theo vào tab **Properties** → **Event notifications** → **Create event notification**:
 - **Event name:** `SendToSQS`
@@ -169,7 +163,7 @@ Tiếp theo vào tab **Properties** → **Event notifications** → **Create eve
 - **Prefix filter:** `uploads/`
 - **Destination:** SQS queue → chọn `kts-smart-agri-inference-prod`
 
-> `[SCREENSHOT — Cấu hình event notification S3 trỏ đến SQS queue]`
+![event notification S3](/images/5-Workshop/5.3-Implementation/event_notification_S3.png)
 
 **Bucket 2 — Archive bucket:**
 - **Bucket name:** `kts-smart-agri-archive-<ACCOUNT_ID>-prod`
@@ -182,7 +176,7 @@ Sau khi tạo xong, vào tab **Management** → **Lifecycle rules** → **Create
 - **Lifecycle rule actions:** Expire current versions of objects
 - **Days after object creation:** **90**
 
-> `[SCREENSHOT — Lifecycle rule S3 đặt xóa object sau 90 ngày]`
+![lifecycle rule S3](/images/5-Workshop/5.3-Implementation/lifecycle_rule_S3.png)
 
 **Bucket 3 — CloudTrail bucket:**
 - **Bucket name:** `kts-smart-agri-cloudtrail-<ACCOUNT_ID>-prod`
@@ -216,7 +210,7 @@ Sau khi tạo xong, vào **Permissions** → **Bucket policy** → **Edit**, dá
 }
 ```
 
-> `[SCREENSHOT — Editor bucket policy S3 cho CloudTrail bucket]`
+![bucket policy S3](/images/5-Workshop/5.3-Implementation/bucket_policy_S3.png)
 
 ---
 
@@ -229,7 +223,7 @@ Sau khi tạo xong, vào **Permissions** → **Bucket policy** → **Edit**, dá
 - **Sort key:** `imageId` (String)
 - **Table settings:** Customize → chế độ **On-demand**
 
-> `[SCREENSHOT — Trang tạo DynamoDB table với partition key userId và sort key imageId]`
+![create dynamodb table](/images/5-Workshop/5.3-Implementation/create_dynamodb_table.png)
 
 Sau khi table được tạo, vào tab **Indexes** → **Create index** (Global Secondary Index):
 
@@ -238,7 +232,7 @@ Sau khi table được tạo, vào tab **Indexes** → **Create index** (Global 
 - **Index name:** `userId-createdAt-index`
 - **Attribute projections:** All
 
-> `[SCREENSHOT — Form tạo DynamoDB GSI với key userId và createdAt]`
+![create dynamodb gsi](/images/5-Workshop/5.3-Implementation/create_dynamodb_gsi.png)
 
 ---
 
@@ -252,7 +246,7 @@ Sau khi table được tạo, vào tab **Indexes** → **Create index** (Global 
 
 Nhấn **Create repository** và sao chép **Repository URI** — cần dùng khi push Docker image.
 
-> `[SCREENSHOT — ECR repository đã tạo hiển thị URI dạng <account>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-inference-prod]`
+![create ecr repository](/images/5-Workshop/5.3-Implementation/create_ecr_repository.png)
 
 ---
 
@@ -260,36 +254,27 @@ Nhấn **Create repository** và sao chép **Repository URI** — cần dùng kh
 
 Thực hiện trên máy tính cục bộ.
 
-**Bước 7.1 — Sao chép file model**
-
-```bash
-copy ai-service\best_resnet_model.pth cloud-backend\functions\ai-inference\
-copy ai-service\best_lenet_model.pth  cloud-backend\functions\ai-inference\
-```
-
-**Bước 7.2 — Xác thực Docker với ECR**
+**Bước 7.1 — Xác thực Docker với ECR**
 
 ```bash
 aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com
 ```
 
-**Bước 7.3 — Build Docker image**
+**Bước 7.2 — Build Docker image**
 
 ```bash
 cd cloud-backend/functions/ai-inference
 docker build -t kts-smart-agri-ai-inference-prod .
 ```
 
-> `[SCREENSHOT — Terminal hiển thị tiến trình Docker build với dòng "Successfully built" ở cuối]`
-
-**Bước 7.4 — Tag và push lên ECR**
+**Bước 7.3 — Tag và push lên ECR**
 
 ```bash
 docker tag kts-smart-agri-ai-inference-prod:latest <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-inference-prod:latest
 docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-inference-prod:latest
 ```
 
-> `[SCREENSHOT — ECR console hiển thị image đã push với tag "latest" và dung lượng]`
+![push image ecr](/images/5-Workshop/5.3-Implementation/push_image_ecr.png)
 
 ---
 
@@ -356,7 +341,22 @@ Tạo một role cho mỗi Lambda function theo danh sách dưới đây.
 **Role 4: `kts-agri-data-maintenance-role-prod`**
 Đính kèm `AWSLambdaBasicExecutionRole`, sau đó thêm inline policy cho phép `s3:*` trên images bucket và `dynamodb:*` trên diagnosis table.
 
-> `[SCREENSHOT — IAM Roles console hiển thị cả bốn role kts-agri đã tạo]`
+**Role 5: `kts-agri-data-maintenance-scheduler-role-prod`**
+Role này được sử dụng bởi **Amazon EventBridge Scheduler** để gọi Lambda theo lịch định kỳ, không phải execution role của Lambda.
+Khi tạo role, chọn **AWS service** → **Scheduler** làm use case (hoặc sử dụng Custom trust policy với principal `scheduler.amazonaws.com`), sau đó thêm inline policy:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "lambda:InvokeFunction",
+    "Resource": "arn:aws:lambda:ap-southeast-1:<ACCOUNT_ID>:function:kts-smart-agri-data-maintenance-prod"
+  }]
+}
+```
+Role này sẽ được sử dụng làm **Execution role** khi tạo **EventBridge Schedule** cho Lambda `kts-smart-agri-data-maintenance-prod` ở Bước 9.
+
+![iam role](/images/5-Workshop/5.3-Implementation/iam_role.png)
 
 ---
 
@@ -380,7 +380,7 @@ Sau khi tạo xong, upload code qua **Code source** → **Upload from** → **.z
 
 Vào **General configuration** → đặt Timeout: **30 giây**.
 
-> `[SCREENSHOT — Lambda function presign-url với code đã upload và environment variables đã điền]`
+![Lambda function presign-url](/images/5-Workshop/5.3-Implementation/Lambda_function_presign-url.png)
 
 **Function 2 — ai-inference:**
 - **Container image**
@@ -399,7 +399,7 @@ Vào **General configuration**:
 
 Thêm **Trigger** → **SQS** → chọn `kts-smart-agri-inference-prod` → Batch size: **1** → Bật **Report batch item failures**.
 
-> `[SCREENSHOT — Lambda ai-inference hiển thị container image URI, 1536 MB memory, timeout 120s và SQS trigger]`
+![lambda ai-inference](/images/5-Workshop/5.3-Implementation/lambda_ai-inference.png)
 
 **Function 3 — get-result:**
 Tương tự Function 1, tên `kts-smart-agri-get-result-prod`, role `kts-agri-get-result-role-prod`, upload thư mục `functions/get-result/`.
@@ -411,7 +411,7 @@ Tên `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-rol
 - Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS=30`
 - Thêm **Trigger** → **EventBridge (CloudWatch Events)** → Create new rule → Schedule expression: `cron(0 0 ? * SUN *)`
 
-> `[SCREENSHOT — Lambda console hiển thị danh sách bốn function kts-smart-agri]`
+![four function kts-smart-agri](/images/5-Workshop/5.3-Implementation/four_function_kts-smart-agri.png)
 
 ---
 
@@ -422,7 +422,7 @@ Tên `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-rol
 - **API name:** `kts-smart-agri-api-prod`
 - **API endpoint type:** Regional
 
-> `[SCREENSHOT — Trang tạo API Gateway với REST API và Regional endpoint đã chọn]`
+![create api gateway](/images/5-Workshop/5.3-Implementation/create_api_gateway.png)
 
 **Bước 10.1 — Tạo Cognito Authorizer**
 
@@ -432,7 +432,7 @@ Vào **Authorizers** → **Create authorizer**:
 - **Cognito user pool:** chọn `kts-smart-agri-user-pool-prod`
 - **Token source:** `Authorization`
 
-> `[SCREENSHOT — API Gateway authorizer đã tạo với Cognito user pool được liên kết]`
+![create cognito authorizer api gateway](/images/5-Workshop/5.3-Implementation/create_cognito_authorizer_api_gateway.png)
 
 **Bước 10.2 — Tạo resources và methods**
 
@@ -449,13 +449,13 @@ Với mỗi resource, tạo thêm method **OPTIONS** với **Mock integration** 
 - `Access-Control-Allow-Headers: 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
 - `Access-Control-Allow-Methods: 'GET,POST,PUT,DELETE,OPTIONS'`
 
-> `[SCREENSHOT — Cây resource API Gateway hiển thị /images, /images/presign và /images/{imageId}/result]`
+![create resources vs methods api gateway](/images/5-Workshop/5.3-Implementation/create_resources_vs_methods_api_gateway.png)
 
 **Bước 10.3 — Deploy API**
 
 Nhấn **Deploy API** → Tạo stage mới tên `prod`. Ghi lại **Invoke URL** — đây là `ApiEndpoint` dùng trong file `.env` của frontend.
 
-> `[SCREENSHOT — API Gateway stage editor hiển thị Invoke URL của stage prod]`
+![deploy api](/images/5-Workshop/5.3-Implementation/deploy_api.png)
 
 ---
 
@@ -471,7 +471,7 @@ Sau khi tạo xong, nhấn **Create subscription**:
 
 Kiểm tra hộp thư và nhấn link xác nhận trong email từ SNS.
 
-> `[SCREENSHOT — SNS topic với một email subscription hiển thị trạng thái Confirmed]`
+![sns topic](/images/5-Workshop/5.3-Implementation/sns_topic.png)
 
 Điều hướng đến **CloudWatch** → **Alarms** → **Create alarm**. Tạo ba alarm sau, tất cả đều có **SNS action** trỏ đến `kts-smart-agri-alerts-prod`:
 
@@ -481,7 +481,7 @@ Kiểm tra hộp thư và nhấn link xác nhận trong email từ SNS.
 
 **Alarm 3:** Metric `AWS/DynamoDB` → `SystemErrors` → Table `kts-smart-agri-diagnosis-prod` → Period 5 phút → Threshold >= 1 → Tên `kts-agri-dynamodb-system-errors-prod`
 
-> `[SCREENSHOT — CloudWatch Alarms console hiển thị ba alarm với trạng thái OK]`
+![cloudwatch alarms](/images/5-Workshop/5.3-Implementation/cloudwatch_alarms.png)
 
 ---
 
@@ -499,7 +499,7 @@ Trong phần **Data events**, thêm S3 data event:
 - **S3 bucket:** `kts-smart-agri-images-<ACCOUNT_ID>-prod`
 - **Read/Write:** All
 
-> `[SCREENSHOT — Trang tạo CloudTrail trail với S3 images bucket được chọn làm data event source]`
+![create cloudtrail](/images/5-Workshop/5.3-Implementation/create_cloudtrail.png)
 
 ---
 
@@ -527,57 +527,6 @@ Trong phần **Data events**, thêm S3 data event:
 
 Nhấn **Create distribution** và chờ trạng thái chuyển từ **Deploying** sang **Enabled** (mất 5–10 phút).
 
-> `[SCREENSHOT — CloudFront distribution hiển thị trạng thái Enabled với domain name]`
+![create_cloudFront_distribution](/images/5-Workshop/5.3-Implementation/create_cloudFront_distribution.png)
 
 Sao chép **Distribution domain name** (định dạng: `xxxxxxxxxxxx.cloudfront.net`).
-
----
-
-## Bước 14 — Cấu hình và Chạy Frontend
-
-Trên máy tính cục bộ, điều hướng đến thư mục `frontend-app/` và tạo file `.env`:
-
-```env
-VITE_COGNITO_USER_POOL_ID=<User Pool ID từ Bước 2>
-VITE_COGNITO_USER_POOL_CLIENT_ID=<App Client ID từ Bước 2>
-VITE_API_BASE_URL=https://<API Gateway Invoke URL từ Bước 10>
-```
-
-Cài đặt dependencies và khởi động development server:
-
-```bash
-npm install
-npm run dev
-```
-
-Mở `http://localhost:5173` trên trình duyệt.
-
-> `[SCREENSHOT — Trình duyệt hiển thị trang đăng nhập KTS Smart Agriculture]`
-
----
-
-## Bước 15 — Kiểm tra End-to-End
-
-**15.1 — Đăng ký:** Nhấn **Create account**, nhập email và mật khẩu đáp ứng yêu cầu (tối thiểu 8 ký tự, có chữ hoa, chữ thường, chữ số). Gửi form.
-
-> `[SCREENSHOT — Form đăng ký đã điền đầy đủ thông tin]`
-
-**15.2 — Xác nhận email:** Kiểm tra hộp thư để lấy mã xác nhận từ Cognito và nhập vào màn hình xác nhận.
-
-> `[SCREENSHOT — Màn hình nhập mã xác nhận email]`
-
-**15.3 — Đăng nhập:** Nhập thông tin đăng nhập trên trang login.
-
-> `[SCREENSHOT — Dashboard sau khi đăng nhập thành công]`
-
-**15.4 — Upload ảnh cây trồng:** Điều hướng đến trang Upload, chọn ảnh JPG/PNG của lá cây và nhấn Upload. Thanh tiến trình hiển thị quá trình upload trực tiếp lên S3.
-
-> `[SCREENSHOT — Trang upload hiển thị thanh tiến trình đạt 100%]`
-
-**15.5 — Xem kết quả chẩn đoán:** Sau khi upload, trang chuyển đến màn hình kết quả. Ảnh được xử lý qua pipeline S3 → SQS → AI Inference Lambda → DynamoDB. Lần đầu khởi động (cold start), việc load mô hình ResNet50 + LeNet mất khoảng 20–30 giây. Nhấn **Refresh** nếu trạng thái hiển thị "Đang xử lý".
-
-> `[SCREENSHOT — Trang kết quả hiển thị tên bệnh và phần trăm độ tin cậy]`
-
-**15.6 — Xác minh trong DynamoDB:** Điều hướng đến **DynamoDB → Tables → kts-smart-agri-diagnosis-prod → Explore items** để xác nhận record có `status: COMPLETED` với tên bệnh và giá trị confidence đã được ghi vào.
-
-> `[SCREENSHOT — DynamoDB item hiển thị userId, imageId, status COMPLETED, tên bệnh và confidence]`
