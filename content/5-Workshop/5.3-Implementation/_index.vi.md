@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.3 </b> "
 ---
 
-Hướng dẫn này trình bày quy trình triển khai end-to-end hệ thống KTS Smart Agriculture bằng cách tự tay tạo từng dịch vụ AWS qua Console và CLI. Tất cả tài nguyên sử dụng region `ap-southeast-1` (Singapore) trừ khi có ghi chú khác.
+Hướng dẫn này trình bày quy trình triển khai end-to-end hệ thống KTS Smart Agriculture bằng cách tự tay tạo từng dịch vụ AWS qua Console và CLI. Tất cả tài nguyên sử dụng region **ap-southeast-1** (Singapore) trừ khi có ghi chú khác.
 
 **Thứ tự triển khai rất quan trọng** — thực hiện theo đúng trình tự vì các tài nguyên sau phụ thuộc vào tài nguyên trước.
 
@@ -14,7 +14,7 @@ Hướng dẫn này trình bày quy trình triển khai end-to-end hệ thống 
 
 ## Bước 1 — Tạo WAF WebACL (us-east-1)
 
-WAF WebACL phải được tạo tại **us-east-1** vì CloudFront chỉ chấp nhận WebACL có scope `CLOUDFRONT` được tạo tại region này.
+WAF WebACL phải được tạo tại **us-east-1** vì CloudFront chỉ chấp nhận WebACL có scope CLOUDFRONT được tạo tại region này.
 
 Chuyển region AWS Console sang **US East (N. Virginia) us-east-1**, sau đó điều hướng đến **WAF & Shield** → **Web ACLs** → **Create web ACL**.
 
@@ -86,10 +86,10 @@ Hai giá trị này sẽ được điền vào `frontend-app/.env` ở bước s
 **Queue 1 — Dead Letter Queue (tạo trước):**
 - **Type:** Standard
 - **Name:** `kts-smart-agri-inference-dlq-prod`
-- **Message retention period:** 14 ngày (1209600 giây)
+- **Message retention period:** 14 ngày (1.209.600 giây)
 - Giữ nguyên các cài đặt còn lại
 
-Nhấn **Create queue** và sao chép **ARN** của DLQ.
+Nhấn **Create queue** và sao chép ARN của DLQ.
 
 ![create sqs](/images/5-Workshop/5.3-Implementation/create_sqs.png)
 
@@ -97,7 +97,7 @@ Nhấn **Create queue** và sao chép **ARN** của DLQ.
 - **Type:** Standard
 - **Name:** `kts-smart-agri-inference-prod`
 - **Visibility timeout:** 120 giây
-- **Message retention period:** 1 ngày (86400 giây)
+- **Message retention period:** 1 ngày (86.400 giây)
 - **Dead-letter queue:** Bật → chọn `kts-smart-agri-inference-dlq-prod` → Maximum receives: **3**
 
 Nhấn **Create queue**.
@@ -244,7 +244,7 @@ Sau khi table được tạo, vào tab **Indexes** → **Create index** (Global 
 - **Repository name:** `kts-smart-agri-ai-inference-prod`
 - **Image scan settings:** Bật **Scan on push**
 
-Nhấn **Create repository** và sao chép **Repository URI** — cần dùng khi push Docker image.
+Nhấn **Create repository** và sao chép Repository URI — cần dùng khi push Docker image.
 
 ![create ecr repository](/images/5-Workshop/5.3-Implementation/create_ecr_repository.png)
 
@@ -285,7 +285,7 @@ docker push <ACCOUNT_ID>.dkr.ecr.ap-southeast-1.amazonaws.com/kts-smart-agri-ai-
 Tạo một role cho mỗi Lambda function theo danh sách dưới đây.
 
 **Role 1: `kts-agri-presign-url-role-prod`**
-Đính kèm managed policy `AWSLambdaBasicExecutionRole`, sau đó thêm inline policy:
+Đính kèm managed policy **AWSLambdaBasicExecutionRole**, sau đó thêm inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -298,7 +298,7 @@ Tạo một role cho mỗi Lambda function theo danh sách dưới đây.
 ```
 
 **Role 2: `kts-agri-ai-inference-role-prod`**
-Đính kèm `AWSLambdaBasicExecutionRole` và `AWSLambdaSQSQueueExecutionRole`, sau đó thêm inline policy:
+Đính kèm **AWSLambdaBasicExecutionRole** và **AWSLambdaSQSQueueExecutionRole**, sau đó thêm inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -323,7 +323,7 @@ Tạo một role cho mỗi Lambda function theo danh sách dưới đây.
 ```
 
 **Role 3: `kts-agri-get-result-role-prod`**
-Đính kèm `AWSLambdaBasicExecutionRole`, sau đó thêm inline policy:
+Đính kèm **AWSLambdaBasicExecutionRole**, sau đó thêm inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -339,7 +339,7 @@ Tạo một role cho mỗi Lambda function theo danh sách dưới đây.
 ```
 
 **Role 4: `kts-agri-data-maintenance-role-prod`**
-Đính kèm `AWSLambdaBasicExecutionRole`, sau đó thêm inline policy cho phép `s3:*` trên images bucket và `dynamodb:*` trên diagnosis table.
+Đính kèm **AWSLambdaBasicExecutionRole**, sau đó thêm inline policy cho phép `s3:*` trên images bucket và `dynamodb:*` trên diagnosis table.
 
 **Role 5: `kts-agri-data-maintenance-scheduler-role-prod`**
 Role này được sử dụng bởi **Amazon EventBridge Scheduler** để gọi Lambda theo lịch định kỳ, không phải execution role của Lambda.
@@ -408,7 +408,7 @@ Environment variable: `DYNAMODB_TABLE_NAME` = `kts-smart-agri-diagnosis-prod`
 **Function 4 — data-maintenance:**
 Tên `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-role-prod`, upload thư mục `functions/data-maintenance/`.
 - Timeout: **300 giây**
-- Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS=30`
+- Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS` = `30`
 - Thêm **Trigger** → **EventBridge (CloudWatch Events)** → Create new rule → Schedule expression: `cron(0 0 ? * SUN *)`
 
 ![four function kts-smart-agri](/images/5-Workshop/5.3-Implementation/four_function_kts-smart-agri.png)
@@ -445,15 +445,15 @@ Tạo các resource và method sau. Với mỗi method, đặt **Integration typ
 | `/images/{imageId}/result` | GET | `kts-smart-agri-get-result-prod` | CognitoAuthorizer |
 
 Với mỗi resource, tạo thêm method **OPTIONS** với **Mock integration** và thêm các response headers để hỗ trợ CORS:
-- `Access-Control-Allow-Origin: '*'`
-- `Access-Control-Allow-Headers: 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
-- `Access-Control-Allow-Methods: 'GET,POST,PUT,DELETE,OPTIONS'`
+- `Access-Control-Allow-Origin`: `'*'`
+- `Access-Control-Allow-Headers`: `'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
+- `Access-Control-Allow-Methods`: `'GET,POST,PUT,DELETE,OPTIONS'`
 
 ![create resources vs methods api gateway](/images/5-Workshop/5.3-Implementation/create_resources_vs_methods_api_gateway.png)
 
 **Bước 10.3 — Deploy API**
 
-Nhấn **Deploy API** → Tạo stage mới tên `prod`. Ghi lại **Invoke URL** — đây là `ApiEndpoint` dùng trong file `.env` của frontend.
+Nhấn **Deploy API** → Tạo stage mới tên `prod`. Ghi lại **Invoke URL** — đây là API endpoint dùng trong file `.env` của frontend.
 
 ![deploy api](/images/5-Workshop/5.3-Implementation/deploy_api.png)
 
@@ -473,13 +473,13 @@ Kiểm tra hộp thư và nhấn link xác nhận trong email từ SNS.
 
 ![sns topic](/images/5-Workshop/5.3-Implementation/sns_topic.png)
 
-Điều hướng đến **CloudWatch** → **Alarms** → **Create alarm**. Tạo ba alarm sau, tất cả đều có **SNS action** trỏ đến `kts-smart-agri-alerts-prod`:
+Điều hướng đến **CloudWatch** → **Alarms** → **Create alarm**. Tạo ba alarm sau, tất cả đều có SNS action trỏ đến `kts-smart-agri-alerts-prod`:
 
-**Alarm 1:** Metric `AWS/Lambda` → `Errors` → Function `kts-smart-agri-ai-inference-prod` → Period 5 phút → Threshold >= 1 → Tên `kts-agri-ai-inference-errors-prod`
+**Alarm 1:** Metric **AWS/Lambda** → **Errors** → Function `kts-smart-agri-ai-inference-prod` → Period 5 phút → Threshold ≥ 1 → Tên `kts-agri-ai-inference-errors-prod`
 
 **Alarm 2:** Tương tự nhưng cho function `kts-smart-agri-presign-url-prod` → Tên `kts-agri-presign-url-errors-prod`
 
-**Alarm 3:** Metric `AWS/DynamoDB` → `SystemErrors` → Table `kts-smart-agri-diagnosis-prod` → Period 5 phút → Threshold >= 1 → Tên `kts-agri-dynamodb-system-errors-prod`
+**Alarm 3:** Metric **AWS/DynamoDB** → **SystemErrors** → Table `kts-smart-agri-diagnosis-prod` → Period 5 phút → Threshold ≥ 1 → Tên `kts-agri-dynamodb-system-errors-prod`
 
 ![cloudwatch alarms](/images/5-Workshop/5.3-Implementation/cloudwatch_alarms.png)
 
@@ -508,7 +508,7 @@ Trong phần **Data events**, thêm S3 data event:
 Điều hướng đến **CloudFront** → **Distributions** → **Create distribution**.
 
 **Origin:**
-- **Origin domain:** `<API_ID>.execute-api.ap-southeast-1.amazonaws.com`
+- **Origin domain:** endpoint API Gateway của stage `prod`
 - **Origin path:** `/prod`
 - **Protocol:** HTTPS only
 - **Minimum origin SSL protocol:** TLSv1.2
@@ -516,8 +516,8 @@ Trong phần **Data events**, thêm S3 data event:
 **Default cache behavior:**
 - **Viewer protocol policy:** Redirect HTTP to HTTPS
 - **Allowed HTTP methods:** GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
-- **Cache policy:** `CachingDisabled` (dùng AWS managed policy)
-- **Origin request policy:** `AllViewerExceptHostHeader`
+- **Cache policy:** CachingDisabled (dùng AWS managed policy)
+- **Origin request policy:** AllViewerExceptHostHeader
 
 **WAF:** Chọn Web ACL đã tạo ở Bước 1 (`kts-smart-agri-waf-prod`)
 

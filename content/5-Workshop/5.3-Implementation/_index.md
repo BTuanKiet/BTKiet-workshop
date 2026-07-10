@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 5.3 </b> "
 ---
 
-This guide walks through the complete end-to-end deployment of the KTS Smart Agriculture system by manually creating each AWS service through the Console and CLI. All resources use the `ap-southeast-1` (Singapore) region unless otherwise specified.
+This guide walks through the complete end-to-end deployment of the KTS Smart Agriculture system by manually creating each AWS service through the Console and CLI. All resources use the **ap-southeast-1** (Singapore) region unless otherwise specified.
 
 **Deployment order matters** — follow the steps in sequence as later resources depend on earlier ones.
 
@@ -14,7 +14,7 @@ This guide walks through the complete end-to-end deployment of the KTS Smart Agr
 
 ## Step 1 — Create WAF WebACL (us-east-1)
 
-The WAF WebACL must be created in **us-east-1** because CloudFront only accepts WebACLs with `CLOUDFRONT` scope from that region.
+The WAF WebACL must be created in **us-east-1** because CloudFront only accepts WebACLs with CLOUDFRONT scope from that region.
 
 Switch your AWS Console region to **US East (N. Virginia) us-east-1**, then navigate to **WAF & Shield** → **Web ACLs** → **Create web ACL**.
 
@@ -86,10 +86,10 @@ Navigate to **SQS** → **Create queue**.
 **Queue 1 — Dead Letter Queue (create this first):**
 - **Type:** Standard
 - **Name:** `kts-smart-agri-inference-dlq-prod`
-- **Message retention period:** 14 days (1209600 seconds)
+- **Message retention period:** 14 days (1,209,600 seconds)
 - Leave all other settings as default
 
-Click **Create queue** and copy the DLQ **ARN**.
+Click **Create queue** and copy the DLQ ARN.
 
 ![create sqs](/images/5-Workshop/5.3-Implementation/create_sqs.png)
 
@@ -97,14 +97,14 @@ Click **Create queue** and copy the DLQ **ARN**.
 - **Type:** Standard
 - **Name:** `kts-smart-agri-inference-prod`
 - **Visibility timeout:** 120 seconds
-- **Message retention period:** 1 day (86400 seconds)
+- **Message retention period:** 1 day (86,400 seconds)
 - **Dead-letter queue:** Enable → select `kts-smart-agri-inference-dlq-prod` → Maximum receives: **3**
 
 Click **Create queue**.
 
 ![all sqs](/images/5-Workshop/5.3-Implementation/sqs.png)
 
-After creating the main queue, navigate to it, go to the **Access policy** tab and click **Edit**. Replace the policy with the following (substitute your Account ID and region):
+After creating the main queue, navigate to it, go to the **Access policy** tab and click **Edit**. Replace the policy with the following (substitute your Account ID):
 
 ```json
 {
@@ -244,7 +244,7 @@ Navigate to **ECR** (Elastic Container Registry) → **Repositories** → **Crea
 - **Repository name:** `kts-smart-agri-ai-inference-prod`
 - **Image scan settings:** Enable **Scan on push**
 
-Click **Create repository** and copy the **Repository URI** — needed when pushing the Docker image.
+Click **Create repository** and copy the Repository URI — needed when pushing the Docker image.
 
 ![create ecr repository](/images/5-Workshop/5.3-Implementation/create_ecr_repository.png)
 
@@ -292,7 +292,7 @@ Navigate to **IAM** → **Roles** → **Create role**. Select **AWS service** �
 Create one role for each Lambda function listed below. For each role, attach the stated policies.
 
 **Role 1: `kts-agri-presign-url-role-prod`**
-Attach the AWS managed policy `AWSLambdaBasicExecutionRole`, then add an inline policy:
+Attach the AWS managed policy **AWSLambdaBasicExecutionRole**, then add an inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -305,7 +305,7 @@ Attach the AWS managed policy `AWSLambdaBasicExecutionRole`, then add an inline 
 ```
 
 **Role 2: `kts-agri-ai-inference-role-prod`**
-Attach `AWSLambdaBasicExecutionRole` and `AWSLambdaSQSQueueExecutionRole`, then add an inline policy:
+Attach **AWSLambdaBasicExecutionRole** and **AWSLambdaSQSQueueExecutionRole**, then add an inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -330,7 +330,7 @@ Attach `AWSLambdaBasicExecutionRole` and `AWSLambdaSQSQueueExecutionRole`, then 
 ```
 
 **Role 3: `kts-agri-get-result-role-prod`**
-Attach `AWSLambdaBasicExecutionRole`, then add an inline policy:
+Attach **AWSLambdaBasicExecutionRole**, then add an inline policy:
 ```json
 {
   "Version": "2012-10-17",
@@ -346,7 +346,7 @@ Attach `AWSLambdaBasicExecutionRole`, then add an inline policy:
 ```
 
 **Role 4: `kts-agri-data-maintenance-role-prod`**
-Attach `AWSLambdaBasicExecutionRole`, then add an inline policy allowing `s3:*` on the images bucket and `dynamodb:*` on the diagnosis table.
+Attach **AWSLambdaBasicExecutionRole**, then add an inline policy allowing `s3:*` on the images bucket and `dynamodb:*` on the diagnosis table.
 
 **Role 5: `kts-agri-data-maintenance-scheduler-role-prod`**
 This role is used by **Amazon EventBridge Scheduler** to invoke Lambda on a schedule, not as a Lambda execution role.
@@ -415,7 +415,7 @@ Environment variable: `DYNAMODB_TABLE_NAME` = `kts-smart-agri-diagnosis-prod`
 **Function 4 — data-maintenance:**
 Name `kts-smart-agri-data-maintenance-prod`, role `kts-agri-data-maintenance-role-prod`, upload `functions/data-maintenance/`.
 - Timeout: **300 seconds**
-- Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS=30`
+- Environment variables: `IMAGES_BUCKET_NAME`, `DYNAMODB_TABLE_NAME`, `RETENTION_DAYS` = `30`
 - Add **Trigger** → **EventBridge (CloudWatch Events)** → Create new rule → Schedule expression: `cron(0 0 ? * SUN *)`
 
 ![four function kts-smart-agri](/images/5-Workshop/5.3-Implementation/four_function_kts-smart-agri.png)
@@ -452,15 +452,15 @@ Create the following resources and methods. For each method, set **Integration t
 | `/images/{imageId}/result` | GET | `kts-smart-agri-get-result-prod` | CognitoAuthorizer |
 
 For each resource, also create an **OPTIONS** method with **Mock integration** and add the following response headers to support CORS:
-- `Access-Control-Allow-Origin: '*'`
-- `Access-Control-Allow-Headers: 'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
-- `Access-Control-Allow-Methods: 'GET,POST,PUT,DELETE,OPTIONS'`
+- `Access-Control-Allow-Origin`: `'*'`
+- `Access-Control-Allow-Headers`: `'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Requested-With'`
+- `Access-Control-Allow-Methods`: `'GET,POST,PUT,DELETE,OPTIONS'`
 
 ![create resources vs methods api gateway](/images/5-Workshop/5.3-Implementation/create_resources_vs_methods_api_gateway.png)
 
 **Step 10.3 — Deploy the API**
 
-Click **Deploy API** → Create a new stage named `prod`. Note down the **Invoke URL** — this is the `ApiEndpoint` used in the frontend `.env`.
+Click **Deploy API** → Create a new stage named `prod`. Note down the **Invoke URL** — this is the API endpoint used in the frontend `.env`.
 
 ![deploy api](/images/5-Workshop/5.3-Implementation/deploy_api.png)
 
@@ -480,13 +480,13 @@ Check your inbox and click the confirmation link in the SNS subscription email.
 
 ![sns topic](/images/5-Workshop/5.3-Implementation/sns_topic.png)
 
-Navigate to **CloudWatch** → **Alarms** → **Create alarm**. Create the following three alarms, all with **SNS action** pointing to `kts-smart-agri-alerts-prod`:
+Navigate to **CloudWatch** → **Alarms** → **Create alarm**. Create the following three alarms, all with an SNS action pointing to `kts-smart-agri-alerts-prod`:
 
-**Alarm 1:** Metric: `AWS/Lambda` → `Errors` → Function `kts-smart-agri-ai-inference-prod` → Period 5 min → Threshold >= 1 → Name `kts-agri-ai-inference-errors-prod`
+**Alarm 1:** Metric **AWS/Lambda** → **Errors** → Function `kts-smart-agri-ai-inference-prod` → Period 5 min → Threshold ≥ 1 → Name `kts-agri-ai-inference-errors-prod`
 
 **Alarm 2:** Same as above but for function `kts-smart-agri-presign-url-prod` → Name `kts-agri-presign-url-errors-prod`
 
-**Alarm 3:** Metric: `AWS/DynamoDB` → `SystemErrors` → Table `kts-smart-agri-diagnosis-prod` → Period 5 min → Threshold >= 1 → Name `kts-agri-dynamodb-system-errors-prod`
+**Alarm 3:** Metric **AWS/DynamoDB** → **SystemErrors** → Table `kts-smart-agri-diagnosis-prod` → Period 5 min → Threshold ≥ 1 → Name `kts-agri-dynamodb-system-errors-prod`
 
 ![cloudwatch alarms](/images/5-Workshop/5.3-Implementation/cloudwatch_alarms.png)
 
@@ -497,7 +497,7 @@ Navigate to **CloudWatch** → **Alarms** → **Create alarm**. Create the follo
 Navigate to **CloudTrail** → **Trails** → **Create trail**:
 - **Trail name:** `kts-smart-agri-trail-prod`
 - **Storage location:** Use existing S3 bucket → `kts-smart-agri-cloudtrail-<ACCOUNT_ID>-prod`
-- **Log file SSE-KMS encryption:** Disabled (for simplicity)
+- **Log file SSE-KMS encryption:** Disabled
 - **CloudWatch Logs:** Disabled
 - **Include global service events:** ✅ Enabled
 - **Multi-region trail:** Disabled
@@ -515,7 +515,7 @@ Under **Data events**, add an S3 data event:
 Navigate to **CloudFront** → **Distributions** → **Create distribution**.
 
 **Origin:**
-- **Origin domain:** `<API_ID>.execute-api.ap-southeast-1.amazonaws.com`
+- **Origin domain:** the API Gateway endpoint for your `prod` stage
 - **Origin path:** `/prod`
 - **Protocol:** HTTPS only
 - **Minimum origin SSL protocol:** TLSv1.2
@@ -523,10 +523,10 @@ Navigate to **CloudFront** → **Distributions** → **Create distribution**.
 **Default cache behavior:**
 - **Viewer protocol policy:** Redirect HTTP to HTTPS
 - **Allowed HTTP methods:** GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
-- **Cache policy:** `CachingDisabled` (use the AWS managed policy)
-- **Origin request policy:** `AllViewerExceptHostHeader`
+- **Cache policy:** CachingDisabled (use the AWS managed policy)
+- **Origin request policy:** AllViewerExceptHostHeader
 
-**WAF:** Select the WAF Web ACL created in Step 1 (`kts-smart-agri-waf-prod`)
+**WAF:** Select the Web ACL created in Step 1 (`kts-smart-agri-waf-prod`)
 
 **Price class:** Use all edge locations
 
