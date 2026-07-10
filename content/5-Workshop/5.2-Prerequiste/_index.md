@@ -12,6 +12,8 @@ An active AWS account with IAM user privileges sufficient to deploy SAM stacks, 
 
 **Step 1 (On AWS Console):** Log in to AWS Management Console, navigate to **IAM (Identity and Access Management)** → **Users**, select your username (e.g., `kts-agri-dev`), go to the **Security credentials** tab and locate the **Access keys** section. Click **Create access key**, select the **Command Line Interface (CLI)** use case, acknowledge the terms, and confirm creation to generate an Access Key ID and Secret Access Key pair. Download the `.csv` file to store these security keys safely.
 
+![create iam](/images/5-Workshop/5.2-Prerequisite/create_iam.png)
+
 **Step 2 (On Workstation):** Open Terminal or PowerShell on your personal computer and run `aws configure`. Enter the Access Key ID and Secret Access Key created in Step 1, set **Default region name** to `ap-southeast-1` (Singapore) and **Default output format** to `json`. This configuration is automatically saved in the user's home directory (`%USERPROFILE%\.aws\` on Windows or `~/.aws/` on Linux/macOS).
 
 Verify the configuration is correct by running:
