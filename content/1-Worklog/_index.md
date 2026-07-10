@@ -7,21 +7,7 @@ pre: " <b> 1. </b> "
 ---
 
 
-This worklog records the 11-week AWS internship journey completed from April 20 to July 5, 2026 at AWS Vietnam. The main focus was to build practical skills in cloud computing, infrastructure management, security, automation, and cost optimization on AWS.
-
-### Internship timeline
-
-- **Week 1 (April 20, 2026 - April 26, 2026):** Cloud overview, AWS account setup, IAM, cost management, VPC, EC2, and S3 hosting.
-- **Week 2 (April 27, 2026 - May 3, 2026):** Amazon RDS, Lightsail, containers, Auto Scaling, CloudWatch, and Route 53.
-- **Week 3 (May 4, 2026 - May 10, 2026):** AWS CLI, DynamoDB, ElastiCache, networking, CloudFront, and Lambda@Edge.
-- **Week 4 (May 11, 2026 - May 17, 2026):** Serverless with Lambda, resource tagging, Systems Manager, Session Manager, and right sizing.
-- **Week 5 (May 18, 2026 - May 24, 2026):** VPC Flow Logs, billing access, service quotas, lifecycle automation, and anomaly detection.
-- **Week 6 (May 25, 2026 - May 31, 2026):** AWS Toolkit for VS Code, permission boundaries, Security Hub, and PrivateLink.
-- **Week 7 (June 1, 2026 - June 7, 2026):** WAF, KMS, Macie, Secrets Manager, Firewall Manager, and GuardDuty.
-- **Week 8 (June 8, 2026 - June 14, 2026):** EC2 Image Builder, Amazon Cognito, S3 security, AWS Backup, and network connectivity.
-- **Week 9 (June 15, 2026 - June 21, 2026):** Event-driven architecture, SQS/SNS, EBS Multi-Attach, Docker, and ECS.
-- **Week 10 (June 22, 2026 - June 28, 2026):** AWS CDK, CI/CD pipelines, Storage Gateway, and Amazon FSx.
-- **Week 11 (June 29, 2026 - July 5, 2026):** Advanced DynamoDB, Step Functions, storage optimization, Savings Plans, and cost analytics.
+This worklog records the 12-week AWS internship journey completed from April 20 to July 12, 2026 at AWS Vietnam. The main focus was to build practical skills in cloud computing, infrastructure management, security, automation, and cost optimization on AWS.
 
 ### Weekly progress overview
 
@@ -38,6 +24,7 @@ This worklog records the 11-week AWS internship journey completed from April 20 
 | 9 | June 15 - June 21, 2026 | SQS/SNS, EBS Multi-Attach, Docker, ECS |
 | 10 | June 22 - June 28, 2026 | CDK, CI/CD, Storage Gateway, FSx |
 | 11 | June 29 - July 5, 2026 | Advanced DynamoDB, Step Functions, cost optimization |
+| 12 | July 6 - July 12, 2026 | Project finalization, documentation, internship report |
 
 ### Weekly structure
 
@@ -52,5 +39,4 @@ This worklog records the 11-week AWS internship journey completed from April 20 
 - **Week 9:** [Event-driven architecture, SQS/SNS, EBS Multi-Attach, Docker, and ECS](1.9-Week9/)
 - **Week 10:** [AWS CDK, CI/CD pipelines, Storage Gateway, and Amazon FSx](1.10-Week10/)
 - **Week 11:** [Advanced DynamoDB, Step Functions, storage optimization, Savings Plans, and cost analytics](1.11-Week11/)
-
-By the end of the program, the internship had provided hands-on experience in both foundational and advanced AWS services, especially in networking, security, automation, and cloud operations.
+- **Week 12:** [Project finalization, architecture review, technical documentation, and internship report](1.12-Week12/)

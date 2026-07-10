@@ -8,15 +8,29 @@ pre: " <b> 1.12. </b> "
 
 
 ### Week 12 Objectives
-- Consolidate the internship knowledge and summarize the most important AWS skills learned.
-- Prepare the final report, reflect on lessons learned, and identify next steps for further growth.
+- Finalize the project after completing all AWS service learning and hands-on practice.
+- Revise and improve the system architecture based on mentor feedback.
+- Review, audit, and optimize the AWS service configurations used in the project.
+- Complete the technical documentation and project report.
+- Finalize the internship report and consolidate all results.
+
+### Daily progress table
+
+| Day | Detailed tasks | Start date | Completion date | Reference materials |
+| --- | --- | --- | --- | --- |
+| Monday | Reviewed all AWS services used in the project. Identified areas needing adjustment based on mentor feedback from the previous week. | 06/07/2026 | 06/07/2026 | — |
+| Tuesday | Revised system architecture diagrams and updated service configurations to align with mentor recommendations. | 07/07/2026 | 07/07/2026 | — |
+| Wednesday | Audited and optimized AWS service configurations: checked IAM policies, security groups, and cost-related settings across all deployed resources. | 08/07/2026 | 08/07/2026 | — |
+| Thursday | Completed technical documentation: wrote up architecture decisions, configuration details, and key lessons learned from the project. | 09/07/2026 | 09/07/2026 | — |
+| Friday | Finalized the internship report: consolidated 12 weeks of worklog entries, project outcomes, and personal reflections into the final submission. | 10/07/2026 | 11/07/2026 | — |
 
 ### Main activities
-- Reviewed the key topics covered throughout the 11-week internship.
-- Organized practical notes and screenshots into a structured report.
-- Reflected on the most valuable services, best practices, and technical challenges encountered.
+- Completed final round of project revisions based on mentor feedback.
+- Audited all deployed AWS resources and optimized configurations.
+- Wrote and finalized technical documentation for the project.
+- Compiled and submitted the full internship report.
 
 ### Key achievements
-- Completed the internship journey with a clear understanding of AWS fundamentals and advanced services.
-- Built a solid foundation for future cloud projects and professional development.
-- Prepared a more coherent and evidence-based final report.
+- Delivered a finalized project with a reviewed and optimized AWS architecture.
+- Produced complete technical documentation covering all services and design decisions made throughout the internship.
+- Closed out 12 weeks with a structured report that accurately reflects the work done and the progress made.
