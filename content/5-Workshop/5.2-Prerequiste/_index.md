@@ -3,7 +3,7 @@ title : "Prerequisite"
 date : 2026-07-10
 weight : 2
 chapter : false
-pre : " <b> 2. </b> "
+pre : " <b> 5.2 </b> "
 ---
 
 #### Account and Access Permissions
