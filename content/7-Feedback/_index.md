@@ -49,4 +49,3 @@ Besides improving my technical knowledge, I also developed better communication,
 ## Closing Remarks
 
 I sincerely appreciate the dedication and support of the mentors and the FCAJ team throughout the internship. This experience has been meaningful and has inspired me to continue learning, improving my skills, and pursuing a career in Cloud Computing.
-```
