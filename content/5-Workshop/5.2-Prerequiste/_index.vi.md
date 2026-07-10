@@ -12,8 +12,6 @@ Cần có một tài khoản AWS đang hoạt động với IAM user có đủ q
 
 **Bước 1 (Trên AWS Console):** Đăng nhập vào AWS Management Console, điều hướng đến **IAM (Identity and Access Management)** → **Users**, chọn tên người dùng của bạn (ví dụ: `kts-agri-dev`), chuyển sang tab **Security credentials** và tìm mục **Access keys**. Nhấn **Create access key**, chọn trường hợp sử dụng **Command Line Interface (CLI)**, xác nhận điều khoản và hoàn tất tạo để nhận được cặp Access Key ID và Secret Access Key. Tải xuống tệp `.csv` để lưu trữ các khóa bảo mật này một cách an toàn.
 
-![create iam](/images/5-Workshop/5.2-Prerequisite/create_iam.png)
-
 **Bước 2 (Trên máy trạm):** Mở Terminal hoặc PowerShell trên máy tính cá nhân và chạy lệnh `aws configure`. Nhập Access Key ID và Secret Access Key vừa tạo ở Bước 1, đặt **Default region name** là `ap-southeast-1` (Singapore) và **Default output format** là `json`. Cấu hình này được tự động lưu trong thư mục home của người dùng (`%USERPROFILE%\.aws\` trên Windows hoặc `~/.aws/` trên Linux/macOS).
 
 Xác minh cấu hình đã đúng bằng lệnh:
