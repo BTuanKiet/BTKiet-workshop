@@ -38,20 +38,6 @@ The local environment requires a stable Internet connection to download pip pack
 
 ---
 
-#### Model Files
-
-Before running `sam build`, copy the two pre-trained model weight files from the `ai-service/` folder into `cloud-backend/functions/ai-inference/`:
-
-```bash
-# Windows (PowerShell or CMD)
-copy ai-service\best_resnet_model.pth cloud-backend\functions\ai-inference\
-copy ai-service\best_lenet_model.pth  cloud-backend\functions\ai-inference\
-```
-
-These files are required by the AI Inference Lambda to perform plant disease diagnosis using an ensemble of ResNet50 and LeNet models trained on the PlantVillage dataset (38 classes). Without these files, `sam build` will fail at the Docker image build step.
-
----
-
 #### Region Selection
 
 This system deploys across two AWS regions due to a CloudFront requirement:
