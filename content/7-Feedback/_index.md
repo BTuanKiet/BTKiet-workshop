@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Sharing and Feedback"
 date: 2026-07-09

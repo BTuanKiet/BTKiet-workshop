@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Chia sẻ và góp ý"
 date: 2026-07-09
