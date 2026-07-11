@@ -91,7 +91,7 @@ Hai giá trị này sẽ được điền vào `frontend-app/.env` ở bước s
 
 Nhấn **Create queue** và sao chép ARN của DLQ.
 
-![create sqs](/images/5-Workshop/5.3-Implementation/)
+![create sqs](/images/5-Workshop/5.3-Implementation/create_sqs.png)
 
 **Queue 2 — Main inference queue:**
 - **Type:** Standard
