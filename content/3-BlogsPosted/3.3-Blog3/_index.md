@@ -1,90 +1,51 @@
 ---
 title: "Blog 3"
 date: 2026-07-08
-weight: 3
+weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
 
-# BEST PRACTICES FOR MULTI-TURN REINFORCEMENT LEARNING IN AMAZON SAGEMAKER AI
+# BUILDING MULTI-TURN RL INFRASTRUCTURE FOR AI AGENTS WITH AMAZON SAGEMAKER HYPERPOD
 
-As AI Agents become increasingly capable of solving complex, multi-step tasks, training them effectively has become significantly more challenging than optimizing traditional single-turn conversational models. Unlike conventional chatbots that respond to one prompt at a time, AI Agents can plan tasks, invoke external tools, observe results, correct their own mistakes, and continue interacting over multiple turns until a task is completed.
+When AI Agents must solve multi-step workflows, traditional RL approaches that optimize single responses are not enough. This architecture shows how AWS builds Multi-turn RL infrastructure on Amazon SageMaker HyperPod.
 
-Because of this, traditional Reinforcement Learning approaches are often insufficient. A decision made in one interaction may only prove correct—or incorrect—after several subsequent steps. To address these challenges, AWS has introduced a collection of best practices for implementing Multi-Turn Reinforcement Learning (RL) using Amazon SageMaker AI.
+In multi-turn settings, action quality depends on downstream outcomes over many turns. To address this, AWS introduces an event-driven training architecture for Amazon Nova models.
 
-## 1. Build an Isolated Sandbox Environment
+## How the solution works
 
-Multi-turn RL relies heavily on trial-and-error learning. During training, an AI agent continuously explores different actions before discovering an optimal strategy.
+The design has three core layers:
 
-Running this learning process directly against production systems can be risky. An untrained agent could accidentally trigger refunds, modify database records, or execute unintended business operations.
+- Amazon SageMaker HyperPod (on EKS) for response generation and model weight updates.
+- AWS Fargate as the Reward Environment for evaluation.
+- Amazon Nova Forge SDK for end-to-end orchestration.
 
-AWS recommends creating a fully isolated sandbox environment where:
+## Core idea: two-phase deployment model
 
-* Read-only tools return mocked or replayed responses instead of accessing live production data.
-* Stateful tools isolate their data for every training episode to prevent information leakage between sessions.
-* Temporary resources are automatically cleaned up (tear down) after each episode, ensuring every training run starts from the same initial state.
+Phase 1 (fixed baseline): provision foundational infrastructure once with AWS CDK (VPC, EKS, ECS, S3, Step Functions).
 
-This approach enables safe experimentation without impacting real-world applications.
+Phase 2 (per-run temporary compute): when a .jsonl dataset is uploaded to S3, Step Functions automatically provisions training compute (including GPU resources) and tears it down after completion.
 
-## 2. Design Reward Functions Carefully to Prevent Reward Hacking
+## Outcomes
 
-One of the biggest challenges in reinforcement learning is **Reward Hacking**.
+- Full workflow automation from data ingestion to training execution.
+- Better observability via Step Functions and queue-level troubleshooting through SQS.
+- Improved cost control with on-demand compute allocation and reduced GPU idle time.
 
-An AI model does not understand the developer's true objective—it simply learns to maximize whatever reward function is implemented.
+This architecture is a strong reference pattern for Multi-turn RL workloads that require dynamic, high-performance compute.
 
-For example:
+## Practical guide
 
-* If an agent is penalized for taking too many interaction turns, it may intentionally produce incorrect answers just to finish early.
-* If each tool invocation receives a reward, the agent may repeatedly call tools without actually solving the intended task.
+1. Deploy baseline infrastructure once using AWS CDK (network, compute, storage, and orchestration).
+2. Prepare training data in .jsonl format and upload to the designated S3 input path.
+3. Configure S3-triggered Step Functions to run the training pipeline automatically.
+4. Track each stage in Step Functions and inspect queue/reward flow with SQS and CloudWatch metrics.
+5. Verify compute teardown after each run to prevent unnecessary GPU charges.
 
-To reduce this risk, AWS recommends several strategies.
+## Article link
 
-### Use Dense Rewards
+- [Read Blog 3 on AWS](https://aws.amazon.com/blogs/machine-learning/building-multi-turn-rl-infrastructure-for-ai-agents-with-amazon-sagemaker-hyperpod/)
 
-Instead of assigning rewards only when the final answer is completely correct, provide partial rewards throughout the task.
+## Blog image
 
-For instance, if an agent correctly fills five out of six required fields, it should still receive partial credit instead of being treated as a total failure.
-
-Dense rewards provide continuous learning signals that help stabilize training.
-
-### Evaluate Models Independently
-
-Training rewards should not be the only success metric.
-
-AWS recommends building an independent evaluation pipeline that measures actual task success separately from the reward function.
-
-If reward scores continue increasing while task success rates remain unchanged or decrease, the agent is likely exploiting the reward function rather than learning the desired behavior.
-
-## 3. Control Trajectory Length and Turn Budget
-
-As conversations become longer, both context size and token consumption increase rapidly.
-
-To prevent excessive computational cost and unstable training, AWS recommends monitoring two important parameters:
-
-* **max_turns** – The maximum number of interaction rounds allowed within a single episode. A practical guideline is to configure this value to approximately 1.5 times the number of turns a human would normally require.
-* **sampling_max_tokens** – The maximum number of tokens generated per interaction. Monitoring this parameter helps prevent responses from becoming unnecessarily long and consuming excessive compute resources.
-
-Proper trajectory management improves both training efficiency and model performance.
-
-## Distinguish Between Completion and Correctness
-
-An important recommendation from AWS is to evaluate two separate metrics:
-
-* **Completion** – Whether the agent successfully completed the entire workflow.
-* **Correctness** – Whether the final outcome is actually correct.
-
-An AI agent may complete every required step while still producing an incorrect result. Therefore, both metrics should be measured independently during evaluation.
-
-## Conclusion
-
-Training multi-turn AI agents requires much more than simply choosing a reinforcement learning algorithm. Success depends on carefully designing training environments, reward functions, evaluation pipelines, and trajectory management strategies.
-
-By following these best practices, developers can build AI agents that learn more effectively, avoid reward hacking, improve generalization across complex tasks, and deliver more reliable performance in production environments.
-
-## Architecture Diagram
-
-![Overview of the SageMaker AI multi-turn RL service](/images/3-BlogsPosted/3.3-Blog3/ML-21260-1.jpg)
-
-### Original AWS Blog
-
-- [AWS Machine Learning Blog – Best Practices for Multi-Turn Reinforcement Learning in Amazon SageMaker AI](https://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/)
+![Blog 3 image](/fcj-workshop-huynhbuyenthanhtoan/images/3-BlogsPosted/blog3.jpg)

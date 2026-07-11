@@ -7,7 +7,7 @@ pre: " <b> 1. </b> "
 ---
 
 
-This worklog records the 12-week AWS internship journey completed from April 20 to July 12, 2026 at AWS Vietnam. The main focus was to build practical skills in cloud computing, infrastructure management, security, automation, and cost optimization on AWS.
+This worklog records the 12-week AWS internship journey completed from April 17 to July 30, 2026 at AWS Vietnam. The main focus was to build practical skills in cloud computing, infrastructure management, security, automation, and cost optimization on AWS.
 
 ### Weekly progress overview
 

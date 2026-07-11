@@ -6,71 +6,55 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-# BETTER TOGETHER: AMAZON EKS AUTO MODE AND ISTIO AMBIENT MESH
+# AMAZON EKS AUTO MODE & ISTIO AMBIENT MESH - THE BETTER TOGETHER SOLUTION FOR MICROSERVICES
 
-As microservices architectures continue to grow from a few services to hundreds of workloads, organizations face two major challenges:
+In modern systems, when microservices scale from a few services to hundreds, two major challenges usually appear:
 
-- Managing Kubernetes infrastructure efficiently with minimal operational overhead.
-- Securing service-to-service communication while maintaining high performance and scalability.
+- How to keep compute infrastructure stable, automated, and low-maintenance.
+- How to secure service-to-service communication to protect data and reduce risk.
 
-AWS addresses these challenges by combining **Amazon EKS Auto Mode** and **Istio Ambient Mesh**, allowing teams to automate infrastructure management while simplifying service mesh operations.
+Amazon introduced the combination of EKS Auto Mode and Istio Ambient Mesh as a better-together model that automates infrastructure and secures traffic with mTLS.
 
-## Amazon EKS Auto Mode
+## Amazon EKS Auto Mode - Kubernetes infrastructure automation
 
-Amazon EKS Auto Mode simplifies Kubernetes cluster management by automatically handling the underlying compute infrastructure.
+- Node lifecycle automation: provisioning, scaling, patching, and updating.
+- Bottlerocket OS: minimal and immutable Linux optimized for containers.
+- Built-in managed components: VPC CNI, kube-proxy, EBS CSI driver, CoreDNS.
+- Karpenter-powered scaling: smart instance selection, replacement of underutilized nodes, and Spot optimization.
 
-Key capabilities include:
+Key benefit: teams can focus on workloads instead of node and add-on operations.
 
-- Automatic node provisioning, scaling, patching, and updates.
-- Built-in support for the Bottlerocket operating system, optimized for containers.
-- AWS-managed Kubernetes add-ons such as Amazon VPC CNI, kube-proxy, CoreDNS, and Amazon EBS CSI Driver.
-- Intelligent compute optimization powered by Karpenter to select the most suitable EC2 instances and reduce infrastructure costs.
+## Istio Ambient Mesh - Secure traffic management without sidecars
 
-With EKS Auto Mode, developers can focus on deploying applications instead of managing cluster infrastructure.
+- ztunnel: node-level L3/L4 proxy for mTLS, L4 policy, and TCP telemetry.
+- Waypoint Proxy: optional L7 proxy for routing, retries, circuit breaking, and HTTP-aware policies.
+- HBONE protocol: transports secure mTLS traffic over existing network paths without sidecars.
 
-## Istio Ambient Mesh
+Key benefit: lower overhead with strong security and observability.
 
-Istio Ambient Mesh introduces a sidecarless service mesh architecture that reduces resource consumption while maintaining secure communication between services.
+## Benefits of combining EKS Auto Mode and Istio Ambient Mesh
 
-The architecture consists of three major components:
+- Lower operational burden: AWS handles compute lifecycle, Istio handles service networking.
+- Built-in security: automatic mTLS with policy controls from L4 to L7.
+- Better cost efficiency: intelligent scaling with fewer idle nodes.
+- Faster rollout: practical setup using Terraform and Helm.
 
-### ztunnel
+## Conclusion
 
-A lightweight Layer 3/4 proxy running on each node that provides:
+EKS Auto Mode with Istio Ambient Mesh provides a modern Kubernetes platform that is secure, cost-aware, and easier to operate. It is suitable for both teams starting with microservices and organizations modernizing large systems.
 
-- Mutual TLS (mTLS)
-- Service identity
-- Layer 4 authorization
-- TCP telemetry
+## Practical guide
 
-### Waypoint Proxy
+1. Create a new EKS cluster and enable EKS Auto Mode for managed node operations.
+2. Install Istio Ambient Mesh and verify ztunnel is running on all worker nodes.
+3. Enable strict mTLS in a test namespace and validate encrypted service traffic.
+4. Add Waypoint Proxy for services that need advanced L7 traffic policy.
+5. Monitor scaling behavior and cost using CloudWatch and Karpenter events.
 
-An optional Layer 7 proxy used only when advanced application-aware features are required, including:
+## Article link
 
-- HTTP routing
-- Traffic management
-- Retries
-- Circuit breaking
-- HTTP authorization policies
+- [Read Blog 1 on AWS](https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/?content_source=fb&fb_content_id=Q9-wBQGZ6UvpkDkfhsO3gB1bF7c6ufwtvYep5SR9fVCMX9vZbeotl4YCoV1PtCN8ZA&channel_type=fb)
 
-### HBONE Protocol
+## Blog image
 
-HBONE (HTTP-Based Overlay Network Environment) enables secure mTLS communication between ztunnel and Waypoint Proxy without requiring sidecars for every Pod.
-
-## Benefits of Combining Both Solutions
-
-Using Amazon EKS Auto Mode together with Istio Ambient Mesh provides several advantages:
-
-- Reduced operational overhead for Kubernetes infrastructure.
-- Secure service-to-service communication with automatic mTLS.
-- Lower resource consumption through sidecarless architecture.
-- Intelligent infrastructure scaling and cost optimization.
-- Simplified deployment using tools such as Terraform and Helm.
-
-## Architecture Overview
-
-![EKS Auto Mode and Istio Ambient Mesh Architecture](/images/3-BlogsPosted/3.1-Blog1/c-170-1.jpg)
-
-## Reference
-
-- [AWS Containers Blog – Better Together: Amazon EKS Auto Mode and Istio Ambient Mesh](https://aws.amazon.com/blogs/containers/better-together-amazon-eks-auto-mode-and-istio-ambient-mesh/)
+![Blog 1 image](/fcj-workshop-huynhbuyenthanhtoan/images/3-BlogsPosted/blog1.jpg)

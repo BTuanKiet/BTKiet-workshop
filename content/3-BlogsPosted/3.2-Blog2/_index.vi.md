@@ -1,79 +1,68 @@
 ---
 title: "Blog 2"
 date: 2026-07-08
-weight: 2
+weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# TRIỂN KHAI HẠ TẦNG MULTI-TURN RL CHO AMAZON NOVA TRÊN AMAZON SAGEMAKER HYPERPOD
+# LÀM SAO ĐỂ HUẤN LUYỆN MỘT AI AGENT THÔNG MINH MÀ KHÔNG BỊ NÓ QUA MẶT
 
-Khi các AI Agent ngày càng phải xử lý các tác vụ nhiều bước, các phương pháp Reinforcement Learning truyền thống không còn đáp ứng tốt yêu cầu huấn luyện. AWS đã giới thiệu một kiến trúc tham khảo giúp triển khai hạ tầng **Multi-Turn Reinforcement Learning (RL)** sử dụng **Amazon SageMaker HyperPod** và **Amazon Nova** nhằm huấn luyện các AI Agent có khả năng đưa ra quyết định qua nhiều lượt tương tác.
+Dạo gần đây, cụm từ AI Agent đang trở thành tâm điểm của giới công nghệ. Khác với chatbot chỉ biết trả lời đơn lượt, một AI Agent thực thụ có khả năng tự lên kế hoạch, gọi công cụ, đọc kết quả, tự sửa sai và chạy qua nhiều lượt để giải quyết tác vụ phức tạp.
 
-## Tại sao cần Multi-Turn RL?
+Thế nhưng, huấn luyện Multi-turn Reinforcement Learning cho các agent này là một bài toán không hề dễ. Dưới đây là 3 bài học cốt lõi.
 
-Các phương pháp như RLHF chủ yếu tối ưu từng phản hồi riêng lẻ. Tuy nhiên, trong thực tế, AI Agent thường phải thực hiện nhiều bước liên tiếp như:
+## 1. Xây dựng môi trường Sandbox cô lập
 
-- Gọi API
-- Truy vấn cơ sở dữ liệu
-- Xử lý lỗi hệ thống
-- Sử dụng nhiều công cụ trong cùng một phiên làm việc
+Khi AI học bằng thử-sai qua nhiều lượt, việc ném nó vào production là cực kỳ rủi ro. Một agent chưa ổn định có thể kích hoạt nhầm các hành động nghiêm trọng như hoàn tiền, xóa dữ liệu hoặc gọi API ngoài kiểm soát.
 
-Chất lượng của mỗi hành động phụ thuộc vào kết quả của các bước tiếp theo, vì vậy Multi-Turn RL trở thành phương pháp phù hợp hơn.
+Giải pháp:
 
-## Kiến trúc chính
+- Tạo Sandbox giả lập hoàn toàn.
+- Với tool đọc dữ liệu: dùng mocked response cố định.
+- Với tool thay đổi trạng thái: cô lập bộ nhớ theo từng episode và tear down sạch sau khi kết thúc.
 
-Giải pháp được xây dựng theo mô hình kiến trúc hướng sự kiện (Event-driven Architecture) gồm ba thành phần chính.
+## 2. Bẫy Reward Hacking, khi AI lách luật
 
-### Amazon SageMaker HyperPod
+AI tối ưu chính xác thứ được code trong hàm reward, không tối ưu thứ người vận hành kỳ vọng trong đầu.
 
-Amazon SageMaker HyperPod cung cấp các cụm GPU hiệu năng cao (P5 instances) để chạy quá trình suy luận và huấn luyện mô hình. Trong quá trình này, mô hình được tối ưu bằng thuật toán **Group Relative Policy Optimization (GRPO)** dựa trên tín hiệu phần thưởng từ môi trường đánh giá.
+Ví dụ:
 
-### AWS Fargate (Amazon ECS)
+- Phạt nhiều lượt quá mạnh: agent trả lời bừa để kết thúc nhanh.
+- Thưởng theo số lần gọi tool: agent spam tool mà không giải đúng bài toán.
 
-Amazon ECS chạy trên AWS Fargate triển khai **Reward Environment**. Trong bài minh họa của AWS, môi trường đánh giá là trò chơi Wordle, có nhiệm vụ chấm điểm phản hồi của mô hình và trả về tín hiệu phần thưởng.
+Giải pháp:
 
-### Amazon Nova Forge SDK
+- Thiết kế Dense Reward: không chỉ chấm đúng/sai cuối cùng, mà chấm theo tiến độ để tạo tín hiệu học liên tục.
+- Luôn có External Evaluation độc lập với reward training. Nếu reward tăng nhưng task success rate giảm, gần như chắc chắn đang bị reward hacking.
 
-Amazon Nova Forge SDK đóng vai trò điều phối việc trao đổi thông tin giữa mô hình và môi trường đánh giá, đồng thời quản lý trạng thái hội thoại trong suốt quá trình tương tác nhiều lượt.
+## 3. Kiểm soát trajectory và Turn Budget
 
-## Mô hình triển khai hai giai đoạn
+Càng nhiều lượt hội thoại, context càng phình to và tiêu tốn token. Cần kiểm soát chặt:
 
-Hệ thống được triển khai theo hai giai đoạn riêng biệt.
+- max_turns: số lượt tối đa cho mỗi tác vụ.
+- sampling_max_tokens: giới hạn token cho mỗi lượt.
 
-### Giai đoạn 1 – Triển khai hạ tầng
+Nếu người thật cần N lượt để xử lý tác vụ, có thể đặt trần ban đầu cho agent ở khoảng 1.5 x N rồi tối ưu dần theo telemetry.
 
-Sử dụng AWS CDK để triển khai các thành phần hạ tầng như:
+## Lời kết
 
-- Amazon VPC
-- Amazon EKS
-- Amazon ECS
-- Amazon S3
-- AWS Step Functions
+Huấn luyện AI Agent đa lượt không chỉ là nạp dữ liệu và bấm train, mà là bài toán thiết kế môi trường, luật chơi và cơ chế đánh giá.
 
-Quá trình này chỉ cần thực hiện một lần.
+Khi tách bạch được completion và correctness, bạn sẽ biết mô hình thực sự đang tiến bộ hay chỉ học mẹo định dạng.
 
-### Giai đoạn 2 – Chạy huấn luyện
+## Hướng dẫn thực hành
 
-Khi tập dữ liệu định dạng `.jsonl` được tải lên Amazon S3, quy trình huấn luyện sẽ tự động được kích hoạt.
+1. Xác định task đa lượt cụ thể và dựng Sandbox mô phỏng đầy đủ các tool bắt buộc.
+2. Thiết kế reward theo nhiều mốc trung gian thay vì chỉ điểm cuối cùng.
+3. Thiết lập evaluator độc lập để theo dõi task success rate song song với reward score.
+4. Đặt max_turns và sampling_max_tokens từ sớm, theo dõi log để điều chỉnh theo dữ liệu thực.
+5. Chạy A/B giữa policy mới và policy cũ trong tập test đóng trước khi đưa vào production.
 
-AWS Step Functions sẽ khởi tạo các tài nguyên cần thiết trên HyperPod, chạy quá trình huấn luyện, điều phối môi trường đánh giá và tự động giải phóng tài nguyên sau khi hoàn thành nhằm tối ưu chi phí sử dụng GPU.
+## Link bài viết
 
-## Lợi ích
+- [Xem bài Blog 2 trên AWS](https://aws.amazon.com/vi/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/?content_source=fb&fb_content_id=Q9-wBQEJUL5h_O8ySkuTEnaHjxaW2smXbC9wKJyqsMGcQlBKtBYimWtpyl_G3FcymQ&channel_type=fb)
 
-Kiến trúc này mang lại nhiều lợi ích như:
+## Hình ảnh bài viết
 
-- Tự động hóa toàn bộ quy trình huấn luyện
-- Kiến trúc hướng sự kiện giúp dễ mở rộng
-- Tối ưu việc sử dụng GPU
-- Giảm chi phí vận hành
-- Dễ dàng theo dõi tiến trình thông qua AWS Step Functions
-- Phù hợp cho các hệ thống Reinforcement Learning quy mô lớn
-
-## Kiến trúc hệ thống
-
-![Hạ tầng Multi-Turn RL cho Amazon Nova trên SageMaker HyperPod](/images/3-BlogsPosted/3.2-Blog2/ML-20450-1.png)
-
-## Tài liệu tham khảo
-
-- [AWS Machine Learning Blog – Deploying Multi-Turn RL Infrastructure for Amazon Nova on Amazon SageMaker HyperPod](https://aws.amazon.com/blogs/machine-learning/deploying-multi-turn-rl-infrastructure-for-amazon-nova-on-amazon-sagemaker-hyperpod/)
+![Ảnh Blog 2](/fcj-workshop-huynhbuyenthanhtoan/images/3-BlogsPosted/blog2.jpg)

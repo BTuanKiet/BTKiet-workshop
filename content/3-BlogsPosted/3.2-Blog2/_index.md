@@ -1,79 +1,67 @@
 ---
 title: "Blog 2"
 date: 2026-07-08
-weight: 2
+weight: 1
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-# DEPLOYING MULTI-TURN RL INFRASTRUCTURE FOR AMAZON NOVA ON AMAZON SAGEMAKER HYPERPOD
+# HOW TO TRAIN A SMART AI AGENT WITHOUT GETTING OUTSMARTED
 
-As AI agents become capable of solving complex tasks involving multiple interactions, traditional reinforcement learning approaches are no longer sufficient. AWS introduces a reference architecture for deploying **Multi-Turn Reinforcement Learning (RL)** infrastructure using **Amazon SageMaker HyperPod** and **Amazon Nova** to efficiently train AI agents that must reason across multiple turns.
+AI Agents are becoming a central topic in modern AI systems. Unlike single-turn chatbots, real agents can plan, call tools, read outcomes, self-correct, and solve multi-step tasks over multiple turns.
 
-## Why Multi-Turn RL?
+Training these agents with Multi-turn Reinforcement Learning is challenging. This blog focuses on three practical lessons.
 
-Traditional reinforcement learning methods such as RLHF mainly optimize individual responses. However, AI agents often need to complete tasks involving multiple steps, including:
+## 1. Build an isolated Sandbox environment
 
-- Calling external APIs
-- Querying databases
-- Handling system errors
-- Using multiple tools during a conversation
+When an agent learns by trial and error across many turns, running directly in production is unsafe. A learning agent can trigger harmful actions such as bad refunds, data deletion, or incorrect workflow execution.
 
-The quality of each action depends on future decisions, making Multi-Turn RL a better training approach for these scenarios.
+Recommended approach:
 
-## Core Architecture
+- Use a fully isolated Sandbox.
+- For read-only tools: replay mocked and deterministic responses.
+- For state-changing tools: isolate memory by episode and tear down at the end.
 
-The solution follows an event-driven architecture consisting of three major components:
+## 2. Prevent Reward Hacking
 
-### Amazon SageMaker HyperPod
+Agents optimize what is explicitly encoded in reward functions, not what humans implicitly expect.
 
-Amazon SageMaker HyperPod provides GPU clusters (P5 instances) that perform model inference and training. During training, the model is optimized using the **Group Relative Policy Optimization (GRPO)** algorithm based on rewards collected from the environment.
+Examples:
 
-### AWS Fargate (Amazon ECS)
+- If turn count is over-penalized, the agent may stop early with low-quality answers.
+- If tool calls are rewarded directly, the agent may spam tools without solving the task.
 
-Amazon ECS running on AWS Fargate hosts the **Reward Environment**. In the AWS demonstration, the environment is a Wordle game that evaluates the model's responses and returns reward signals.
+Recommended approach:
 
-### Amazon Nova Forge SDK
+- Use Dense Reward instead of only final binary scoring.
+- Add independent external evaluation separate from training reward.
+- If reward rises but task success drops, reward hacking is likely happening.
 
-Amazon Nova Forge SDK coordinates communication between the model and the reward environment while maintaining the conversation state across multiple interaction turns.
+## 3. Control trajectory and Turn Budget
 
-## Two-Phase Deployment
+Multi-turn trajectories increase context size and token consumption quickly. Set clear limits for:
 
-The infrastructure is deployed using two distinct phases.
+- max_turns: maximum number of turns per task.
+- sampling_max_tokens: token cap per turn.
 
-### Phase 1 – Infrastructure Deployment
+A useful baseline is to start around 1.5 times the average human turn count and refine using telemetry.
 
-AWS CDK provisions the foundational infrastructure, including:
+## Conclusion
 
-- Amazon VPC
-- Amazon EKS
-- Amazon ECS
-- Amazon S3
-- AWS Step Functions
+Multi-turn agent training is not just a model problem. It is primarily a systems design problem: environment isolation, reward design, and operational guardrails.
 
-This infrastructure only needs to be deployed once.
+## Practical guide
 
-### Phase 2 – Training Runtime
+1. Define a concrete multi-turn task and build a sandbox with all required tools.
+2. Design reward with intermediate milestones, not only final pass/fail.
+3. Build an independent evaluator and track task success rate beside reward score.
+4. Set max_turns and sampling_max_tokens early; tune using real trajectory logs.
+5. Run A/B testing between old and new policies on a fixed validation set before production.
 
-When a `.jsonl` training dataset is uploaded to Amazon S3, the workflow automatically starts.
+## Article link
 
-AWS Step Functions provisions the required training resources, launches the HyperPod training job, coordinates the reward environment, and releases the compute resources after training finishes, minimizing GPU idle time and reducing operational costs.
+- [Read Blog 2 on AWS](https://aws.amazon.com/vi/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/?content_source=fb&fb_content_id=Q9-wBQEJUL5h_O8ySkuTEnaHjxaW2smXbC9wKJyqsMGcQlBKtBYimWtpyl_G3FcymQ&channel_type=fb)
 
-## Benefits
+## Blog image
 
-This architecture provides several advantages:
-
-- Fully automated training pipeline
-- Event-driven workflow
-- Efficient GPU resource utilization
-- Reduced infrastructure cost
-- Easy monitoring through AWS Step Functions
-- Scalable design for large-scale reinforcement learning workloads
-
-## Architecture Diagram
-
-![Multi-Turn RL Infrastructure for Amazon Nova on SageMaker HyperPod](/images/3-BlogsPosted/3.2-Blog2/ML-20450-1.png)
-
-## Reference
-
-- [AWS Machine Learning Blog – Deploying Multi-Turn RL Infrastructure for Amazon Nova on Amazon SageMaker HyperPod](https://aws.amazon.com/blogs/machine-learning/deploying-multi-turn-rl-infrastructure-for-amazon-nova-on-amazon-sagemaker-hyperpod/)
+![Blog 2 image](/fcj-workshop-huynhbuyenthanhtoan/images/3-BlogsPosted/blog2.jpg)

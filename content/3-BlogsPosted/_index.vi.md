@@ -1,18 +1,21 @@
 ---
-title: "Các bài Blog đã đăng"
+title: "Các bài blogs đã đăng"
 date: 2026-07-08
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-Phần này giới thiệu các bài blog đã được đăng trong cộng đồng AWS Study Group, chia sẻ về các công nghệ mới của AWS, các kiến trúc tham khảo và những giải pháp triển khai trên nền tảng đám mây.
+Dưới đây là 3 bài blog tiêu biểu mình đã thực hiện trong kỳ thực tập, tập trung vào kiến trúc cloud-native, bảo mật cho microservices và hạ tầng huấn luyện AI Agent trên AWS.
 
-### [Blog 1 - Better Together: Amazon EKS Auto Mode và Istio Ambient Mesh](3.1-Blog1/)
-Blog này giới thiệu cách Amazon EKS Auto Mode kết hợp với Istio Ambient Mesh để đơn giản hóa việc vận hành Kubernetes. Nội dung tập trung vào khả năng tự động quản lý hạ tầng của EKS Auto Mode và kiến trúc service mesh không sử dụng sidecar của Istio Ambient Mesh nhằm tăng cường bảo mật, giảm chi phí tài nguyên và giảm gánh nặng vận hành.
+### [Blog 1 - AMAZON EKS AUTO MODE & ISTIO AMBIENT MESH – GIẢI PHÁP BETTER TOGETHER CHO MICROSERVICES](3.1-Blog1/)
 
-### [Blog 2 - Triển khai hạ tầng Multi-Turn RL cho Amazon Nova trên Amazon SageMaker HyperPod](3.2-Blog2/)
-Blog này giới thiệu kiến trúc tham khảo triển khai hạ tầng Multi-Turn Reinforcement Learning (RL) sử dụng Amazon SageMaker HyperPod và Amazon Nova. Nội dung trình bày cách AWS xây dựng quy trình huấn luyện theo kiến trúc hướng sự kiện, tự động cấp phát tài nguyên và huấn luyện AI Agent thông qua cơ chế đánh giá bằng phần thưởng để xử lý các tác vụ nhiều bước.
+Blog này giới thiệu sự kết hợp giữa EKS Auto Mode và Istio Ambient Mesh nhằm giải quyết hai bài toán lớn của microservices: vận hành hạ tầng và bảo mật. Bài viết phân tích cách EKS Auto Mode tự động hóa quản lý node (provisioning, scaling với Karpenter) kết hợp kiến trúc không cần sidecar của Istio Ambient Mesh (ztunnel và HBONE) để cung cấp mTLS. Đây là giải pháp giúp doanh nghiệp giảm đáng kể gánh nặng vận hành, tối ưu chi phí nhưng vẫn bảo đảm an toàn dữ liệu từ L4 đến L7.
 
-### [Blog 3 - Các phương pháp tốt nhất cho Multi-Turn Reinforcement Learning trên Amazon SageMaker AI](3.3-Blog3/)
-Blog này giới thiệu các phương pháp tốt nhất khi huấn luyện AI Agent đa lượt bằng Reinforcement Learning trên Amazon SageMaker AI. Nội dung tập trung vào việc xây dựng môi trường Sandbox an toàn, thiết kế Reward Function để tránh Reward Hacking, quản lý Trajectory và Turn Budget, cũng như đánh giá hiệu quả của AI Agent nhằm xây dựng các hệ thống AI ổn định và sẵn sàng cho môi trường thực tế.
+### [Blog 2 - LÀM SAO ĐỂ HUẤN LUYỆN MỘT AI AGENT THÔNG MINH MÀ KHÔNG BỊ NÓ QUA MẶT](3.2-Blog2/)
+
+Blog này chia sẻ kinh nghiệm thực chiến khi huấn luyện Multi-turn Reinforcement Learning cho AI Agent. Bài viết đi sâu vào 3 bài học cốt lõi: (1) xây dựng Sandbox cô lập hoàn toàn để tránh rủi ro trên hệ thống thực, (2) thiết kế Dense Reward kết hợp đánh giá độc lập để chống Reward Hacking, và (3) kiểm soát chặt trajectory cùng Turn Budget để tránh lãng phí token và giúp mô hình học hiệu quả từ kết quả cuối cùng.
+
+### [Blog 3 - XÂY DỰNG HẠ TẦNG MULTI-TURN RL CHO AI AGENT VỚI AMAZON SAGEMAKER HYPERPOD](3.3-Blog3/)
+
+Blog này trình bày kiến trúc event-driven trên AWS cho bài toán huấn luyện AI Agent ra quyết định qua nhiều lượt. Bài viết mô tả cấu trúc 3 lớp: Amazon SageMaker HyperPod (trên EKS) để sinh câu trả lời và cập nhật trọng số, AWS Fargate làm môi trường chấm điểm (Reward Environment), và Amazon Nova Forge SDK để điều phối. Điểm nhấn là chiến lược triển khai 2 giai đoạn giúp tự động cấp phát GPU khi có dữ liệu upload lên S3 và tự động giải phóng khi hoàn thành, từ đó tối ưu chi phí vận hành.
