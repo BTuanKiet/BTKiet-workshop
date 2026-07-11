@@ -26,5 +26,5 @@ This architecture provides two core benefits:
 3. [User Authentication (Cognito)](5.3-Cognito-auth/)
 4. [Secure Image Upload (Pre-signed URL & S3)](5.4-S3-upload/)
 5. [Automated AI Inference (Lambda & ECR)](5.5-AI-inference/)
-<!-- 6. [Storing Results (DynamoDB)](5.6-Dynamodb-results/) -->
 6. [Clean up](5.6-Cleanup/)
+<!-- 6. [Storing Results (DynamoDB)](5.6-Dynamodb-results/) -->

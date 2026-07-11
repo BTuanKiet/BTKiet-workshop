@@ -26,5 +26,5 @@ Kiến trúc này mang đến hai lợi ích cốt lõi:
 3. [Xác thực người dùng (Cognito)](5.3-Cognito-auth/)
 4. [Luồng tải ảnh an toàn (Pre-signed URL & S3)](5.4-S3-upload/)
 5. [Tự động hóa suy luận AI (Lambda & ECR)](5.5-AI-inference/)
-<!-- 6. [Lưu trữ kết quả (DynamoDB)](5.6-Dynamodb-results/) -->
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+<!-- 6. [Lưu trữ kết quả (DynamoDB)](5.6-Dynamodb-results/) -->
