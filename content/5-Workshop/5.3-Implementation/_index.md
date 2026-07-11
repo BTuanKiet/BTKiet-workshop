@@ -102,7 +102,7 @@ Click **Create queue** and copy the DLQ ARN.
 
 Click **Create queue**.
 
-![all sqs](/images/5-Workshop/5.3-Implementation/sqs.png)
+![all sqs](/images/5-Workshop/5.3-Implementation/)
 
 After creating the main queue, navigate to it, go to the **Access policy** tab and click **Edit**. Replace the policy with the following (substitute your Account ID):
 
