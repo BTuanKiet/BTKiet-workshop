@@ -18,4 +18,4 @@ In this workshop, the deployment is divided into two primary communicating envir
 - **"Client-side / Frontend"** represents the Web App (built with Vanilla HTML/JS) running on the user's browser. This application makes API calls to authenticate and push images directly to the cloud.
 - **"Cloud-side / Backend"** is the underlying AWS ecosystem. When a leaf image is successfully uploaded, S3 automatically triggers a Lambda function containing the deep learning model. Lambda processes the image, classifies the disease, and writes the results to DynamoDB for the Frontend to retrieve and display to the user.
 
-![overview](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)

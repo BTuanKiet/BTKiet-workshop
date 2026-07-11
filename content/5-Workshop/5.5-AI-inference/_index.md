@@ -10,7 +10,7 @@ In this section, we will configure the **AI Inference** service for the **KTs Sm
 
 The entire inference workflow is fully serverless, enabling automatic scaling, low operational costs, and real-time image analysis.
 
-![AI Inference Architecture](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/ai-inference-flow.png)
+![AI Inference Architecture](/images/5-Workshop/5.5-AI-inference/ai-inference-flow.png)
 
 #### AI Inference Workflow
 
@@ -18,11 +18,11 @@ The entire inference workflow is fully serverless, enabling automatic scaling, l
 
 2. Amazon API Gateway validates the user's **JWT Access Token** using **Amazon Cognito** to ensure that only authenticated users can access the AI inference service.
 
-![API Gateway](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/api-gateway.png)
+![API Gateway](/images/5-Workshop/5.5-AI-inference/api-gateway.png)
 
 3. Once authentication succeeds, API Gateway invokes the **Inference Lambda Function**, which is deployed as a **Container Image** stored in **Amazon Elastic Container Registry (Amazon ECR)**.
 
-![Lambda Container](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/lambda-container.png)
+![Lambda Container](/images/5-Workshop/5.5-AI-inference/lambda-container.png)
 
 4. The Lambda function retrieves the uploaded image from Amazon S3 and performs several preprocessing operations before inference:
 
@@ -31,7 +31,7 @@ The entire inference workflow is fully serverless, enabling automatic scaling, l
 - Convert the image into a tensor.
 - Load the trained deep learning model.
 
-![Image Preprocessing](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/preprocessing.png)
+![Image Preprocessing](/images/5-Workshop/5.5-AI-inference/preprocessing.png)
 
 5. The AI model performs inference to classify the plant disease and calculates the prediction confidence.
 
@@ -44,7 +44,7 @@ Example response:
 }
 ```
 
-![Prediction Result](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/prediction.png)
+![Prediction Result](/images/5-Workshop/5.5-AI-inference/prediction.png)
 
 6. The inference result is stored in **Amazon DynamoDB** for future retrieval and analysis.
 
@@ -56,11 +56,11 @@ Each record includes:
 - Confidence Score
 - Timestamp
 
-![DynamoDB](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/dynamodb.png)
+![DynamoDB](/images/5-Workshop/5.5-AI-inference/dynamodb.png)
 
 7. If the detected disease is classified as severe or the confidence score falls below a predefined threshold, the system publishes a notification using **Amazon Simple Notification Service (Amazon SNS)**.
 
-![Amazon SNS](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/sns.png)
+![Amazon SNS](/images/5-Workshop/5.5-AI-inference/sns.png)
 
 8. Finally, the frontend receives the inference response from API Gateway and displays the analysis result to the user.
 
@@ -76,7 +76,7 @@ Confidence   : 98.76%
 Status       : Success
 ```
 
-![Frontend Result](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/frontend-result.png)
+![Frontend Result](/images/5-Workshop/5.5-AI-inference/frontend-result.png)
 
 ---
 

@@ -20,4 +20,4 @@ This section breaks down the serverless architecture used to securely ingest raw
 
 This decoupled ingestion mechanism ensures that raw data is safely stored and immediately ready to trigger the AI processing events.
 
-![Architecture Flow](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-upload/diagram1_2.png)
+![Architecture Flow](/images/5-Workshop/5.4-S3-upload/diagram1_2.png)

@@ -12,7 +12,7 @@ In this section, you will configure and demo the security mechanism of the KTs S
 
 To protect the AI analysis APIs and prevent spam uploads to the S3 system, the application requires users (farmers, agricultural experts) to log in. Upon successful authentication, Cognito issues an authorization pass (JWT Token). The Web App will attach this Token to the Header of every request sent to the AWS backend.
 
-![Cognito Auth Flow](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/diagram2.png)
+![Cognito Auth Flow](/images/5-Workshop/5.3-Cognito-auth/diagram2.png)
 
 #### Contents
 

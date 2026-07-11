@@ -15,7 +15,7 @@ Trong bước này, chúng ta sẽ kiểm tra tính năng tải ảnh. Theo như
 3. Tại giao diện upload, chọn một bức ảnh mẫu từ máy tính của bạn và nhấn nút **Upload**.
 4. Đợi thông báo thành công xác nhận quá trình tải ảnh thông qua Pre-signed URL đã hoàn tất.
 
-![upload-ui](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-upload/upload-ui.png)
+![upload-ui](/images/5-Workshop/5.4-S3-upload/upload-ui.png)
 
 #### Kiểm tra Object trong S3 Bucket
 
@@ -26,4 +26,4 @@ Bây giờ, chúng ta sẽ kiểm tra xem ảnh đã được lưu thành công 
 3. Nhấn vào tên bucket **Raw Images** của bạn (bucket được cấu hình để chứa ảnh thô).
 4. Bạn sẽ thấy file ảnh vừa tải lên xuất hiện trong danh sách các objects.
 
-![check bucket](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-upload/check-bucket.png)
+![check bucket](/images/5-Workshop/5.4-S3-upload/check-bucket.png)

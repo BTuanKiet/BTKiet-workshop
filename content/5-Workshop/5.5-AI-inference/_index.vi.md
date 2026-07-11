@@ -10,7 +10,7 @@ Trong phần này, chúng ta sẽ cấu hình **AI Inference** để phân tích
 
 Luồng xử lý này hoàn toàn **Serverless**, giúp hệ thống tự động mở rộng theo số lượng yêu cầu mà không cần quản lý máy chủ.
 
-![AI Inference Architecture](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/ai-inference-flow.png)
+![AI Inference Architecture](/images/5-Workshop/5.5-AI-inference/ai-inference-flow.png)
 
 #### Luồng xử lý AI
 
@@ -18,11 +18,11 @@ Luồng xử lý này hoàn toàn **Serverless**, giúp hệ thống tự độn
 
 2. API Gateway xác thực JWT Token từ **Amazon Cognito** nhằm đảm bảo chỉ người dùng đã đăng nhập mới được phép sử dụng dịch vụ AI.
 
-![API Gateway](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/api-gateway.png)
+![API Gateway](/images/5-Workshop/5.5-AI-inference/api-gateway.png)
 
 3. API Gateway kích hoạt **Inference Lambda** được triển khai dưới dạng **Container Image** lưu trữ trên **Amazon ECR**.
 
-![Lambda Container](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/lambda-container.png)
+![Lambda Container](/images/5-Workshop/5.5-AI-inference/lambda-container.png)
 
 4. Lambda tải ảnh từ **Amazon S3**, thực hiện các bước tiền xử lý gồm:
 
@@ -31,7 +31,7 @@ Luồng xử lý này hoàn toàn **Serverless**, giúp hệ thống tự độn
 - Chuyển đổi Tensor.
 - Nạp mô hình AI.
 
-![Image Preprocessing](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/preprocessing.png)
+![Image Preprocessing](/images/5-Workshop/5.5-AI-inference/preprocessing.png)
 
 5. Mô hình AI tiến hành suy luận (Inference) để dự đoán loại bệnh của cây trồng và tính toán độ tin cậy (Confidence Score).
 
@@ -44,7 +44,7 @@ Ví dụ kết quả:
 }
 ```
 
-![Prediction Result](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/prediction.png)
+![Prediction Result](/images/5-Workshop/5.5-AI-inference/prediction.png)
 
 6. Sau khi suy luận thành công, Lambda lưu toàn bộ kết quả vào **Amazon DynamoDB**, bao gồm:
 
@@ -54,11 +54,11 @@ Ví dụ kết quả:
 - Confidence
 - Thời gian phân tích
 
-![DynamoDB](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/dynamodb.png)
+![DynamoDB](/images/5-Workshop/5.5-AI-inference/dynamodb.png)
 
 7. Nếu Confidence thấp hơn ngưỡng cho phép hoặc phát hiện bệnh nghiêm trọng, Lambda sẽ gửi thông báo thông qua **Amazon SNS** để cảnh báo người dùng.
 
-![SNS](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/sns.png)
+![SNS](/images/5-Workshop/5.5-AI-inference/sns.png)
 
 8. Frontend nhận phản hồi từ API Gateway và hiển thị kết quả phân tích cho người dùng.
 
@@ -74,7 +74,7 @@ Confidence : 98.76%
 Status : Success
 ```
 
-![Frontend Result](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.5-AI-inference/frontend-result.png)
+![Frontend Result](/images/5-Workshop/5.5-AI-inference/frontend-result.png)
 
 ---
 

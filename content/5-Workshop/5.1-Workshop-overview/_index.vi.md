@@ -18,4 +18,4 @@ Trong workshop này, quá trình triển khai được chia làm 2 môi trườn
 - **"Client-side / Frontend"** đại diện cho ứng dụng Web App (viết bằng HTML/JS thuần) chạy trên trình duyệt của người dùng. Ứng dụng này sẽ gọi API để xác thực và đẩy ảnh trực tiếp lên đám mây.
 - **"Cloud-side / Backend"** là hệ sinh thái AWS hoạt động ngầm. Khi một hình ảnh lá cây được tải lên thành công, S3 sẽ tự động kích hoạt (trigger) hàm Lambda chứa mô hình học sâu. Lambda xử lý ảnh, phân loại lớp bệnh và ghi kết quả vào DynamoDB để Frontend lấy dữ liệu hiển thị về cho người dùng.
 
-![overview](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)

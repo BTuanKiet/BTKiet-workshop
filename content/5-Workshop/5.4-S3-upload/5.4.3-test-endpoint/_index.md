@@ -15,7 +15,7 @@ In this step, we will test the image upload functionality. As defined in the arc
 3. On the upload interface, select a sample image from your local machine and click **Upload**.
 4. Wait for the success message confirming that the upload process via the Pre-signed URL is complete.
 
-![upload-ui](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-upload/upload-ui.png)
+![upload-ui](/images/5-Workshop/5.4-S3-upload/upload-ui.png)
 
 #### Verify the Object in the S3 Bucket
 
@@ -26,4 +26,4 @@ Now, let's check if the image was successfully stored in the correct S3 bucket.
 3. Click on the name of your **Raw Images** bucket (the bucket designated for initial uploads).
 4. You should see the newly uploaded image file listed in the objects tab.
 
-![check bucket](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-upload/check-bucket.png)
+![check bucket](/images/5-Workshop/5.4-S3-upload/check-bucket.png)

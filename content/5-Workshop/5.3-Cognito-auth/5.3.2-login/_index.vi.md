@@ -11,11 +11,11 @@ pre: " <b> 5.3.2. </b> "
 1. Mở Terminal hoặc Command Prompt tại thư mục chứa source code Frontend của KTs Smart Agriculture.
 2. Chạy một local web server (Ví dụ dùng Node.js: gõ `npx http-server` hoặc dùng extension Live Server trên VS Code).
 
-![Khởi chạy Web](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/run-server.png)
+![Khởi chạy Web](/images/5-Workshop/5.3-Cognito-auth/run-server.png)
 
 3. Mở trình duyệt và truy cập vào địa chỉ `http://localhost:8080` (hoặc port tương ứng). Giao diện trang chủ của ứng dụng sẽ hiện ra.
 
-![Giao diện Web](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/web-home.png)
+![Giao diện Web](/images/5-Workshop/5.3-Cognito-auth/web-home.png)
 
 #### Đăng ký và Đăng nhập (Sign up & Sign in)
 
@@ -23,7 +23,7 @@ pre: " <b> 5.3.2. </b> "
 2. Nhập một địa chỉ email hợp lệ và mật khẩu theo đúng policy đã thiết lập ở bài trước. Nhấn Đăng ký.
 3. Chuyển sang form **Đăng nhập (Sign In)**, nhập lại thông tin vừa tạo và tiến hành đăng nhập vào hệ thống.
 
-![Đăng nhập](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/web-login.png)
+![Đăng nhập](/images/5-Workshop/5.3-Cognito-auth/web-login.png)
 
 #### Kiểm tra JWT Token trong trình duyệt
 
@@ -33,7 +33,7 @@ Mục đích cốt lõi của bước này là xác nhận Amazon Cognito đã t
 2. Chuyển sang tab **Console** hoặc **Application** (phần Local Storage).
 3. Bạn sẽ nhìn thấy một chuỗi ký tự mã hóa rất dài bắt đầu bằng `eyJ...`. Đây chính là **ID Token** và **Access Token** do Cognito cấp.
 
-![Token Console](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/console-token.png)
+![Token Console](/images/5-Workshop/5.3-Cognito-auth/console-token.png)
 
 {{% notice info %}}
 Token này đóng vai trò như một "tấm thẻ thông hành". Bất cứ khi nào bạn nhấn nút tải ảnh lên, đoạn mã Javascript trong file `app.js` sẽ tự động đính kèm Token này vào Header của HTTP Request để chứng minh danh tính với máy chủ AWS.

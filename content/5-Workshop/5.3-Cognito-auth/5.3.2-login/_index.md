@@ -11,11 +11,11 @@ pre: " <b> 5.3.2. </b> "
 1. Open your Terminal or Command Prompt in the directory containing the KTs Smart Agriculture Frontend source code.
 2. Start a local web server (For example, using Node.js: type `npx http-server` or use the Live Server extension in VS Code).
 
-![Launch Web](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/run-server.png)
+![Launch Web](/images/5-Workshop/5.3-Cognito-auth/run-server.png)
 
 3. Open a browser and navigate to `http://localhost:8080` (or the corresponding port). The application's homepage will appear.
 
-![Web Interface](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/web-home.png)
+![Web Interface](/images/5-Workshop/5.3-Cognito-auth/web-home.png)
 
 #### Sign Up & Sign In
 
@@ -23,7 +23,7 @@ pre: " <b> 5.3.2. </b> "
 2. Enter a valid email address and a password that meets the policy configured in the previous section. Click Sign Up.
 3. Switch to the **Sign In** form, enter the newly created credentials, and log into the system.
 
-![Login](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/web-login.png)
+![Login](/images/5-Workshop/5.3-Cognito-auth/web-login.png)
 
 #### Verify the JWT Token in the Browser
 
@@ -33,7 +33,7 @@ The core purpose of this step is to confirm that Amazon Cognito has successfully
 2. Navigate to the **Console** or **Application** tab (under Local Storage).
 3. You should see a very long encrypted string starting with `eyJ...`. This is the **ID Token** and **Access Token** issued by Cognito.
 
-![Token Console](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.3-Cognito-auth/console-token.png)
+![Token Console](/images/5-Workshop/5.3-Cognito-auth/console-token.png)
 
 {{% notice info %}}
 This token acts as a "boarding pass". Whenever you click the upload image button, the Javascript code in `app.js` will automatically attach this Token to the Header of the HTTP Request to prove your identity to the AWS backend.

@@ -18,7 +18,7 @@ First, we need to map the endpoint to a friendly DNS name within our VPC infrast
 
 1. Access the [Route 53 Hosted Zones console](https://us-east-1.console.aws.amazon.com/route53/v2/hostedzones?region=us-east-1#). Locate and select the Private Hosted Zone named `s3.us-east-1.amazonaws.com` (provisioned earlier during the environment setup).
 
-![hosted zone](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/hosted-zone.png)
+![hosted zone](/images/5-Workshop/5.4-S3-onprem/hosted-zone.png)
 
 2. Create the primary A-record by selecting **Create record** and configuring the routing parameters:
    - **Record name & type:** Leave as default (Type A).
@@ -27,7 +27,7 @@ First, we need to map the endpoint to a friendly DNS name within our VPC infrast
    - **Region:** Choose **US East (N. Virginia) [us-east-1]**.
    - **Choose endpoint:** Paste the Regional VPC Endpoint DNS name retrieved in section 4.3.
 
-![record1](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/record1.png)
+![record1](/images/5-Workshop/5.4-S3-onprem/record1.png)
 
 3. Instead of saving immediately, click **Add another record** to create a wildcard entry with identical routing configurations:
    - **Record name:** `*`
@@ -39,8 +39,8 @@ First, we need to map the endpoint to a friendly DNS name within our VPC infrast
 
    Click **Create records** to finalize both entries.
 
-![record 2](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/record2.png)
-![result](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/result.png)
+![record 2](/images/5-Workshop/5.4-S3-onprem/record2.png)
+![result](/images/5-Workshop/5.4-S3-onprem/result.png)
 
 #### 2. Establishing a Resolver Forwarding Rule
 
@@ -49,15 +49,15 @@ Route 53 Resolver Forwarding Rules act as a bridge, directing DNS queries from y
 1. In the Route 53 console, navigate to **Inbound endpoints** on the left panel.
 2. Select the ID of your active inbound endpoint.
 
-![Inbound endpoint](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-1.png)
+![Inbound endpoint](/images/5-Workshop/5.4-S3-onprem/route53-1.png)
 
 3. Note down the two provided IP addresses.
 
-![Ip addresses](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-2.png)
+![Ip addresses](/images/5-Workshop/5.4-S3-onprem/route53-2.png)
 
 4. Go to **Resolver** > **Rules**, and select **Create rule**.
 
-![Ip addresses](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-3.png)
+![Ip addresses](/images/5-Workshop/5.4-S3-onprem/route53-3.png)
 
 5. Define the rule specifications:
    - **Name:** `myS3Rule`
@@ -69,10 +69,10 @@ Route 53 Resolver Forwarding Rules act as a bridge, directing DNS queries from y
 
    Click **Submit** to deploy the rule.
 
-![create rule](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-4.png)
-![create rule](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-5.png)
-![create rule](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-6.png)
-![create rule](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/route53-7.png)
+![create rule](/images/5-Workshop/5.4-S3-onprem/route53-4.png)
+![create rule](/images/5-Workshop/5.4-S3-onprem/route53-5.png)
+![create rule](/images/5-Workshop/5.4-S3-onprem/route53-6.png)
+![create rule](/images/5-Workshop/5.4-S3-onprem/route53-7.png)
 
 #### 3. Validating the Architecture
 
@@ -80,7 +80,7 @@ Now we must verify that traffic from our simulated local network successfully re
 
 1. Use **Session Manager** to securely connect to the `Test-Interface-Endpoint` EC2 instance.
 
-![create rule](/fcj-workshop-huynhbuyenthanhtoan/images/5-Workshop/5.4-S3-onprem/test1.png)
+![create rule](/images/5-Workshop/5.4-S3-onprem/test1.png)
 
 2. Execute a DNS lookup using the `dig` utility:
    ```bash
