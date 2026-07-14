@@ -10,9 +10,9 @@ pre: " <b> 1.6. </b> "
 ### Mục tiêu tuần 6
 - Tối ưu hóa quy trình phát triển và lập trình trên đám mây bằng các công cụ hỗ trợ AI thông minh.
 - Thiết lập các "hàng rào bảo vệ" nâng cao cho quyền hạn người dùng để ngăn chặn rò rỉ hoặc leo thang đặc quyền.
-- Nắm vững cơ chế kiểm soát truy cập dựa trên ngữ cảnh thực tế (thời gian, địa chỉ IP, nhãn tài nguyên).
+- Tìm hiểu cơ chế kiểm soát truy cập dựa trên ngữ cảnh thực tế (thời gian, địa chỉ IP, nhãn tài nguyên).
 - Triển khai hệ thống giám sát tuân thủ bảo mật tập trung cho toàn bộ hạ tầng AWS.
-- Đảm bảo an toàn dữ liệu tuyệt đối bằng cách thiết lập các đường kết nối riêng tư giữa hạ tầng mạng và lưu trữ S3.
+- Đảm bảo an toàn dữ liệu bằng cách thiết lập các đường kết nối riêng tư giữa hạ tầng mạng và lưu trữ S3.
 
 ### Bảng tiến độ theo ngày
 
@@ -25,7 +25,7 @@ pre: " <b> 1.6. </b> "
 | Thứ 6 | VPC Endpoints cho S3: Cấu hình Gateway Endpoint và Interface Endpoint để truy cập S3 thông qua giải pháp AWS PrivateLink. | 29/05/2026 | 31/05/2026 | [AWS Documentation](https://000111.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 6
-- Nâng cao hiệu suất lập trình: Thành thạo sử dụng các trợ lý AI trong VS Code để viết unit test, gỡ lỗi và tối ưu hóa mã nguồn.
+- Nâng cao hiệu suất lập trình: Biết cách sử dụng các trợ lý AI trong VS Code để viết unit test, gỡ lỗi và tối ưu hóa mã nguồn.
 - Kiểm soát quyền hạn chặt chẽ: Hiểu rõ sự khác biệt giữa quyền hạn được gán và quyền hạn thực tế thông qua Permission Boundaries.
 - Bảo mật theo ngữ cảnh: Có khả năng thiết lập các rào cản bảo mật đa lớp dựa trên các điều kiện thực tế (IP văn phòng, giờ hành chính).
 - Quản trị bảo mật tập trung: Triển khai Dashboard của Security Hub theo dõi trạng thái tuân thủ bảo mật theo thời gian thực.

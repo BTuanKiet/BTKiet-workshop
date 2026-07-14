@@ -8,9 +8,11 @@ pre: " <b> 1.6. </b> "
 
 
 ### Week 6 Objectives
-- Improve cloud development productivity with AWS tooling in VS Code.
-- Strengthen permission boundaries and reduce the risk of privilege escalation.
-- Practice security monitoring and private connectivity to S3.
+- Optimize cloud development and coding workflows with intelligent AI-assisted tools.
+- Set up advanced permission guardrails for users to prevent privilege leakage or escalation.
+- Learn context-based access control mechanisms (time, IP address, resource tags).
+- Deploy a centralized security compliance monitoring system for the entire AWS infrastructure.
+- Ensure data security by establishing private connectivity between the network infrastructure and S3 storage.
 
 ### Daily progress table
 
@@ -22,14 +24,9 @@ pre: " <b> 1.6. </b> "
 | Thursday | AWS Security Hub: activated the service, ran automated security standard checks, and managed centralized findings. | 28/05/2026 | 28/05/2026 | [AWS Documentation](https://000018.awsstudygroup.com/) |
 | Friday | VPC Endpoints for S3: configured Gateway Endpoint and Interface Endpoint access to S3 using AWS PrivateLink. | 29/05/2026 | 31/05/2026 | [AWS Documentation](https://000111.awsstudygroup.com/) |
 
-### Main activities
-- Installed AWS Toolkit for VS Code and explored Amazon Q and CodeWhisperer for AI-assisted development.
-- Learned about IAM Permission Boundaries and applied them in practice.
-- Configured additional IAM conditions based on IP, time, and tag context.
-- Activated AWS Security Hub to monitor security posture from a centralized dashboard.
-- Configured VPC Endpoints and PrivateLink for private access to S3.
-
 ### Key achievements
-- Improved development efficiency with AI-assisted tools in the AWS ecosystem.
-- Better understood multi-layer security controls and context-based access restrictions.
-- Learned how to reduce public exposure of workloads using private connectivity patterns.
+- Improved coding productivity: learned to use AI assistants in VS Code to write unit tests, debug, and optimize source code.
+- Permission control: clearly understood the difference between assigned permissions and effective permissions through Permission Boundaries.
+- Context-based security: able to set up multi-layer security barriers based on real-world conditions (office IP, business hours).
+- Centralized security governance: deployed the Security Hub dashboard to monitor security compliance status in real time.
+- Secure hybrid connectivity: successfully deployed AWS PrivateLink, enabling secure data retrieval on S3 without going through the public internet.

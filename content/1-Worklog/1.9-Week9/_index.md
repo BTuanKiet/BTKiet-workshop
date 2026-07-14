@@ -8,9 +8,10 @@ pre: " <b> 1.9. </b> "
 
 
 ### Week 9 Objectives
-- Learn event-driven architecture using SQS and SNS.
-- Explore shared storage and high availability concepts.
-- Practice containerization and orchestration with Docker and ECS.
+- Learn and practice building event-driven architecture to allow services to operate independently.
+- Deploy high-performance shared storage solutions with Amazon EBS Multi-Attach.
+- Build high-availability systems for MySQL and Windows Failover Cluster.
+- Learn container technology (Docker) and orchestration through Amazon ECS.
 
 ### Daily progress table
 
@@ -23,13 +24,9 @@ pre: " <b> 1.9. </b> "
 | Friday | Docker: containerized a sample application, used Docker Compose to manage containers, and pushed the completed image to Amazon ECR. | 19/06/2026 | 19/06/2026 | [AWS Documentation](https://000015.awsstudygroup.com/) |
 | Saturday - Sunday | Amazon ECS: created a cluster and task definitions, configured an Application Load Balancer, and deployed a blue/green model. | 20/06/2026 | 21/06/2026 | [AWS Documentation](https://000016.awsstudygroup.com/) |
 
-### Main activities
-- Built a pub/sub messaging pattern with Amazon SQS and SNS.
-- Studied EBS Multi-Attach for shared storage and MySQL high-availability clusters.
-- Worked with Windows Failover Clustering and internal load balancers.
-- Packaged applications with Docker, pushed images to Amazon ECR, and deployed them on ECS.
-
 ### Key achievements
-- Better understood how event-driven systems improve decoupling and scalability.
-- Learned how to design highly available and fault-tolerant architectures.
-- Gained practical familiarity with container-based deployment workflows on AWS.
+- Flexible system design: understood how to combine SNS and SQS to queue messages and reduce complex direct routing logic.
+- Shared storage: successfully deployed a solution for secure data sharing between Linux/Windows servers using EBS Multi-Attach volumes.
+- Fault-tolerant system design: worked with the Windows Failover Cluster and combined Internal NLB synchronized with the MySQL Cluster.
+- Containerized deployment: learned the process of packaging source code with Docker and managing containers through Amazon ECS.
+- Operations automation: used Systems Manager and Incident Manager to set up response scenarios and reduce system incident resolution time (MTTR).

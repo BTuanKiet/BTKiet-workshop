@@ -8,8 +8,8 @@ pre: " <b> 1.11. </b> "
 
 
 ### Mục tiêu tuần 11
-- Nắm vững các mẫu thiết kế nâng cao và xây dựng các kiến trúc ứng dụng quy mô toàn cầu với Amazon DynamoDB.
-- Thành thạo kỹ năng điều phối các quy trình công việc phức tạp giữa các dịch vụ thông qua AWS Step Functions.
+- Tìm hiểu các mẫu thiết kế nâng cao và xây dựng các kiến trúc ứng dụng quy mô toàn cầu với Amazon DynamoDB.
+- Học kỹ năng điều phối các quy trình công việc phức tạp giữa các dịch vụ thông qua AWS Step Functions.
 - Thực hành tối ưu hóa hiệu suất hạ tầng lưu trữ đối với Amazon S3 và Amazon EFS.
 - Triển khai chiến lược tối ưu hóa chi phí dài hạn qua mô hình Savings Plans và Reserved Instances.
 - Xây dựng nền tảng phân tích chuyên sâu các dữ liệu liên quan đến chi phí bằng bộ đôi AWS Glue và Amazon Athena.
@@ -26,9 +26,8 @@ pre: " <b> 1.11. </b> "
 | Thứ 7 - CN | Phân tích dữ liệu chi phí nâng cao: Xây dựng hoàn chỉnh nền tảng thu thập và phân tích các báo cáo chi phí chuyên sâu qua AWS Glue và Amazon Athena. | 04/07/2026 | 05/07/2026 | [AWS Documentation](https://000040.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 11
-- Làm chủ NoSQL quy mô lớn: Thành thạo áp dụng các mẫu thiết kế nâng cao (Sparse GSI, Composite Keys) và có khả năng cấu hình Global Tables đạt độ trễ mili giây.
-- Điều phối Workflow chuyên nghiệp: Xây dựng thành công các State Machines phức tạp tích hợp khả năng xử lý các tác vụ song song đồng thời thông qua Step Functions.
-- Tối ưu hóa hạ tầng lưu trữ: Làm chủ kỹ thuật song song hóa luồng đọc/ghi trên Amazon S3 (giúp hệ thống đạt ngưỡng 55.000 request/s) và cấu hình tối ưu EFS đạt mức thông lượng trên 10 GiBps.
-- Quản trị tài chính chiến lược: Áp dụng hiệu quả các mô hình Savings Plans và Reserved Instances tuân thủ theo đúng bộ khung chuẩn AWS Well-Architected Framework.
-- Phân tích dữ liệu hệ thống: Hoàn thiện nền tảng tự động phân tích báo cáo chi phí chi tiết (CUR), giúp tổ chức chủ động truy vấn linh hoạt nhằm phục vụ công tác tối ưu hóa hạ tầng.
-
+- DynamoDB quy mô lớn: Áp dụng các mẫu thiết kế nâng cao (Sparse GSI, Composite Keys) và có khả năng cấu hình Global Tables đạt độ trễ mili giây.
+- Điều phối Workflow: Xây dựng thành công các State Machines phức tạp tích hợp khả năng xử lý các tác vụ song song đồng thời thông qua Step Functions.
+- Tối ưu hóa hạ tầng lưu trữ: Áp dụng được kỹ thuật song song hóa luồng đọc/ghi trên Amazon S3 (giúp hệ thống đạt ngưỡng 55.000 request/s) và cấu hình tối ưu EFS đạt mức thông lượng trên 10 GiBps.
+- Quản trị tài chính: Áp dụng hiệu quả các mô hình Savings Plans và Reserved Instances tuân thủ theo đúng bộ khung chuẩn AWS Well-Architected Framework.
+- Phân tích dữ liệu chi phí: Xây dựng nền tảng tự động phân tích báo cáo chi phí chi tiết (CUR), giúp tổ chức truy vấn linh hoạt phục vụ công tác tối ưu hóa hạ tầng.

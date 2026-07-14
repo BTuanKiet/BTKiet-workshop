@@ -8,10 +8,10 @@ pre: " <b> 1.9. </b> "
 
 
 ### Mục tiêu tuần 9
-- Nắm vững kiến thức và thực hành xây dựng kiến trúc hướng sự kiện (Event-driven) giúp các dịch vụ hoạt động độc lập.
+- Tìm hiểu và thực hành xây dựng kiến trúc hướng sự kiện (Event-driven) giúp các dịch vụ hoạt động độc lập.
 - Triển khai giải pháp lưu trữ chia sẻ hiệu năng cao với Amazon EBS Multi-Attach.
 - Xây dựng hệ thống có tính sẵn sàng cao (High Availability) cho MySQL và Windows Failover Cluster.
-- Làm chủ công nghệ Container (Docker) và điều phối qua hệ thống Amazon ECS.
+- Tìm hiểu công nghệ Container (Docker) và điều phối qua hệ thống Amazon ECS.
 
 ### Bảng tiến độ theo ngày
 
@@ -26,8 +26,7 @@ pre: " <b> 1.9. </b> "
 
 ### Kết quả đạt được tuần 9
 - Xây dựng hệ thống linh hoạt: Hiểu cách phối hợp bộ đôi SNS và SQS để xếp hàng tin nhắn, giảm tải triệt để các logic định tuyến trực tiếp phức tạp.
-- Làm chủ lưu trữ dùng chung: Triển khai thành công giải pháp chia sẻ dữ liệu an toàn giữa các máy chủ Linux/Windows bằng ổ đĩa EBS Multi-Attach.
+- Lưu trữ dùng chung: Triển khai thành công giải pháp chia sẻ dữ liệu an toàn giữa các máy chủ Linux/Windows bằng ổ đĩa EBS Multi-Attach.
 - Thiết kế hệ thống chịu lỗi: Vận hành tốt hệ thống Windows Failover Cluster và thực hiện kết hợp Internal NLB đồng bộ với cụm MySQL Cluster.
-- Hiện đại hóa với Container: Thành thạo quy trình đóng gói mã nguồn bằng Docker và quản lý, điều phối container linh hoạt qua dịch vụ Amazon ECS.
+- Hiện đại hóa với Container: Biết cách đóng gói mã nguồn bằng Docker và quản lý, điều phối container linh hoạt qua dịch vụ Amazon ECS.
 - Vận hành tự động: Sử dụng hiệu quả Systems Manager và Incident Manager để thiết lập kịch bản ứng phó, giảm thiểu thời gian xử lý sự cố hệ thống (MTTR).
-

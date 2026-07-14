@@ -9,7 +9,7 @@ pre: " <b> 1.5. </b> "
 
 ### Mục tiêu tuần 5
 - Tăng cường khả năng giám sát và bảo mật hạ tầng mạng thông qua phân tích lưu lượng.
-- Nắm vững các kỹ năng quản trị tài chính, ủy quyền thanh toán và quản lý hạn ngạch dịch vụ trên AWS.
+- Tìm hiểu các kỹ năng quản trị tài chính, ủy quyền thanh toán và quản lý hạn ngạch dịch vụ trên AWS.
 - Thực hiện các phương pháp tốt nhất (Best Practices) trong việc kiểm soát chi phí sử dụng tài nguyên.
 - Tự động hóa quy trình bảo vệ dữ liệu và triển khai hệ thống phát hiện bất thường cho các bản sao lưu.
 
@@ -26,9 +26,9 @@ pre: " <b> 1.5. </b> "
 
 ### Kết quả đạt được tuần 5
 - Minh bạch hóa lưu lượng mạng: Hiểu cách sử dụng VPC Flow Logs để theo dõi lưu lượng đến/đi mà không ảnh hưởng đến hiệu suất mạng, giúp xác định các hướng truy cập trái phép hoặc cấu hình sai tường lửa.
-- Quản trị tài chính an toàn: Thành thạo việc phân tách quyền hạn, cho phép nhân viên kế toán hoặc quản lý truy cập dữ liệu Billing mà không cần chia sẻ thông tin đăng nhập của tài khoản Root.
-- Chủ động quản lý tài nguyên: Biết cách sử dụng Service Quotas để lập kế hoạch mở rộng hạ tầng, tránh tình trạng bị gián đoạn do chạm ngưỡng giới hạn mặc định của AWS.
-- Tối ưu hóa chi phí chặt chẽ: Áp dụng thành công các Policy IAM để ngăn chặn việc khởi tạo tài nguyên lãng phí.
+- Quản trị tài chính an toàn: Biết cách phân tách quyền hạn, cho phép nhân viên kế toán hoặc quản lý truy cập dữ liệu Billing mà không cần chia sẻ thông tin đăng nhập của tài khoản Root.
+- Quản lý tài nguyên có kế hoạch: Biết cách sử dụng Service Quotas để lập kế hoạch mở rộng hạ tầng, tránh tình trạng bị gián đoạn do chạm ngưỡng giới hạn mặc định của AWS.
+- Tối ưu hóa chi phí: Áp dụng thành công các Policy IAM để ngăn chặn việc khởi tạo tài nguyên lãng phí.
 - Bảo vệ dữ liệu tự động: Triển khai giải pháp Amazon DLM giúp duy trì tính tuân thủ sao lưu dài hạn (trên 90 ngày) với chi phí tối ưu qua Snapshot Archive.
-- Phát hiện đe dọa sớm: Vận hành cơ chế phát hiện bất thường của CloudWatch, phát cảnh báo qua SNS khi có sự thay đổi đột biến trong dữ liệu bản sao lưu.
+- Phát hiện đe dọa sớm: Thiết lập cơ chế phát hiện bất thường của CloudWatch, phát cảnh báo qua SNS khi có sự thay đổi đột biến trong dữ liệu bản sao lưu.
 

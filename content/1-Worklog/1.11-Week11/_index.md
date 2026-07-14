@@ -8,9 +8,11 @@ pre: " <b> 1.11. </b> "
 
 
 ### Week 11 Objectives
-- Explore advanced DynamoDB design patterns and global-scale data access.
-- Learn workflow orchestration with AWS Step Functions.
-- Optimize storage performance and reduce cloud costs with practical strategies.
+- Learn advanced design patterns and build global-scale application architectures with Amazon DynamoDB.
+- Develop skills to orchestrate complex workflows between services through AWS Step Functions.
+- Practice optimizing storage infrastructure performance for Amazon S3 and Amazon EFS.
+- Apply long-term cost optimization strategies through Savings Plans and Reserved Instances models.
+- Build a platform for in-depth analysis of cost-related data using AWS Glue and Amazon Athena.
 
 ### Daily progress table
 
@@ -23,13 +25,9 @@ pre: " <b> 1.11. </b> "
 | Friday | Cost visualization: deployed account-level cost monitoring, reviewed SP and RI coverage rates, and exported custom EC2 report templates. | 03/07/2026 | 03/07/2026 | [AWS Documentation](https://000034.awsstudygroup.com/) |
 | Saturday - Sunday | Advanced cost data analysis: built a collection and analytics platform for detailed cost reports using AWS Glue and Amazon Athena. | 04/07/2026 | 05/07/2026 | [AWS Documentation](https://000040.awsstudygroup.com/) |
 
-### Main activities
-- Practiced advanced DynamoDB topics such as sparse GSIs, composite keys, and global tables.
-- Built workflow orchestration examples with AWS Step Functions.
-- Studied performance tuning for S3 and EFS.
-- Reviewed Savings Plans, Reserved Instances, and cost analysis using AWS Glue and Athena.
-
 ### Key achievements
-- Strengthened understanding of large-scale data design on AWS.
-- Learned how orchestration services simplify complex business workflows.
-- Developed a stronger sense of cost-aware architecture and cloud cost analysis.
+- Advanced DynamoDB patterns: learned to apply design patterns such as Sparse GSI and Composite Keys, and configured Global Tables to achieve millisecond latency.
+- Workflow orchestration: successfully built complex State Machines with parallel task processing through Step Functions.
+- Storage performance: applied read/write parallelization techniques on Amazon S3 (reaching 55,000 requests/s) and configured EFS to reach over 10 GiBps throughput.
+- Cost management: applied Savings Plans and Reserved Instances models following the AWS Well-Architected Framework.
+- Cost data analysis: built an automated platform for analyzing detailed cost reports (CUR), enabling flexible queries for infrastructure optimization.

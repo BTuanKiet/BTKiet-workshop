@@ -9,8 +9,8 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1
 - Kết nối, làm quen với môi trường làm việc và các thành viên hướng dẫn tại AWS Việt Nam.
-- Nắm vững kiến thức tổng quan về điện toán đám mây (Cloud) và các nhóm dịch vụ cơ bản của AWS.
-- Thành thạo việc quản lý tài khoản, kiểm soát chi phí và quản trị bảo mật truy cập.
+- Tìm hiểu tổng quan về điện toán đám mây (Cloud) và các nhóm dịch vụ cơ bản của AWS.
+- Học cách quản lý tài khoản, kiểm soát chi phí và quản trị bảo mật truy cập.
 - Thực hành triển khai hạ tầng cơ bản bao gồm mạng ảo, máy chủ và lưu trữ.
 
 ### Bảng tiến độ theo ngày
@@ -25,7 +25,7 @@ pre: " <b> 1.1. </b> "
 
 ### Kết quả đạt được tuần 1
 - Hiểu tổng quan về AWS: Nắm được các nhóm dịch vụ cốt lõi và hoàn tất thiết lập tài khoản an toàn.
-- Quản lý tài chính chủ động: Biết cách thiết lập AWS Budget để nhận cảnh báo khi chi phí vượt ngưỡng và sử dụng Cost Explorer để phân tích tài nguyên sử dụng.
+- Quản lý tài chính: Biết cách thiết lập AWS Budget để nhận cảnh báo khi chi phí vượt ngưỡng và sử dụng Cost Explorer để phân tích tài nguyên sử dụng.
 - Quản trị định danh (IAM): Hiểu và thực hành được việc tạo User/Group, áp dụng nguyên tắc đặc quyền tối thiểu thông qua IAM Policies.
 - Thiết lập hạ tầng mạng: Triển khai thành công Amazon VPC, hiểu về Subnet, Route Table và Internet Gateway.
 - Vận hành máy chủ ảo: Có khả năng tự khởi tạo, quản lý và truy cập từ xa vào các máy chủ Amazon EC2.

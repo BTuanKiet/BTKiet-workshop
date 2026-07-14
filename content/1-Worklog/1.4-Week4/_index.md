@@ -8,9 +8,10 @@ pre: " <b> 1.4. </b> "
 
 
 ### Week 4 Objectives
-- Learn the basics of serverless computing with AWS Lambda.
-- Practice tagging, resource grouping, and policy-based access control.
-- Use Systems Manager and Session Manager for centralized administration and remote access.
+- Learn serverless computing and process automation with AWS Lambda.
+- Develop skills to organize and manage resources at scale using Tags and Resource Groups.
+- Enhance centralized system administration and secure remote access through AWS Systems Manager.
+- Optimize infrastructure performance and cost through accurate resource right-sizing.
 
 ### Daily progress table
 
@@ -23,15 +24,9 @@ pre: " <b> 1.4. </b> "
 | Friday | SSM Session Manager: connected remotely to Linux and Windows servers, both public and private, without opening SSH/RDP ports. | 15/05/2026 | 15/05/2026 | [AWS Documentation](https://000058.awsstudygroup.com/) |
 | Saturday | EC2 Right Sizing: used CloudWatch Agent to collect memory data and Compute Optimizer to choose optimized EC2 configurations. | 16/05/2026 | 17/05/2026 | [AWS Documentation](https://000032.awsstudygroup.com/) |
 
-### Main activities
-- Built a Lambda function to automate EC2 start/stop tasks and reduce unnecessary costs.
-- Applied tags and resource groups to organize AWS resources effectively.
-- Used IAM resource tags and least-privilege policies to control access.
-- Practiced AWS Systems Manager tools such as Patch Manager and Run Command.
-- Tested Session Manager to connect to Linux and Windows instances without opening SSH/RDP ports.
-
 ### Key achievements
-- Understood how serverless automation can reduce operational effort and cost.
-- Learned to manage cloud resources more systematically using tags and groups.
-- Improved security and remote administration practices with Systems Manager.
-- Gained experience in right-sizing EC2 resources based on observed usage.
+- Operations automation: successfully deployed AWS Lambda to perform scheduled tasks such as starting/stopping servers on a schedule, saving costs for environments that don't need to run 24/7.
+- Systematic resource management: understood how to use Tags as a tool to classify resources by purpose, owner, or environment (Dev/Test/Prod). Used Resource Groups to perform batch operations on these resource groups.
+- Decentralized security: successfully applied IAM permission assignments based on Resource Tags, only allowing users to interact with resources that have matching tags.
+- Modern system management: used AWS Systems Manager to automate maintenance, software patching, and remote command execution without managing SSH keys, strengthening infrastructure security.
+- Resource optimization: learned how to use actual metrics (CPU, RAM) collected from servers to make informed Instance type change decisions (Right Sizing), avoiding wasted resources.

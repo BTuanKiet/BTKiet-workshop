@@ -8,9 +8,10 @@ pre: " <b> 1.7. </b> "
 
 
 ### Week 7 Objectives
-- Strengthen web application protection with AWS WAF.
-- Practice encryption and centralized credential management.
-- Apply data discovery and threat detection services.
+- Set up application defense layers to block common vulnerability exploits on web applications.
+- Deploy data encryption and centralized, secure credential management solutions.
+- Automate the discovery of sensitive data and monitor security threats across the entire system.
+- Systematize network firewall policy management at multi-account scale.
 
 ### Daily progress table
 
@@ -23,14 +24,10 @@ pre: " <b> 1.7. </b> "
 | Friday | AWS Firewall Manager: audited and centrally restricted security groups, then created security policies for SSH and RDP access. | 05/06/2026 | 05/06/2026 | [AWS Documentation](https://000097.awsstudygroup.com/) |
 | Saturday | AWS GuardDuty: studied threat detection and practiced responding to compromised EC2 or IAM credential scenarios. | 06/06/2026 | 07/06/2026 | [AWS Documentation](https://000098.awsstudygroup.com/) |
 
-### Main activities
-- Learned about AWS WAF rules and implemented managed and custom rules for a sample application.
-- Practiced KMS-based encryption for S3 objects and reviewed access logging with CloudTrail and Athena.
-- Enabled Amazon Macie to discover sensitive data in storage buckets.
-- Used AWS Secrets Manager to manage database credentials and rotate them securely.
-- Explored Firewall Manager and GuardDuty for centralized policy enforcement and threat detection.
-
 ### Key achievements
-- Improved understanding of web security controls and application-layer protection.
-- Learned how encryption and secrets management strengthen data protection.
-- Gained hands-on experience with monitoring and threat detection tools on AWS.
+- Application layer protection: used AWS WAF to filter malicious requests through managed and custom rule systems.
+- Secure data at rest: understood the data encryption process with AWS KMS and access trail control via CloudTrail/Athena.
+- Sensitive data control: used Amazon Macie to automatically identify PII data and monitor insecure bucket configurations.
+- Credential management: deployed Secrets Manager to eliminate plaintext passwords and implement automatic periodic rotation.
+- Centralized network governance: used Firewall Manager to ensure synchronized Security Group compliance across systems.
+- Proactive intrusion detection: set up Amazon GuardDuty to analyze system logs and detect abnormal behavior such as crypto mining and credential leaks.

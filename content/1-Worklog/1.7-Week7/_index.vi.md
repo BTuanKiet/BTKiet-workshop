@@ -25,10 +25,9 @@ pre: " <b> 1.7. </b> "
 | Thứ 7 | AWS GuardDuty: Tìm hiểu cơ chế phát hiện mối đe dọa. Thực hành xử lý các tình huống EC2 hoặc IAM credentials bị xâm nhập. | 06/06/2026 | 07/06/2026 | [AWS Documentation](https://000098.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 7
-- Bảo vệ tầng ứng dụng: Làm chủ AWS WAF nhằm lọc các request độc hại thông qua hệ thống managed rules và custom rules.
-- An toàn dữ liệu lưu trữ: Nắm vững quy trình mã hóa dữ liệu với AWS KMS và kiểm soát toàn diện vết truy cập qua CloudTrail/Athena.
+- Bảo vệ tầng ứng dụng: Sử dụng AWS WAF để lọc các request độc hại thông qua hệ thống managed rules và custom rules.
+- An toàn dữ liệu lưu trữ: Hiểu rõ quy trình mã hóa dữ liệu với AWS KMS và kiểm soát toàn diện vết truy cập qua CloudTrail/Athena.
 - Kiểm soát dữ liệu nhạy cảm: Sử dụng Amazon Macie tự động nhận diện dữ liệu PII và giám sát chặt chẽ các cấu hình bucket không an toàn.
-- Quản lý định danh thông minh: Triển khai Secrets Manager giúp loại bỏ mật khẩu lưu dưới dạng văn bản thuần túy và thực hiện cơ chế xoay vòng tự động định kỳ.
+- Quản lý định danh: Triển khai Secrets Manager giúp loại bỏ mật khẩu lưu dưới dạng văn bản thuần túy và thực hiện cơ chế xoay vòng tự động định kỳ.
 - Quản trị mạng tập trung: Sử dụng Firewall Manager đảm bảo tính tuân thủ đồng bộ của Security Groups trên quy mô hệ thống lớn.
-- Phát hiện xâm nhập chủ động: Vận hành Amazon GuardDuty phân tích hệ thống log giúp phát hiện nhanh các hành vi bất thường (đào tiền ảo, rò rỉ credentials).
-
+- Phát hiện xâm nhập: Vận hành Amazon GuardDuty phân tích hệ thống log giúp phát hiện nhanh các hành vi bất thường (đào tiền ảo, rò rỉ credentials).

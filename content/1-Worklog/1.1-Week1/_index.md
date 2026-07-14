@@ -8,9 +8,10 @@ pre: " <b> 1.1. </b> "
 
 
 ### Week 1 Objectives
-- Become familiar with the internship environment and the AWS Vietnam team.
-- Understand the basic concepts of cloud computing and the main AWS service groups.
-- Practice account creation, IAM, cost awareness, basic networking, EC2, and S3 hosting.
+- Connect and get familiar with the working environment and mentors at AWS Vietnam.
+- Gain a solid understanding of cloud computing fundamentals and the core AWS service groups.
+- Learn account management, cost control, and access security administration.
+- Practice deploying basic infrastructure including virtual networking, servers, and storage.
 
 ### Daily progress table
 
@@ -22,15 +23,10 @@ pre: " <b> 1.1. </b> "
 | Thursday | IAM administration: created users and groups, and configured permission policies. Basic networking: created and configured an Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/) |
 | Friday | Amazon EC2: launched a virtual server, managed a key pair, and connected via SSH. Amazon S3: created a bucket, stored objects, and configured static website hosting. | 25/04/2026 | 26/04/2026 | [AWS Documentation](https://000004.awsstudygroup.com/) |
 
-### Main activities
-- Reviewed internship rules and the AWS learning roadmap.
-- Created an AWS Free Tier account and explored the AWS Management Console.
-- Set up AWS Budgets, Cost Explorer, and learned about AWS Support.
-- Practiced IAM by creating users, groups, and permission policies.
-- Built a basic Amazon VPC, launched an EC2 instance, connected via SSH, and hosted a static website on Amazon S3.
-
 ### Key achievements
-- Gained a clear overview of the core AWS service categories and cloud fundamentals.
-- Learned how to monitor usage and control costs with Budgets and Cost Explorer.
-- Successfully deployed a simple networking and compute environment.
-- Built a basic static website on S3 and understood the relationship between compute, networking, and storage.
+- AWS overview: understood the core service groups and completed secure account setup.
+- Proactive financial management: learned how to set up AWS Budgets to receive cost threshold alerts and used Cost Explorer to analyze resource spending patterns.
+- Identity administration (IAM): understood and practiced creating Users and Groups, applying the principle of least privilege through IAM Policies.
+- Network infrastructure setup: successfully deployed an Amazon VPC and understood Subnets, Route Tables, and Internet Gateways.
+- Virtual server operations: gained the ability to independently launch, manage, and remotely access Amazon EC2 instances.
+- Object storage usage: learned how to use Amazon S3 to store data durably and deploy a basic static website on the platform.

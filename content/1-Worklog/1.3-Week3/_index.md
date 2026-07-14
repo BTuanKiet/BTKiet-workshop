@@ -8,9 +8,10 @@ pre: " <b> 1.3. </b> "
 
 
 ### Week 3 Objectives
-- Improve efficiency by using AWS CLI instead of only the console.
-- Understand NoSQL storage with DynamoDB and caching with ElastiCache.
-- Practice networking, content delivery, and edge computing concepts.
+- Improve administration efficiency by using AWS CLI instead of the Console.
+- Learn NoSQL storage with Amazon DynamoDB and optimize access speed with Amazon ElastiCache.
+- Practice advanced networking concepts such as multi-network connectivity and infrastructure security.
+- Deploy a global content delivery solution and process data at the network edge (Edge Computing).
 
 ### Daily progress table
 
@@ -23,15 +24,9 @@ pre: " <b> 1.3. </b> "
 | Friday | Amazon CloudFront: created a distribution, configured S3/EC2 origins, set cache behaviors, and customized error pages. | 08/05/2026 | 08/05/2026 | [AWS Documentation](https://000094.awsstudygroup.com/) |
 | Saturday | Edge Computing: studied edge locations and deployed a Lambda@Edge function to CloudFront for request processing at the edge. | 09/05/2026 | 10/05/2026 | [AWS Documentation](https://000130.awsstudygroup.com/) |
 
-### Main activities
-- Configured AWS CLI profiles and used CLI commands to manage S3, EC2, IAM, and VPC resources.
-- Studied Amazon DynamoDB and practiced CRUD operations using the console and Python SDK.
-- Explored ElastiCache for temporary high-speed data caching.
-- Worked on networking topics such as VPC peering, endpoints, and hybrid connectivity.
-- Built and deployed a CloudFront distribution and tested Lambda@Edge for edge processing.
-
 ### Key achievements
-- Became more confident using AWS CLI for day-to-day administration.
-- Understood the difference between NoSQL and cache-based data patterns.
-- Learned how to improve performance and reduce latency using CloudFront and edge functions.
-- Gained initial hands-on experience with edge computing concepts.
+- CLI administration: able to use AWS CLI to directly access AWS public APIs and write shell scripts to automate resource provisioning.
+- Large-scale data processing: understood how to work with DynamoDB for high I/O needs and unpredictable data structures. Learned how to use ElastiCache for fast temporary caching of small, highly volatile data.
+- Complex network design: able to set up private connectivity between VPCs via VPC Peering or centralized connectivity through Transit Gateway. Understood how to use VPC Endpoints to connect to services without going through the public internet.
+- Application delivery and acceleration: successfully deployed Amazon CloudFront to cache content at Edge servers, reducing latency and improving availability for web applications.
+- Edge programming: first hands-on experience deploying processing logic directly at Edge locations through Lambda@Edge, helping optimize response times for end users.

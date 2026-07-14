@@ -8,8 +8,8 @@ pre: " <b> 1.4. </b> "
 
 
 ### Mục tiêu tuần 4
-- Nắm vững kiến thức về điện toán không máy chủ (Serverless) và tự động hóa quy trình với AWS Lambda.
-- Thành thạo kỹ năng tổ chức và quản lý tài nguyên quy mô lớn bằng Tags và Resource Groups.
+- Tìm hiểu về điện toán không máy chủ (Serverless) và tự động hóa quy trình với AWS Lambda.
+- Học kỹ năng tổ chức và quản lý tài nguyên quy mô lớn bằng Tags và Resource Groups.
 - Nâng cao năng lực quản trị hệ thống tập trung và truy cập từ xa an toàn qua AWS Systems Manager.
 - Tối ưu hóa hiệu suất và chi phí hạ tầng thông qua việc định cỡ tài nguyên (Right Sizing) chính xác.
 

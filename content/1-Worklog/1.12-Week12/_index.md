@@ -24,13 +24,7 @@ pre: " <b> 1.12. </b> "
 | Thursday | Completed technical documentation: wrote up architecture decisions, configuration details, and key lessons learned from the project. | 09/07/2026 | 09/07/2026 | — |
 | Friday | Finalized the internship report: consolidated 12 weeks of worklog entries, project outcomes, and personal reflections into the final submission. | 10/07/2026 | 11/07/2026 | — |
 
-### Main activities
-- Completed final round of project revisions based on mentor feedback.
-- Audited all deployed AWS resources and optimized configurations.
-- Wrote and finalized technical documentation for the project.
-- Compiled and submitted the full internship report.
-
 ### Key achievements
-- Delivered a finalized project with a reviewed and optimized AWS architecture.
+- Delivered a finalized project with a reviewed and optimized AWS architecture based on mentor feedback.
 - Produced complete technical documentation covering all services and design decisions made throughout the internship.
 - Closed out 12 weeks with a structured report that accurately reflects the work done and the progress made.

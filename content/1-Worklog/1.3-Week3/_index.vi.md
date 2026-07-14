@@ -9,7 +9,7 @@ pre: " <b> 1.3. </b> "
 
 ### Mục tiêu tuần 3
 - Nâng cao hiệu suất quản trị thông qua giao diện dòng lệnh AWS CLI thay thế cho Console.
-- Nắm vững giải pháp lưu trữ NoSQL với Amazon DynamoDB và tối ưu hóa tốc độ truy cập bằng Amazon ElastiCache.
+- Tìm hiểu về lưu trữ NoSQL với Amazon DynamoDB và tối ưu hóa tốc độ truy cập bằng Amazon ElastiCache.
 - Thực hành các kiến thức mạng nâng cao như kết nối đa mạng và bảo mật hạ tầng.
 - Triển khai giải pháp phân phối nội dung toàn cầu và xử lý dữ liệu tại biên mạng (Edge Computing).
 
@@ -25,7 +25,7 @@ pre: " <b> 1.3. </b> "
 | Thứ 7 | Edge Computing: Tìm hiểu kiến thức về Edge Locations. Thực hành tạo và triển khai hàm Lambda@Edge lên CloudFront để xử lý yêu cầu người dùng tại biên mạng. | 09/05/2026 | 10/05/2026 | [AWS Documentation](https://000130.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 3
-- Tối ưu hóa quản trị: Thành thạo việc sử dụng AWS CLI để truy cập trực tiếp vào các API công khai của AWS, có khả năng viết shell script để tự động hóa việc triển khai tài nguyên.
+- Quản trị bằng CLI: Có thể sử dụng AWS CLI để truy cập trực tiếp vào các API công khai của AWS, viết shell script để tự động hóa việc triển khai tài nguyên.
 - Xử lý dữ liệu quy mô lớn: Hiểu cách vận hành DynamoDB cho các nhu cầu I/O cao và dữ liệu có cấu trúc không dự đoán được. Biết cách sử dụng ElastiCache để lưu trữ tạm thời nhanh cho lượng dữ liệu nhỏ, biến động cao.
 - Thiết kế mạng phức tạp: Có khả năng thiết lập kết nối riêng tư giữa các VPC qua VPC Peering hoặc kết nối tập trung qua Transit Gateway. Hiểu cách sử dụng VPC Endpoints để kết nối dịch vụ mà không cần thông qua Internet công cộng.
 - Phân phối và tăng tốc ứng dụng: Triển khai thành công Amazon CloudFront để lưu trữ tạm thời nội dung trên các máy chủ Edge, giúp giảm độ trễ và tăng tính sẵn sàng cho ứng dụng web.

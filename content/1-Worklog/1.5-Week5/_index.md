@@ -8,9 +8,10 @@ pre: " <b> 1.5. </b> "
 
 
 ### Week 5 Objectives
-- Improve network visibility and monitoring through VPC Flow Logs.
-- Practice billing access, service quota management, and cost governance.
-- Automate backup lifecycle and anomaly detection for EBS resources.
+- Strengthen network infrastructure monitoring and security through traffic analysis.
+- Learn financial administration, billing delegation, and service quota management on AWS.
+- Apply best practices for controlling resource usage costs.
+- Automate data protection workflows and deploy anomaly detection systems for backups.
 
 ### Daily progress table
 
@@ -23,14 +24,10 @@ pre: " <b> 1.5. </b> "
 | Friday | Data Lifecycle Manager (DLM): configured policies to automate EBS snapshot creation, retention, and deletion. | 22/05/2026 | 22/05/2026 | [AWS Documentation](https://000088.awsstudygroup.com/) |
 | Saturday | EBS Backup Anomaly Detection: built a serverless pipeline with Lambda, EventBridge, and CloudWatch to detect unusual snapshot changes. | 23/05/2026 | 24/05/2026 | [AWS Documentation](https://000089.awsstudygroup.com/) |
 
-### Main activities
-- Enabled VPC Flow Logs and used them to analyze network traffic patterns and security group behavior.
-- Learned how to delegate billing access to IAM users and groups safely.
-- Reviewed service quotas and applied policies to prevent over-provisioning.
-- Configured Amazon DLM to automate EBS snapshots and retention.
-- Built a simple serverless anomaly-detection workflow for backup changes.
-
 ### Key achievements
-- Improved awareness of network monitoring and operational visibility.
-- Learned practical governance practices for cost and service limits.
-- Understood how automation helps maintain backup compliance and operational resilience.
+- Network traffic transparency: understood how to use VPC Flow Logs to monitor inbound/outbound traffic without impacting network performance, helping identify unauthorized access or misconfigured firewalls.
+- Secure financial governance: learned how to separate permissions, allowing accounting staff or managers to access Billing data without needing to share root account credentials.
+- Proactive resource management: learned how to use Service Quotas to plan infrastructure scaling and avoid service interruptions caused by hitting AWS default limits.
+- Cost optimization: successfully applied IAM Policies to prevent wasteful resource provisioning.
+- Automated data protection: deployed Amazon DLM to maintain long-term backup compliance (over 90 days) at optimal cost through Snapshot Archive.
+- Early threat detection: set up CloudWatch's anomaly detection mechanism to send SNS alerts when sudden changes occur in backup data.

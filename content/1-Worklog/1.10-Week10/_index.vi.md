@@ -8,7 +8,7 @@ pre: " <b> 1.10. </b> "
 
 
 ### Mục tiêu tuần 10
-- Nắm vững thực hành hạ tầng dưới dạng mã (IaC) cho các ứng dụng container thông qua AWS CDK.
+- Tìm hiểu thực hành hạ tầng dưới dạng mã (IaC) cho các ứng dụng container thông qua AWS CDK.
 - Xây dựng và vận hành quy trình DevOps chuyên nghiệp với đường dẫn CI/CD hoàn toàn tự động.
 - Triển khai giải pháp lưu trữ lai kết nối hiệu quả giữa môi trường On-premise và đám mây.
 - Thiết lập hệ thống lưu trữ tập tin Windows hiệu suất cao sử dụng Amazon FSx.
@@ -25,9 +25,8 @@ pre: " <b> 1.10. </b> "
 | Thứ 7 - CN | Amazon FSx cho Windows: Khởi tạo Multi-AZ file system; Thiết lập tính năng file share, shadow copies và thực hiện cấu hình mở rộng thông lượng. | 27/06/2026 | 28/06/2026 | [AWS Documentation](https://000025.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 10
-- Làm chủ IaC: Thành thạo sử dụng AWS CDK giúp đồng bộ hóa và quản lý toàn bộ hệ thống hạ tầng hiện đại dưới dạng mã một cách nhất quán.
+- Hạ tầng dưới dạng mã: Biết cách sử dụng AWS CDK để đồng bộ hóa và quản lý toàn bộ hệ thống hạ tầng hiện đại một cách nhất quán.
 - Vận hành CI/CD chuyên nghiệp: Xây dựng thành công các đường dẫn tự động hóa quy trình triển khai mã nguồn trên EKS, ECS hoặc EC2 qua bộ công cụ CodeSuite.
 - Lưu trữ lai linh hoạt: Triển khai thành công File Storage Gateway giúp dữ liệu từ hạ tầng cục bộ (On-premise) đồng bộ liền mạch sang Amazon S3.
 - Hệ thống tệp Windows hiện đại: Thiết lập thành công kiến trúc Amazon FSx có tính sẵn sàng cao, hỗ trợ các cơ chế chống trùng lặp dữ liệu nâng cao.
 - Giám sát và bảo mật Pipeline: Sử dụng hiệu quả CloudWatch Events, KMS và X-Ray phục vụ cho công tác đo lường hiệu năng và tăng cường bảo mật cho pipeline.
-

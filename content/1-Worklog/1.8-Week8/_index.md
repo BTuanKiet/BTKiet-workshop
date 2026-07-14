@@ -8,9 +8,11 @@ pre: " <b> 1.8. </b> "
 
 
 ### Week 8 Objectives
-- Automate OS patching and image building for EC2.
-- Practice user authentication and identity management with Amazon Cognito.
-- Strengthen S3 security and backup strategies.
+- Automate OS patching processes to minimize security vulnerabilities and operational burden.
+- Deploy a centralized authentication and identity management solution for web and mobile applications.
+- Apply security best practices to protect data on Amazon S3.
+- Establish a comprehensive data protection mechanism and automate resource recovery.
+- Learn advanced network connectivity methods, from point-to-point connections to centralized network governance models.
 
 ### Daily progress table
 
@@ -23,14 +25,9 @@ pre: " <b> 1.8. </b> "
 | Friday | VPC Peering: created direct private IP connectivity between VPCs and enabled cross-peer DNS resolution. | 12/06/2026 | 12/06/2026 | [AWS Documentation](https://000019.awsstudygroup.com/) |
 | Saturday - Sunday | AWS Transit Gateway: deployed a hub-and-spoke model to connect multiple VPCs through a single centralized gateway. | 13/06/2026 | 14/06/2026 | [AWS Documentation](https://000020.awsstudygroup.com/) |
 
-### Main activities
-- Built an EC2 Image Builder pipeline to create patched AMIs automatically.
-- Learned about Amazon Cognito User Pools and Identity Pools for customer authentication.
-- Applied S3 security best practices, including public access blocking and endpoint policies.
-- Created backup plans with AWS Backup for EBS, RDS, and DynamoDB.
-- Explored VPC Peering and Transit Gateway to simplify multi-VPC networking.
-
 ### Key achievements
-- Improved understanding of secure system build and patch management.
-- Learned how identity services can support modern web and mobile applications.
-- Understood the value of centralized backup and network connectivity design.
+- Secure system operations: used EC2 Image Builder combined with Systems Manager to automate AMI packaging and patch updates.
+- Identity solution: clearly understood how to use Cognito User Pools and Identity Pools for managing and authorizing customer access.
+- Tightened storage security: successfully applied advanced security guardrails to S3 through AWS Config policies and VPC Endpoint Policies.
+- Automated digital asset protection: deployed AWS Backup to centralize the entire backup workflow and ensure rapid data recovery.
+- Network infrastructure: successfully set up VPC Peering for simple connections and deployed AWS Transit Gateway to simplify multi-VPC network architecture.
