@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-# Self-Assessment
 
 Throughout my internship, I had the opportunity to work in a professional environment where I applied the knowledge acquired at university to real-world projects while learning new technologies and development practices.
 

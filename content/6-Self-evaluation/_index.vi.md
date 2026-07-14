@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-# Tự đánh giá
 
 Trong thời gian thực tập, em có cơ hội làm việc trong môi trường chuyên nghiệp, được áp dụng những kiến thức đã học tại trường vào công việc thực tế, đồng thời tiếp cận nhiều công nghệ và quy trình phát triển hiện đại.
 

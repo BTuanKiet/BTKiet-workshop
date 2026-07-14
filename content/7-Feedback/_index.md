@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-# Sharing and Feedback
 
 Participating in the First Cloud AI Journey (FCAJ) internship program has been a valuable experience that allowed me to apply my academic knowledge in a practical environment while gaining exposure to Cloud Computing and AWS technologies.
 

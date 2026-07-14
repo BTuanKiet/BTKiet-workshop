@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 7. </b> "
 ---
 
-# Chia sẻ và góp ý
 
 Tham gia chương trình thực tập First Cloud AI Journey (FCAJ) là một trải nghiệm ý nghĩa, giúp em có cơ hội vận dụng những kiến thức đã học vào thực tế, đồng thời tiếp cận với các công nghệ Cloud Computing và AWS.
 
