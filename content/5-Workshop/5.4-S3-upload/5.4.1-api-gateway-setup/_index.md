@@ -11,9 +11,7 @@ To prepare for the secure image upload flow, the KTS Smart Agriculture system wi
 This mechanism requires two main components:
 
 - **AWS Lambda Function:** Responsible for communicating with Amazon S3 to generate a time-limited `PUT` URL.
-- **Amazon API Gateway:** Acts as the communication gateway for the Frontend to invoke the Lambda function, protected by a **Cognito Authorizer** to ensure only authenticated users can request upload URLs.
-
-> These two resources — `kts-smart-agri-presign-url-prod` (Lambda) and `kts-smart-agri-api-prod` (API Gateway) — were already created in [Step 9 and Step 10 of the Implementation guide](/5-workshop/5.3-implementation/). This section explains how they work together in the upload flow.
+- **Amazon API Gateway (`kts-smart-agri-api-prod`):** Acts as the communication gateway for the Frontend to invoke the Lambda function, protected by a **Cognito Authorizer** to ensure only authenticated users (with a valid JWT token) can request upload URLs.
 
 ![Pre-signed URL Flow](/images/5-Workshop/5.4-S3-upload/presign-flow.png)
 
@@ -26,22 +24,30 @@ This mechanism requires two main components:
 
 ![Lambda Setup](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)
 
-#### Step 2: Configure Amazon API Gateway
-
-Instead of having the Frontend call Lambda directly, we use API Gateway to manage traffic and security. The **CognitoAuthorizer** validates the JWT token from the `Authorization` header against the `kts-smart-agri-user-pool-prod` user pool before allowing the request through.
+#### Step 2: Create a REST API and Cognito Authorizer
 
 1. Navigate to the **Amazon API Gateway Console** and choose to build a new **REST API** named `kts-smart-agri-api-prod`.
-2. In the API management interface, click **Create Resource** and set the path to `/presign`.
+2. In the left panel, click **Authorizers** → **Create authorizer**.
+3. Configure the authorizer as follows:
+   - **Name:** `CognitoAuthorizer`
+   - **Type:** Cognito
+   - **Cognito user pool:** select `kts-smart-agri-user-pool-prod`
+   - **Token source:** `Authorization`
+4. Click **Create authorizer**.
+5. To verify, click **Test authorizer** and paste a valid JWT token from Cognito — you should see a `200` response with the decoded claims.
 
-![Create Resource](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+![Create Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/api-resource.png)
 
-3. Select the newly created `/images/presign` resource, click **Create Method**, and choose the **POST** method.
-4. For the Integration type, select **Lambda Function** and type in the function name `kts-smart-agri-presign-url-prod` created in Step 1. Click Save.
-5. Under **Method Request**, set **Authorization** to `CognitoAuthorizer`.
+#### Step 3: Configure Resources and Methods
+
+1. In the API management interface, click **Create Resource** and set the path to `/images`, then create a child resource `/presign` under it (full path: `/images/presign`).
+2. Select the `/images/presign` resource, click **Create Method**, and choose the **POST** method.
+3. For the Integration type, select **Lambda Function** and enter the function name `kts-smart-agri-presign-url-prod` created in Step 1. Click Save.
+4. Under **Method Request**, set **Authorization** to `CognitoAuthorizer`.
 
 ![Lambda Integration](/images/5-Workshop/5.4-S3-upload/api-integration.png)
 
-#### Step 3: Deploy the API
+#### Step 4: Deploy the API
 
 1. Click the **Deploy API** button on the toolbar.
 2. Create a new Stage named `prod` and proceed with the deployment.

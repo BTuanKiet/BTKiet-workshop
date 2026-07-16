@@ -11,9 +11,7 @@ pre: " <b> 5.4.1. </b> "
 Cơ chế này yêu cầu hai thành phần chính:
 
 - **Hàm AWS Lambda:** Đảm nhiệm việc giao tiếp với Amazon S3 để tạo ra một đường dẫn `PUT` có giới hạn thời gian.
-- **Amazon API Gateway:** Đóng vai trò là cửa ngõ giao tiếp để Frontend gọi hàm Lambda trên, được bảo vệ bởi **Cognito Authorizer** để đảm bảo chỉ người dùng đã xác thực mới có thể yêu cầu URL tải ảnh.
-
-> Hai tài nguyên này — `kts-smart-agri-presign-url-prod` (Lambda) và `kts-smart-agri-api-prod` (API Gateway) — đã được tạo ở [Bước 9 và Bước 10 trong hướng dẫn Triển khai](/5-workshop/5.3-implementation/). Phần này giải thích cách chúng phối hợp với nhau trong luồng tải ảnh.
+- **Amazon API Gateway (`kts-smart-agri-api-prod`):** Đóng vai trò là cửa ngõ giao tiếp để Frontend gọi hàm Lambda trên, được bảo vệ bởi **Cognito Authorizer** để đảm bảo chỉ người dùng đã xác thực (có JWT token hợp lệ) mới có thể yêu cầu URL tải ảnh.
 
 ![Luồng Pre-signed URL](/images/5-Workshop/5.4-S3-upload/presign-flow.png)
 
@@ -26,22 +24,30 @@ Cơ chế này yêu cầu hai thành phần chính:
 
 ![Cấu hình Lambda](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)
 
-#### Bước 2: Cấu hình Amazon API Gateway
-
-Thay vì để Frontend gọi thẳng vào Lambda, chúng ta dùng API Gateway để quản lý lưu lượng và bảo mật. **CognitoAuthorizer** sẽ xác minh JWT token từ header `Authorization` với user pool `kts-smart-agri-user-pool-prod` trước khi cho phép request đi qua.
+#### Bước 2: Tạo REST API và Cognito Authorizer
 
 1. Truy cập vào **Amazon API Gateway Console**, chọn tạo một **REST API** mới tên `kts-smart-agri-api-prod`.
-2. Tại giao diện quản lý API, chọn **Create Resource** và đặt tên đường dẫn là `/presign`.
+2. Ở panel bên trái, nhấn **Authorizers** → **Create authorizer**.
+3. Cấu hình authorizer như sau:
+   - **Name:** `CognitoAuthorizer`
+   - **Type:** Cognito
+   - **Cognito user pool:** chọn `kts-smart-agri-user-pool-prod`
+   - **Token source:** `Authorization`
+4. Nhấn **Create authorizer**.
+5. Để kiểm tra, nhấn **Test authorizer** và dán một JWT token hợp lệ từ Cognito — bạn sẽ thấy phản hồi `200` kèm theo các claims đã được giải mã.
 
-![Tạo Resource](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+![Tạo Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/api-resource.png)
 
-3. Chọn resource `/images/presign` vừa tạo, nhấp vào **Create Method** và chọn phương thức **POST**.
-4. Ở phần Integration type, chọn **Lambda Function** và nhập tên hàm `kts-smart-agri-presign-url-prod` vừa tạo ở Bước 1. Nhấn Save.
-5. Trong **Method Request**, đặt **Authorization** thành `CognitoAuthorizer`.
+#### Bước 3: Cấu hình Resources và Methods
+
+1. Tại giao diện quản lý API, nhấn **Create Resource** và đặt tên đường dẫn là `/images`, sau đó tạo thêm resource con `/presign` bên dưới (đường dẫn đầy đủ: `/images/presign`).
+2. Chọn resource `/images/presign` vừa tạo, nhấp vào **Create Method** và chọn phương thức **POST**.
+3. Ở phần Integration type, chọn **Lambda Function** và nhập tên hàm `kts-smart-agri-presign-url-prod` vừa tạo ở Bước 1. Nhấn Save.
+4. Trong **Method Request**, đặt **Authorization** thành `CognitoAuthorizer`.
 
 ![Kết nối Lambda](/images/5-Workshop/5.4-S3-upload/api-integration.png)
 
-#### Bước 3: Triển khai API (Deploy)
+#### Bước 4: Triển khai API (Deploy)
 
 1. Nhấp vào nút **Deploy API** trên thanh công cụ.
 2. Tạo một Stage mới tên là `prod` và tiến hành triển khai.
