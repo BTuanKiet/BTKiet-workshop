@@ -19,7 +19,7 @@ Cơ chế này yêu cầu hai thành phần chính:
 
 1. Truy cập vào [AWS Lambda Console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1) và chọn **Create function**.
 2. Đặt tên hàm là `kts-smart-agri-presign-url-prod`, chọn Runtime là **Python 3.10** (hoặc mới hơn).
-3. Đảm bảo Execution Role của Lambda đã được đính kèm Policy cấp quyền `s3:PutObject` vào bucket `kts-smart-agri-images-<ACCOUNT_ID>-prod`.
+3. Đảm bảo Execution Role của Lambda đã được đính kèm Policy cấp quyền `s3:PutObject` vào bucket `kts-smartagri-dev-raw-images`.
 4. Viết mã nguồn Python sử dụng thư viện `boto3` để sinh URL với hàm `generate_presigned_url`. Nhấn **Deploy** để lưu mã nguồn.
 
 ![Cấu hình Lambda](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)

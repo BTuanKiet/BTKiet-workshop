@@ -19,7 +19,7 @@ This mechanism requires two main components:
 
 1. Navigate to the [AWS Lambda Console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1) and click **Create function**.
 2. Name the function `kts-smart-agri-presign-url-prod`, and select **Python 3.10** (or newer) as the Runtime.
-3. Ensure the Lambda's Execution Role has a Policy attached granting `s3:PutObject` permission to the `kts-smart-agri-images-<ACCOUNT_ID>-prod` bucket.
+3. Ensure the Lambda's Execution Role has a Policy attached granting `s3:PutObject` permission to the `kts-smartagri-dev-raw-images` bucket.
 4. Write the Python code using the `boto3` library to generate the URL with the `generate_presigned_url` method. Click **Deploy** to save the code.
 
 ![Lambda Setup](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)
