@@ -19,35 +19,41 @@ This mechanism requires two main components:
 
 1. Navigate to the [AWS Lambda Console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1) and click **Create function**.
 2. Name the function `kts-smart-agri-presign-url-prod`, and select **Python 3.10** (or newer) as the Runtime.
-3. Ensure the Lambda's Execution Role has a Policy attached granting `s3:PutObject` permission to the `kts-smartagri-dev-raw-images` bucket.
+3. Ensure the Lambda's Execution Role has a Policy attached granting `s3:PutObject` permission to the `kts-smart-agri-images-<ACCOUNT_ID>-prod` bucket.
 4. Write the Python code using the `boto3` library to generate the URL with the `generate_presigned_url` method. Click **Deploy** to save the code.
 
 ![Lambda Setup](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)
 
-#### Step 2: Create a REST API and Cognito Authorizer
+#### Step 2: Create a REST API
 
 1. Navigate to the **Amazon API Gateway Console** and choose to build a new **REST API** named `kts-smart-agri-api-prod`.
-2. In the left panel, click **Authorizers** → **Create authorizer**.
-3. Configure the authorizer as follows:
+
+#### Step 3: Create a Cognito Authorizer
+
+1. In the left panel of your API, click **Authorizers** → **Create authorizer**.
+2. Configure the authorizer as follows:
    - **Name:** `CognitoAuthorizer`
    - **Type:** Cognito
    - **Cognito user pool:** select `kts-smart-agri-user-pool-prod`
    - **Token source:** `Authorization`
-4. Click **Create authorizer**.
-5. To verify, click **Test authorizer** and paste a valid JWT token from Cognito — you should see a `200` response with the decoded claims.
+3. Click **Create authorizer**.
+4. To verify, click **Test authorizer** and paste a valid JWT token from Cognito — you should see a `200` response with the decoded claims.
 
-![Create Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+![Tạo Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/create_cognito_authorizer_api_gateway.png)
 
-#### Step 3: Configure Resources and Methods
+#### Step 4: Configure Resources and Methods
 
 1. In the API management interface, click **Create Resource** and set the path to `/images`, then create a child resource `/presign` under it (full path: `/images/presign`).
+
+![Create Resource](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+
 2. Select the `/images/presign` resource, click **Create Method**, and choose the **POST** method.
 3. For the Integration type, select **Lambda Function** and enter the function name `kts-smart-agri-presign-url-prod` created in Step 1. Click Save.
 4. Under **Method Request**, set **Authorization** to `CognitoAuthorizer`.
 
 ![Lambda Integration](/images/5-Workshop/5.4-S3-upload/api-integration.png)
 
-#### Step 4: Deploy the API
+#### Step 5: Deploy the API
 
 1. Click the **Deploy API** button on the toolbar.
 2. Create a new Stage named `prod` and proceed with the deployment.

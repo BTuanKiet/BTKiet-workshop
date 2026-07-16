@@ -19,35 +19,41 @@ Cơ chế này yêu cầu hai thành phần chính:
 
 1. Truy cập vào [AWS Lambda Console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1) và chọn **Create function**.
 2. Đặt tên hàm là `kts-smart-agri-presign-url-prod`, chọn Runtime là **Python 3.10** (hoặc mới hơn).
-3. Đảm bảo Execution Role của Lambda đã được đính kèm Policy cấp quyền `s3:PutObject` vào bucket `kts-smartagri-dev-raw-images`.
+3. Đảm bảo Execution Role của Lambda đã được đính kèm Policy cấp quyền `s3:PutObject` vào bucket `kts-smart-agri-images-<ACCOUNT_ID>-prod`.
 4. Viết mã nguồn Python sử dụng thư viện `boto3` để sinh URL với hàm `generate_presigned_url`. Nhấn **Deploy** để lưu mã nguồn.
 
 ![Cấu hình Lambda](/images/5-Workshop/5.4-S3-upload/lambda-presign.png)
 
-#### Bước 2: Tạo REST API và Cognito Authorizer
+#### Bước 2: Tạo REST API
 
 1. Truy cập vào **Amazon API Gateway Console**, chọn tạo một **REST API** mới tên `kts-smart-agri-api-prod`.
-2. Ở panel bên trái, nhấn **Authorizers** → **Create authorizer**.
-3. Cấu hình authorizer như sau:
+
+#### Bước 3: Tạo Cognito Authorizer
+
+1. Ở panel bên trái của API vừa tạo, nhấn **Authorizers** → **Create authorizer**.
+2. Cấu hình authorizer như sau:
    - **Name:** `CognitoAuthorizer`
    - **Type:** Cognito
    - **Cognito user pool:** chọn `kts-smart-agri-user-pool-prod`
    - **Token source:** `Authorization`
-4. Nhấn **Create authorizer**.
-5. Để kiểm tra, nhấn **Test authorizer** và dán một JWT token hợp lệ từ Cognito — bạn sẽ thấy phản hồi `200` kèm theo các claims đã được giải mã.
+3. Nhấn **Create authorizer**.
+4. Để kiểm tra, nhấn **Test authorizer** và dán một JWT token hợp lệ từ Cognito — bạn sẽ thấy phản hồi `200` kèm theo các claims đã được giải mã.
 
-![Tạo Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+![Tạo Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/create_cognito_authorizer_api_gateway.png)
 
-#### Bước 3: Cấu hình Resources và Methods
+#### Bước 4: Cấu hình Resources và Methods
 
 1. Tại giao diện quản lý API, nhấn **Create Resource** và đặt tên đường dẫn là `/images`, sau đó tạo thêm resource con `/presign` bên dưới (đường dẫn đầy đủ: `/images/presign`).
+
+![Tạo Resource](/images/5-Workshop/5.4-S3-upload/api-resource.png)
+
 2. Chọn resource `/images/presign` vừa tạo, nhấp vào **Create Method** và chọn phương thức **POST**.
 3. Ở phần Integration type, chọn **Lambda Function** và nhập tên hàm `kts-smart-agri-presign-url-prod` vừa tạo ở Bước 1. Nhấn Save.
 4. Trong **Method Request**, đặt **Authorization** thành `CognitoAuthorizer`.
 
 ![Kết nối Lambda](/images/5-Workshop/5.4-S3-upload/api-integration.png)
 
-#### Bước 4: Triển khai API (Deploy)
+#### Bước 5: Triển khai API (Deploy)
 
 1. Nhấp vào nút **Deploy API** trên thanh công cụ.
 2. Tạo một Stage mới tên là `prod` và tiến hành triển khai.
