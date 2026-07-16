@@ -51,7 +51,7 @@ This mechanism requires two main components:
 3. For the Integration type, select **Lambda Function** and enter the function name `kts-smart-agri-presign-url-prod` created in Step 1. Click Save.
 4. Under **Method Request**, set **Authorization** to `CognitoAuthorizer`.
 
-![Lambda Integration](/images/5-Workshop/5.4-S3-upload/)
+![Lambda Integration](/images/5-Workshop/5.4-S3-upload/api-integration.png)
 
 #### Step 5: Deploy the API
 
