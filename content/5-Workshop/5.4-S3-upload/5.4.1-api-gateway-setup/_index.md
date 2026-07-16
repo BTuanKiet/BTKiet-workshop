@@ -39,7 +39,7 @@ This mechanism requires two main components:
 3. Click **Create authorizer**.
 4. To verify, click **Test authorizer** and paste a valid JWT token from Cognito — you should see a `200` response with the decoded claims.
 
-![Tạo Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/create_cognito_authorizer_api_gateway.png)
+![Create Cognito Authorizer](/images/5-Workshop/5.4-S3-upload/create_cognito_authorizer_api_gateway.png)
 
 #### Step 4: Configure Resources and Methods
 
