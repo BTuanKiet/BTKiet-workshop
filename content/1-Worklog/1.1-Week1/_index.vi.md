@@ -17,11 +17,11 @@ pre: " <b> 1.1. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | [Nội quy - Hướng dẫn](https://hcm-rules.awsfcaj.com/vi/) |
-| Thứ 3 | Tìm hiểu tổng quan về Cloud. Thực hành các bước tạo tài khoản AWS Free Tier. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/vi/) |
-| Thứ 4 | Quản lý chi phí: Thiết lập AWS Budgets, sử dụng Cost Explorer. Tìm hiểu về dịch vụ AWS Support và các gói hỗ trợ. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/vi/) |
-| Thứ 5 | Quản trị IAM: Tạo User, Group và thiết lập chính sách phân quyền (Policies). Mạng cơ bản: Khởi tạo và cấu hình Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/vi/) |
-| Thứ 6 | Amazon EC2: Khởi tạo máy chủ ảo, quản lý Key Pair và kết nối SSH. Amazon S3: Tạo bucket, lưu trữ và cấu hình hosting website tĩnh. | 25/04/2026 | 26/04/2026 | [AWS Documentation](https://000004.awsstudygroup.com/vi/) |
+| Thứ 2 | - Tìm hiểu nội quy, quy định tại đơn vị thực tập. | 20/04/2026 | 20/04/2026 | [Nội quy - Hướng dẫn](https://hcm-rules.awsfcaj.com/vi/) |
+| Thứ 3 | - Tìm hiểu tổng quan về Cloud và thực hành các bước tạo tài khoản AWS Free Tier. | 21/04/2026 | 21/04/2026 | [AWS Cloud Overview](https://000001.awsstudygroup.com/vi/) |
+| Thứ 4 | - Quản lý chi phí với AWS Budgets và Cost Explorer. Tìm hiểu về dịch vụ AWS Support và các gói hỗ trợ. | 22/04/2026 | 22/04/2026 | [AWS Budgets & Cost Explorer](https://000007.awsstudygroup.com/vi/) |
+| Thứ 5 | - Thực hành IAM: tạo User, Group và thiết lập chính sách phân quyền (Policies).<br>- Khởi tạo và cấu hình Amazon VPC, Subnet, Route Table và Internet Gateway. | 23/04/2026 | 24/04/2026 | [IAM](https://000002.awsstudygroup.com/vi/)<br>[Amazon VPC](https://000002.awsstudygroup.com/vi/) |
+| Thứ 6 | - Khởi tạo máy chủ ảo Amazon EC2, quản lý Key Pair và kết nối SSH.<br>- Tạo Amazon S3 bucket, lưu trữ và cấu hình hosting website tĩnh. | 25/04/2026 | 26/04/2026 | [Amazon EC2](https://000004.awsstudygroup.com/vi/)<br>[Amazon S3](https://000004.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 1
 - Hiểu tổng quan về AWS: Nắm được các nhóm dịch vụ cốt lõi và hoàn tất thiết lập tài khoản an toàn.
@@ -30,4 +30,3 @@ pre: " <b> 1.1. </b> "
 - Thiết lập hạ tầng mạng: Triển khai thành công Amazon VPC, hiểu về Subnet, Route Table và Internet Gateway.
 - Vận hành máy chủ ảo: Có khả năng tự khởi tạo, quản lý và truy cập từ xa vào các máy chủ Amazon EC2.
 - Sử dụng lưu trữ đối tượng: Biết cách sử dụng Amazon S3 để lưu trữ dữ liệu bền bỉ và triển khai một website tĩnh cơ bản trên nền tảng này.
-

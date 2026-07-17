@@ -17,12 +17,10 @@ pre: " <b> 1.2. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Amazon RDS: Tìm hiểu về OLTP, các loại DB engine hỗ trợ và tính năng quản lý tự động (backup, patching). | 27/04/2026 | 27/04/2026 | [AWS Documentation](https://000005.awsstudygroup.com/vi/) |
-| Thứ 3 | Amazon Lightsail: Thực hành triển khai WordPress, PrestaShop và tối ưu hóa chi phí trên Lightsail. | 28/04/2026 | 28/04/2026 | [AWS Documentation](https://000045.awsstudygroup.com/vi/) |
-| Thứ 4 | Lightsail Containers: Tìm hiểu cách xây dựng và triển khai ứng dụng container hóa từ Docker image lên Lightsail. | 29/04/2026 | 29/04/2026 | [AWS Documentation](https://000046.awsstudygroup.com/vi/) |
-| Thứ 5 | EC2 Auto Scaling: Thiết lập Launch Template, Load Balancer và cấu hình Auto Scaling Group (ASG) cho ứng dụng FCJ Management. | 30/04/2026 | 30/04/2026 | [AWS Documentation](https://000006.awsstudygroup.com/vi/) |
-| Thứ 6 | Amazon CloudWatch: Cấu hình giám sát Metrics, Logs và thiết lập Alarms để cảnh báo sự cố hệ thống. | 01/05/2026 | 01/05/2026 | [AWS Documentation](https://000008.awsstudygroup.com/vi/) |
-| Thứ 7 | Amazon Route 53: Tìm hiểu về DNS và thực hành thiết lập kiến trúc Hybrid DNS với Route 53 Resolver. | 02/05/2026 | 03/05/2026 | [AWS Documentation](https://000010.awsstudygroup.com/vi/) |
+| Thứ 2 | - Tìm hiểu về Amazon RDS: OLTP, các loại DB engine hỗ trợ và tính năng quản lý tự động (backup, patching). | 27/04/2026 | 27/04/2026 | [Amazon RDS](https://000005.awsstudygroup.com/vi/) |
+| Thứ 3 | - Thực hành Amazon Lightsail: triển khai WordPress, PrestaShop và tối ưu hóa chi phí.<br>- Tìm hiểu Lightsail Containers: xây dựng và triển khai ứng dụng container hóa từ Docker image lên Lightsail. | 28/04/2026 | 29/04/2026 | [Amazon Lightsail](https://000045.awsstudygroup.com/vi/)<br>[Lightsail Containers](https://000046.awsstudygroup.com/vi/) |
+| Thứ 5 | - Thiết lập EC2 Auto Scaling: Launch Template, Load Balancer và cấu hình Auto Scaling Group (ASG) cho ứng dụng FCJ Management. | 30/04/2026 | 30/04/2026 | [EC2 Auto Scaling](https://000006.awsstudygroup.com/vi/) |
+| Thứ 6 | - Cấu hình Amazon CloudWatch: giám sát Metrics, Logs và thiết lập Alarms để cảnh báo sự cố hệ thống.<br>- Thực hành Amazon Route 53: tìm hiểu DNS và thiết lập kiến trúc Hybrid DNS với Route 53 Resolver. | 01/05/2026 | 02/05/2026 | [Amazon CloudWatch](https://000008.awsstudygroup.com/vi/)<br>[Amazon Route 53](https://000010.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 2
 - Hiểu về cơ sở dữ liệu: Biết cách triển khai Amazon RDS với cấu hình Multi-AZ để đảm bảo tính sẵn có cao và sử dụng Read Replicas để mở rộng khả năng đọc.
@@ -30,4 +28,3 @@ pre: " <b> 1.2. </b> "
 - Tự động hóa hạ tầng: Triển khai thành công hệ thống có khả năng tự phục hồi và tự động co giãn theo lưu lượng truy cập thực tế bằng cách kết hợp ASG và Elastic Load Balancing.
 - Giám sát toàn diện: Có khả năng thu thập và phân tích dữ liệu hiệu năng (Metrics/Logs) thông qua CloudWatch, giúp giảm thời gian giải quyết sự cố (MTTR).
 - Quản trị DNS: Hiểu cách cấu hình Route 53 Resolver (Inbound/Outbound Endpoints) để tích hợp hệ thống DNS on-premise với AWS.
-

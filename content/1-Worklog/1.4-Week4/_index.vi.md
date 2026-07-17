@@ -17,12 +17,10 @@ pre: " <b> 1.4. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | AWS Lambda: Tìm hiểu kiến thức Serverless. Thực hành viết Function để tự động bật/tắt EC2 nhằm tối ưu chi phí. | 11/05/2026 | 11/05/2026 | [AWS Documentation](https://000022.awsstudygroup.com/vi/) |
-| Thứ 3 | Tags & Resource Groups: Gán nhãn metadata cho tài nguyên. Tạo nhóm tài nguyên dựa trên Tag để quản lý tập trung. | 12/05/2026 | 12/05/2026 | [AWS Documentation](https://000027.awsstudygroup.com/vi/) |
-| Thứ 4 | IAM Resource Tags: Thiết lập chính sách đặc quyền tối thiểu (Least Privilege) dựa trên Tag để kiểm soát quyền truy cập EC2. | 13/05/2026 | 13/05/2026 | [AWS Documentation](https://000028.awsstudygroup.com/vi/) |
-| Thứ 5 | AWS Systems Manager (SSM): Thực hành Patch Manager để vá lỗi đồng loạt và Run Command để chạy lệnh trên nhiều máy chủ. | 14/05/2026 | 14/05/2026 | [AWS Documentation](https://000031.awsstudygroup.com/vi/) |
-| Thứ 6 | SSM Session Manager: Thực hành kết nối từ xa vào máy chủ Linux/Windows (cả Public và Private) mà không cần mở cổng SSH/RDP. | 15/05/2026 | 15/05/2026 | [AWS Documentation](https://000058.awsstudygroup.com/vi/) |
-| Thứ 7 | EC2 Right Sizing: Sử dụng CloudWatch Agent thu thập dữ liệu bộ nhớ và dùng Compute Optimizer để lựa chọn cấu hình EC2 tối ưu. | 16/05/2026 | 17/05/2026 | [AWS Documentation](https://000032.awsstudygroup.com/vi/) |
+| Thứ 2 | - Tìm hiểu kiến thức Serverless và thực hành AWS Lambda: viết Function để tự động bật/tắt EC2 nhằm tối ưu chi phí. | 11/05/2026 | 11/05/2026 | [AWS Lambda](https://000022.awsstudygroup.com/vi/) |
+| Thứ 3 | - Gán nhãn metadata với Tags & Resource Groups: tạo nhóm tài nguyên dựa trên Tag để quản lý tập trung.<br>- Thiết lập IAM Resource Tags: chính sách đặc quyền tối thiểu (Least Privilege) dựa trên Tag để kiểm soát quyền truy cập EC2. | 12/05/2026 | 13/05/2026 | [Tags & Resource Groups](https://000027.awsstudygroup.com/vi/)<br>[IAM Resource Tags](https://000028.awsstudygroup.com/vi/) |
+| Thứ 5 | - Thực hành AWS Systems Manager Patch Manager & Run Command: vá lỗi đồng loạt và chạy lệnh trên nhiều máy chủ.<br>- Thực hành SSM Session Manager: kết nối từ xa vào máy chủ Linux/Windows (cả Public và Private) mà không cần mở cổng SSH/RDP. | 14/05/2026 | 15/05/2026 | [SSM Patch Manager](https://000031.awsstudygroup.com/vi/)<br>[SSM Session Manager](https://000058.awsstudygroup.com/vi/) |
+| Thứ 6 | - Thực hành EC2 Right Sizing: dùng CloudWatch Agent thu thập dữ liệu bộ nhớ và Compute Optimizer để lựa chọn cấu hình EC2 tối ưu. | 16/05/2026 | 16/05/2026 | [EC2 Right Sizing](https://000032.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 4
 - Tự động hóa vận hành: Triển khai thành công AWS Lambda để thực hiện các tác vụ định kỳ như bật/tắt máy chủ theo lịch trình, giúp tiết kiệm chi phí cho các môi trường không cần chạy 24/7.
@@ -30,4 +28,3 @@ pre: " <b> 1.4. </b> "
 - Bảo mật phi tập trung: Áp dụng thành công việc phân quyền IAM dựa trên Resource Tags, chỉ cho phép người dùng thao tác với những tài nguyên có nhãn (Tag) tương ứng.
 - Quản lý hệ thống hiện đại: Sử dụng AWS Systems Manager để tự động hóa việc bảo trì, vá lỗi phần mềm và thực thi lệnh từ xa mà không cần quản lý khóa SSH, tăng cường tính bảo mật cho hạ tầng.
 - Tối ưu hóa tài nguyên: Biết cách sử dụng các chỉ số thực tế (CPU, RAM) thu thập từ máy chủ để đưa ra quyết định thay đổi loại Instance (Right Sizing) phù hợp, tránh lãng phí tài nguyên thừa.
-

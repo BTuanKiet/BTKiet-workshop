@@ -18,12 +18,10 @@ pre: " <b> 1.8. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | EC2 Image Builder: Thực hành xây dựng Pipeline tự động tạo AMI chứa các bản vá lỗi mới nhất theo phương pháp Blue/Green Deployment. | 08/06/2026 | 08/06/2026 | [AWS Documentation](https://000099.awsstudygroup.com/vi/) |
-| Thứ 3 | Amazon Cognito: Tìm hiểu User Pools và Identity Pools. Thực hành triển khai xác thực liên miền cho ứng dụng. | 09/06/2026 | 09/06/2026 | [AWS Documentation](https://000141.awsstudygroup.com/vi/) |
-| Thứ 4 | S3 Security Best Practices: Cấu hình chặn truy cập công khai (BPA), yêu cầu HTTPS/mã hóa SSE-S3 và sử dụng Access Analyzer. | 10/06/2026 | 10/06/2026 | [AWS Documentation](https://000069.awsstudygroup.com/vi/) |
-| Thứ 5 | AWS Backup: Khởi tạo Backup Plan để tự động sao lưu dữ liệu từ các dịch vụ EBS, RDS và DynamoDB. Thiết lập thông báo qua SNS. | 11/06/2026 | 11/06/2026 | [AWS Documentation](https://000013.awsstudygroup.com/vi/) |
-| Thứ 6 | VPC Peering: Thiết lập kết nối trực tiếp giữa các VPC bằng địa chỉ IP Private. Kích hoạt tính năng Cross-Peer DNS. | 12/06/2026 | 12/06/2026 | [AWS Documentation](https://000019.awsstudygroup.com/vi/) |
-| Thứ 7 - CN | AWS Transit Gateway: Triển khai mô hình Hub-and-Spoke kết nối đồng thời nhiều VPC thông qua một cổng quản trị tập trung duy nhất. | 13/06/2026 | 14/06/2026 | [AWS Documentation](https://000020.awsstudygroup.com/vi/) |
+| Thứ 2 | - Thực hành EC2 Image Builder: xây dựng Pipeline tự động tạo AMI chứa các bản vá lỗi mới nhất theo phương pháp Blue/Green Deployment. | 08/06/2026 | 08/06/2026 | [EC2 Image Builder](https://000099.awsstudygroup.com/vi/) |
+| Thứ 3 | - Tìm hiểu Amazon Cognito: User Pools và Identity Pools. Thực hành triển khai xác thực liên miền cho ứng dụng. | 09/06/2026 | 09/06/2026 | [Amazon Cognito](https://000141.awsstudygroup.com/vi/) |
+| Thứ 4 | - Áp dụng S3 Security Best Practices: cấu hình chặn truy cập công khai (BPA), yêu cầu HTTPS/mã hóa SSE-S3 và dùng Access Analyzer.<br>- Khởi tạo AWS Backup Plan: tự động sao lưu dữ liệu từ EBS, RDS và DynamoDB, thiết lập thông báo qua SNS. | 10/06/2026 | 11/06/2026 | [S3 Security](https://000069.awsstudygroup.com/vi/)<br>[AWS Backup](https://000013.awsstudygroup.com/vi/) |
+| Thứ 6 | - Thiết lập VPC Peering: kết nối trực tiếp giữa các VPC bằng địa chỉ IP Private, kích hoạt tính năng Cross-Peer DNS.<br>- Triển khai AWS Transit Gateway theo mô hình Hub-and-Spoke: kết nối đồng thời nhiều VPC thông qua một cổng quản trị tập trung. | 12/06/2026 | 13/06/2026 | [VPC Peering](https://000019.awsstudygroup.com/vi/)<br>[AWS Transit Gateway](https://000020.awsstudygroup.com/vi/) |
 
 ### Kết quả đạt được tuần 8
 - Vận hành hệ thống an toàn: Biết cách sử dụng EC2 Image Builder kết hợp Systems Manager để tự động hóa đóng gói AMI và cập nhật bản vá.
