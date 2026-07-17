@@ -8,25 +8,24 @@ pre: " <b> 1.3. </b> "
 
 
 ### Week 3 Objectives
-- Improve administration efficiency by using AWS CLI instead of the Console.
+- Improve administration efficiency using the AWS CLI instead of the Console.
 - Learn NoSQL storage with Amazon DynamoDB and optimize access speed with Amazon ElastiCache.
 - Practice advanced networking concepts such as multi-network connectivity and infrastructure security.
-- Deploy a global content delivery solution and process data at the network edge (Edge Computing).
+- Deploy a global content distribution solution and process data at the network edge (Edge Computing).
 
 ### Daily progress table
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS CLI: configured profiles with access keys, prepared the local environment, and practiced administrative commands for S3, EC2, IAM, and VPC. | 04/05/2026 | 04/05/2026 | [AWS Documentation](https://000011.awsstudygroup.com/) |
-| Tuesday | Amazon DynamoDB: studied NoSQL structures such as tables, items, attributes, primary keys, and secondary indexes. Practiced CRUD operations using the console and Python SDK. | 05/05/2026 | 05/05/2026 | [AWS Documentation](https://000060.awsstudygroup.com/) |
-| Wednesday | Amazon ElastiCache: created Redis clusters, configured subnet groups, and used the SDK to perform set/get data operations. | 06/05/2026 | 06/05/2026 | [AWS Documentation](https://000061.awsstudygroup.com/) |
-| Thursday | Networking workshop: practiced Transit Gateway and Site-to-Site VPN for hybrid cloud connectivity. Configured VPC Peering and VPC Endpoints for AWS services. | 07/05/2026 | 07/05/2026 | [AWS Documentation](https://000092.awsstudygroup.com/) |
-| Friday | Amazon CloudFront: created a distribution, configured S3/EC2 origins, set cache behaviors, and customized error pages. | 08/05/2026 | 08/05/2026 | [AWS Documentation](https://000094.awsstudygroup.com/) |
-| Saturday | Edge Computing: studied edge locations and deployed a Lambda@Edge function to CloudFront for request processing at the edge. | 09/05/2026 | 10/05/2026 | [AWS Documentation](https://000130.awsstudygroup.com/) |
+| Monday | - Learned and practiced AWS CLI: configured Profiles (Access Key/Secret Key), set up the environment, and ran management commands for S3, EC2, IAM, and VPC. | 04/05/2026 | 04/05/2026 | [AWS CLI](https://000011.awsstudygroup.com/) |
+| Tuesday | - Studied Amazon DynamoDB: NoSQL structure (Tables, Items, Attributes), Primary Keys, and Secondary Indexes. Practiced CRUD operations via Console and Python SDK. | 05/05/2026 | 05/05/2026 | [Amazon DynamoDB](https://000060.awsstudygroup.com/) |
+| Wednesday | - Practiced Amazon ElastiCache: created a Redis Cluster (enabled/disabled modes), configured a Subnet Group, and used the SDK for Set/Get operations. | 06/05/2026 | 06/05/2026 | [Amazon ElastiCache](https://000061.awsstudygroup.com/) |
+| Thursday | - Practiced Networking Workshop: Transit Gateway, Site-to-Site VPN for Hybrid Cloud connectivity. Configured VPC Peering and set up VPC Endpoints for AWS services. | 07/05/2026 | 07/05/2026 | [Networking on AWS](https://000092.awsstudygroup.com/) |
+| Friday | - Created an Amazon CloudFront Distribution, configured origins (S3/EC2), set up Cache Behaviors, and customized error pages.<br>- Studied Edge Locations and practiced deploying Lambda@Edge functions to CloudFront for edge-side request handling. | 08/05/2026 | 09/05/2026 | [Amazon CloudFront](https://000094.awsstudygroup.com/)<br>[Lambda@Edge](https://000130.awsstudygroup.com/) |
 
 ### Key achievements
-- CLI administration: able to use AWS CLI to directly access AWS public APIs and write shell scripts to automate resource provisioning.
-- Large-scale data processing: understood how to work with DynamoDB for high I/O needs and unpredictable data structures. Learned how to use ElastiCache for fast temporary caching of small, highly volatile data.
-- Complex network design: able to set up private connectivity between VPCs via VPC Peering or centralized connectivity through Transit Gateway. Understood how to use VPC Endpoints to connect to services without going through the public internet.
-- Application delivery and acceleration: successfully deployed Amazon CloudFront to cache content at Edge servers, reducing latency and improving availability for web applications.
-- Edge programming: first hands-on experience deploying processing logic directly at Edge locations through Lambda@Edge, helping optimize response times for end users.
+- CLI-based administration: can use the AWS CLI to access AWS public APIs directly and write shell scripts to automate resource deployment.
+- Large-scale data processing: understood how to operate DynamoDB for high I/O demands and unpredictable data structures. Learned how to use ElastiCache for fast temporary storage of small, highly volatile data.
+- Complex network design: able to establish private connectivity between VPCs via VPC Peering or centralized routing through Transit Gateway. Understood how to use VPC Endpoints to connect services without going through the public internet.
+- Application distribution and acceleration: successfully deployed Amazon CloudFront to cache content on Edge servers, reducing latency and improving web application availability.
+- Edge programming: began working with Lambda@Edge to deploy processing logic at Edge locations, optimizing customer response times.

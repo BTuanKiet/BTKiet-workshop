@@ -17,11 +17,11 @@ pre: " <b> 1.1. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | [Rules and Guidelines](https://hcm-rules.awsfcaj.com/) |
-| Tuesday | Studied the overview of Cloud Computing. Practiced the steps for creating an AWS Free Tier account. | 21/04/2026 | 21/04/2026 | [AWS Documentation](https://000001.awsstudygroup.com/) |
-| Wednesday | Cost management: set up AWS Budgets and used Cost Explorer. Learned about AWS Support services and support plans. | 22/04/2026 | 22/04/2026 | [AWS Documentation](https://000007.awsstudygroup.com/) |
-| Thursday | IAM administration: created users and groups, and configured permission policies. Basic networking: created and configured an Amazon Virtual Private Cloud (VPC). | 23/04/2026 | 24/04/2026 | [AWS Documentation](https://000002.awsstudygroup.com/) |
-| Friday | Amazon EC2: launched a virtual server, managed a key pair, and connected via SSH. Amazon S3: created a bucket, stored objects, and configured static website hosting. | 25/04/2026 | 26/04/2026 | [AWS Documentation](https://000004.awsstudygroup.com/) |
+| Monday | - Learned about the company's internship rules, regulations, and expectations. | 20/04/2026 | 20/04/2026 | [Rules and Guidelines](https://hcm-rules.awsfcaj.com/) |
+| Tuesday | - Studied the overview of Cloud Computing and practiced creating an AWS Free Tier account. | 21/04/2026 | 21/04/2026 | [AWS Cloud Overview](https://000001.awsstudygroup.com/) |
+| Wednesday | - Managed costs with AWS Budgets and Cost Explorer. Learned about AWS Support services and support plans. | 22/04/2026 | 22/04/2026 | [AWS Budgets & Cost Explorer](https://000007.awsstudygroup.com/) |
+| Thursday | - Practiced IAM: created Users, Groups, and configured permission policies.<br>- Created and configured Amazon VPC, Subnets, Route Tables, and Internet Gateway. | 23/04/2026 | 24/04/2026 | [IAM](https://000002.awsstudygroup.com/)<br>[Amazon VPC](https://000002.awsstudygroup.com/) |
+| Friday | - Launched an Amazon EC2 virtual server, managed a Key Pair, and connected via SSH.<br>- Created an Amazon S3 bucket, stored objects, and configured static website hosting. | 25/04/2026 | 26/04/2026 | [Amazon EC2](https://000004.awsstudygroup.com/)<br>[Amazon S3](https://000004.awsstudygroup.com/) |
 
 ### Key achievements
 - AWS overview: understood the core service groups and completed secure account setup.

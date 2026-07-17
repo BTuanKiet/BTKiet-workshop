@@ -8,26 +8,24 @@ pre: " <b> 1.7. </b> "
 
 
 ### Week 7 Objectives
-- Set up application defense layers to block common vulnerability exploits on web applications.
-- Deploy data encryption and centralized, secure credential management solutions.
-- Automate the discovery of sensitive data and monitor security threats across the entire system.
+- Set up web application defense layers to block common vulnerability exploits.
+- Deploy data encryption solutions and centralized, secure credential management.
+- Automate sensitive data discovery and monitor security threats across the entire system.
 - Systematize network firewall policy management at multi-account scale.
 
 ### Daily progress table
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | AWS Web Application Firewall (WAF): studied Web ACLs and deployed managed rules and custom rules to protect a sample application. | 01/06/2026 | 01/06/2026 | [AWS Documentation](https://000026.awsstudygroup.com/) |
-| Tuesday | AWS Key Management Service (KMS): practiced encrypting S3 objects, logged key access through CloudTrail, and queried logs with Athena. | 02/06/2026 | 02/06/2026 | [AWS Documentation](https://000033.awsstudygroup.com/) |
-| Wednesday | Amazon Macie: activated the service, scanned S3 buckets for personally identifiable information (PII), and reviewed bucket security. | 03/06/2026 | 03/06/2026 | [AWS Documentation](https://000090.awsstudygroup.com/) |
-| Thursday | AWS Secrets Manager: managed RDS passwords, configured secret rotation, and integrated secrets with Fargate. | 04/06/2026 | 04/06/2026 | [AWS Documentation](https://000096.awsstudygroup.com/) |
-| Friday | AWS Firewall Manager: audited and centrally restricted security groups, then created security policies for SSH and RDP access. | 05/06/2026 | 05/06/2026 | [AWS Documentation](https://000097.awsstudygroup.com/) |
-| Saturday | AWS GuardDuty: studied threat detection and practiced responding to compromised EC2 or IAM credential scenarios. | 06/06/2026 | 07/06/2026 | [AWS Documentation](https://000098.awsstudygroup.com/) |
+| Monday | - Studied AWS WAF Web ACLs and practiced deploying Managed Rules and Custom Rules to protect a sample application. | 01/06/2026 | 01/06/2026 | [AWS WAF](https://000026.awsstudygroup.com/) |
+| Tuesday | - Practiced AWS KMS: encrypted S3 Objects, logged key access via CloudTrail, and queried logs with Athena. | 02/06/2026 | 02/06/2026 | [AWS KMS](https://000033.awsstudygroup.com/) |
+| Wednesday | - Enabled Amazon Macie: scanned S3 buckets to detect personally identifiable information (PII) and assessed bucket security configurations.<br>- Practiced AWS Secrets Manager: managed RDS passwords, configured automatic Secret Rotation, and integrated with Fargate. | 03/06/2026 | 04/06/2026 | [Amazon Macie](https://000090.awsstudygroup.com/)<br>[AWS Secrets Manager](https://000096.awsstudygroup.com/) |
+| Friday | - Practiced AWS Firewall Manager: audited and centrally restricted Security Groups, and configured security policies for SSH and RDP.<br>- Studied AWS GuardDuty: learned threat detection mechanisms and handled scenarios involving compromised EC2 instances or IAM credentials. | 05/06/2026 | 06/06/2026 | [AWS Firewall Manager](https://000097.awsstudygroup.com/)<br>[AWS GuardDuty](https://000098.awsstudygroup.com/) |
 
 ### Key achievements
-- Application layer protection: used AWS WAF to filter malicious requests through managed and custom rule systems.
-- Secure data at rest: understood the data encryption process with AWS KMS and access trail control via CloudTrail/Athena.
-- Sensitive data control: used Amazon Macie to automatically identify PII data and monitor insecure bucket configurations.
-- Credential management: deployed Secrets Manager to eliminate plaintext passwords and implement automatic periodic rotation.
-- Centralized network governance: used Firewall Manager to ensure synchronized Security Group compliance across systems.
-- Proactive intrusion detection: set up Amazon GuardDuty to analyze system logs and detect abnormal behavior such as crypto mining and credential leaks.
+- Application layer protection: used AWS WAF to filter malicious requests through managed and custom rule sets.
+- Storage data safety: thoroughly understood the data encryption process with AWS KMS and comprehensive access trail control via CloudTrail/Athena.
+- Sensitive data control: used Amazon Macie to automatically identify PII data and closely monitor insecure bucket configurations.
+- Credential management: deployed Secrets Manager to eliminate plaintext passwords and implement automatic rotation.
+- Centralized network governance: used Firewall Manager to ensure synchronized Security Group compliance at scale.
+- Intrusion detection: operated Amazon GuardDuty to analyze log data and quickly detect anomalous behavior (cryptomining, credential leaks).

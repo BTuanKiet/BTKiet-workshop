@@ -8,25 +8,23 @@ pre: " <b> 1.2. </b> "
 
 
 ### Week 2 Objectives
-- Learn relational database services (RDS) and high-availability strategies.
-- Practice deploying applications and containers simply and cost-effectively through Amazon Lightsail.
-- Understand and work with Auto Scaling and load balancing mechanisms.
+- Learn about relational database services (RDS) and high availability strategies.
+- Practice simple application and container deployment with cost optimization using Amazon Lightsail.
+- Understand and operate auto-scaling mechanisms and load balancing.
 - Set up centralized monitoring and domain management for applications.
 
 ### Daily progress table
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | Amazon RDS: studied OLTP workloads, supported database engines, and automated management features such as backup and patching. | 27/04/2026 | 27/04/2026 | [AWS Documentation](https://000005.awsstudygroup.com/) |
-| Tuesday | Amazon Lightsail: practiced deploying WordPress and PrestaShop, and optimized costs on Lightsail. | 28/04/2026 | 28/04/2026 | [AWS Documentation](https://000045.awsstudygroup.com/) |
-| Wednesday | Lightsail Containers: learned how to build and deploy containerized applications from Docker images to Lightsail. | 29/04/2026 | 29/04/2026 | [AWS Documentation](https://000046.awsstudygroup.com/) |
-| Thursday | EC2 Auto Scaling: configured a launch template, load balancer, and Auto Scaling Group (ASG) for the FCJ Management application. | 30/04/2026 | 30/04/2026 | [AWS Documentation](https://000006.awsstudygroup.com/) |
-| Friday | Amazon CloudWatch: configured metrics and logs, and created alarms to notify system incidents. | 01/05/2026 | 01/05/2026 | [AWS Documentation](https://000008.awsstudygroup.com/) |
-| Saturday | Amazon Route 53: studied DNS and practiced setting up a hybrid DNS architecture with Route 53 Resolver. | 02/05/2026 | 03/05/2026 | [AWS Documentation](https://000010.awsstudygroup.com/) |
+| Monday | - Studied Amazon RDS: OLTP, supported DB engines, and automated management features (backup, patching). | 27/04/2026 | 27/04/2026 | [Amazon RDS](https://000005.awsstudygroup.com/) |
+| Tuesday | - Practiced Amazon Lightsail: deployed WordPress, PrestaShop, and optimized costs.<br>- Explored Lightsail Containers: built and deployed containerized applications from Docker images to Lightsail. | 28/04/2026 | 29/04/2026 | [Amazon Lightsail](https://000045.awsstudygroup.com/)<br>[Lightsail Containers](https://000046.awsstudygroup.com/) |
+| Thursday | - Set up EC2 Auto Scaling: Launch Template, Load Balancer, and Auto Scaling Group (ASG) configuration for the FCJ Management application. | 30/04/2026 | 30/04/2026 | [EC2 Auto Scaling](https://000006.awsstudygroup.com/) |
+| Friday | - Configured Amazon CloudWatch: monitored Metrics, Logs, and set up Alarms to alert on system incidents.<br>- Practiced Amazon Route 53: learned DNS concepts and set up a Hybrid DNS architecture with Route 53 Resolver. | 01/05/2026 | 02/05/2026 | [Amazon CloudWatch](https://000008.awsstudygroup.com/)<br>[Amazon Route 53](https://000010.awsstudygroup.com/) |
 
 ### Key achievements
-- Database understanding: learned how to deploy Amazon RDS with Multi-AZ configuration for high availability and use Read Replicas to scale read capacity.
-- Rapid application deployment: used Amazon Lightsail to host open-source applications and manage containerized apps without dealing with complex infrastructure.
-- Infrastructure automation: successfully deployed a self-healing, auto-scaling system by combining ASG and Elastic Load Balancing to handle real traffic fluctuations.
-- Comprehensive monitoring: able to collect and analyze performance data (Metrics/Logs) through CloudWatch, helping reduce mean time to resolution (MTTR).
-- DNS administration: learned how to configure Route 53 Resolver (Inbound/Outbound Endpoints) to integrate on-premises DNS systems with AWS.
+- Database understanding: learned how to deploy Amazon RDS with Multi-AZ configuration for high availability and use Read Replicas for read scalability.
+- Rapid application deployment: learned how to use Amazon Lightsail to host open-source applications and manage containerized apps without complex infrastructure management.
+- Infrastructure automation: successfully deployed a self-healing, auto-scaling system using ASG and Elastic Load Balancing.
+- Comprehensive monitoring: gained the ability to collect and analyze performance data (Metrics/Logs) through CloudWatch, reducing mean time to resolution (MTTR).
+- DNS administration: understood how to configure Route 53 Resolver (Inbound/Outbound Endpoints) to integrate on-premise DNS with AWS.
