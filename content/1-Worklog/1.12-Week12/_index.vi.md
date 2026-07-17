@@ -18,11 +18,11 @@ pre: " <b> 1.12 </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | Rà soát lại toàn bộ các dịch vụ AWS đã sử dụng trong dự án. Xác định các điểm cần điều chỉnh dựa trên góp ý của người hướng dẫn từ tuần trước. | 06/07/2026 | 06/07/2026 | — |
-| Thứ 3 | Chỉnh sửa sơ đồ kiến trúc hệ thống và cập nhật cấu hình dịch vụ theo đúng khuyến nghị của người hướng dẫn. | 07/07/2026 | 07/07/2026 | — |
-| Thứ 4 | Rà soát và tối ưu cấu hình các dịch vụ AWS: kiểm tra IAM Policies, Security Groups và các thiết lập liên quan đến chi phí trên toàn bộ tài nguyên đã triển khai. | 08/07/2026 | 08/07/2026 | — |
-| Thứ 5 | Hoàn thiện tài liệu kỹ thuật: ghi lại các quyết định kiến trúc, chi tiết cấu hình và bài học kinh nghiệm quan trọng rút ra từ dự án. | 09/07/2026 | 09/07/2026 | — |
-| Thứ 6 | Hoàn thiện báo cáo thực tập: tổng hợp 12 tuần worklog, kết quả dự án và suy ngẫm cá nhân thành bản báo cáo nộp cuối kỳ. | 10/07/2026 | 11/07/2026 | — |
+| Thứ 2 | - Rà soát lại toàn bộ các dịch vụ AWS đã sử dụng trong dự án. Xác định các điểm cần điều chỉnh dựa trên góp ý của người hướng dẫn từ tuần trước. | 06/07/2026 | 06/07/2026 | — |
+| Thứ 3 | - Chỉnh sửa sơ đồ kiến trúc hệ thống và cập nhật cấu hình dịch vụ theo đúng khuyến nghị của người hướng dẫn. | 07/07/2026 | 07/07/2026 | — |
+| Thứ 4 | - Rà soát và tối ưu cấu hình các dịch vụ AWS: kiểm tra IAM Policies, Security Groups và các thiết lập liên quan đến chi phí trên toàn bộ tài nguyên đã triển khai. | 08/07/2026 | 08/07/2026 | — |
+| Thứ 5 | - Hoàn thiện tài liệu kỹ thuật: ghi lại các quyết định kiến trúc, chi tiết cấu hình và bài học kinh nghiệm quan trọng rút ra từ dự án. | 09/07/2026 | 09/07/2026 | — |
+| Thứ 6 | - Hoàn thiện báo cáo thực tập: tổng hợp 12 tuần worklog, kết quả dự án và suy ngẫm cá nhân thành bản báo cáo nộp cuối kỳ. | 10/07/2026 | 11/07/2026 | — |
 
 ### Kết quả đạt được tuần 12
 - Hoàn thiện dự án với kiến trúc AWS đã được rà soát và tối ưu theo phản hồi của người hướng dẫn.
