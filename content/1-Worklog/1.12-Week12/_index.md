@@ -17,7 +17,7 @@ pre: " <b> 1.12. </b> "
 ### Daily progress table
 
 | Day | Detailed tasks | Start date | Completion date |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Monday | - Reviewed all AWS services used in the project. Identified areas needing adjustment based on mentor feedback from the previous week. | 06/07/2026 | 06/07/2026 |
 | Tuesday | - Revised system architecture diagrams and updated service configurations to align with mentor recommendations. | 07/07/2026 | 07/07/2026 |
 | Wednesday | - Audited and optimized AWS service configurations: checked IAM policies, security groups, and cost-related settings across all deployed resources. | 08/07/2026 | 08/07/2026 | 

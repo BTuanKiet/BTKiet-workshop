@@ -17,7 +17,7 @@ pre: " <b> 1.12 </b> "
 ### Bảng tiến độ theo ngày
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Thứ 2 | - Rà soát lại toàn bộ các dịch vụ AWS đã sử dụng trong dự án. Xác định các điểm cần điều chỉnh dựa trên góp ý của người hướng dẫn từ tuần trước. | 06/07/2026 | 06/07/2026 |
 | Thứ 3 | - Chỉnh sửa sơ đồ kiến trúc hệ thống và cập nhật cấu hình dịch vụ theo đúng khuyến nghị của người hướng dẫn. | 07/07/2026 | 07/07/2026 |
 | Thứ 4 | - Rà soát và tối ưu cấu hình các dịch vụ AWS: kiểm tra IAM Policies, Security Groups và các thiết lập liên quan đến chi phí trên toàn bộ tài nguyên đã triển khai. | 08/07/2026 | 08/07/2026 |
