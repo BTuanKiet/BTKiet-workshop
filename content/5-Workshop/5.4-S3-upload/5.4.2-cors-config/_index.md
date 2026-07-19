@@ -1,30 +1,44 @@
 ---
-title: "CORS Configuration for Frontend"
-date: 2026-07-10
+title: "Configure CORS"
+date: 2026-07-18
 weight: 2
 chapter: false
 pre: " <b> 5.4.2. </b> "
 ---
 
-#### Why is CORS Configuration necessary?
+#### S3 CORS
 
-When your Web App (e.g., `http://localhost:8080`) sends a request to upload a file to S3, the browser checks if S3 allows access from that origin. Without proper CORS configuration, the browser will immediately block the request for security reasons.
+Complete this step in the AWS Management Console. Verify the resource name, Region, and configuration values before saving, then compare the result with the screenshots below to confirm that the resource is ready.
 
-#### Steps to configure CORS on Amazon S3
+![s3 cors](/images/5-Workshop/5.4-S3-upload/s3-cors.png)
 
-1. Navigate to the **Amazon S3 Console** and select the `kts-smartagri-dev-raw-images` bucket.
-2. Navigate to the **Permissions** tab.
-3. Scroll down to the **Cross-origin resource sharing (CORS)** section and click **Edit**.
-4. Paste the following JSON into the configuration box and click **Save changes**:
 
-```json
-[
-  {
-    "AllowedHeaders": ["*"],
-    "AllowedMethods": ["PUT", "POST", "GET"],
-    "AllowedOrigins": ["*"],
-    "ExposeHeaders": ["ETag"],
-    "MaxAgeSeconds": 3000
-  }
-]
+Create the configuration file:
+
+Replace localhost with the production CloudFront/frontend origin. Avoid `*` when it is unnecessary.
+
+#### API Gateway CORS
+
+Complete this step in the AWS Management Console. Verify the resource name, Region, and configuration values before saving, then compare the result with the screenshots below to confirm that the resource is ready.
+
+![api presign options](/images/5-Workshop/5.4-S3-upload/api-presign-options.png)
+
+
+`OPTIONS /presign` must return:
+
+```text
+Access-Control-Allow-Origin: <frontend-origin>
+Access-Control-Allow-Headers: Authorization,Content-Type
+Access-Control-Allow-Methods: POST,OPTIONS
 ```
+
+Presign Lambda must also include matching CORS headers in actual responses.
+
+#### Test preflight
+
+Complete this step in the AWS Management Console. Verify the resource name, Region, and configuration values before saving, then compare the result with the screenshots below to confirm that the resource is ready.
+
+![presign preflight](/images/5-Workshop/5.4-S3-upload/presign-preflight.png)
+
+
+Expect `HTTP/1.1 200 OK` and all three CORS headers.

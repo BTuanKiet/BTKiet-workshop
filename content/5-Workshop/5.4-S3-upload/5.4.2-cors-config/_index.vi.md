@@ -1,30 +1,44 @@
 ---
-title : "Cấu hình CORS cho Frontend"
-date : 2026-07-10 
-weight : 2
-chapter : false
-pre : " <b> 5.4.2. </b> "
+title: "Cấu hình CORS"
+date: 2026-07-18
+weight: 2
+chapter: false
+pre: " <b> 5.4.2. </b> "
 ---
 
-#### Tại sao cần cấu hình CORS?
+#### S3 CORS
 
-Khi Web App của bạn (ví dụ: `http://localhost:8080`) gửi yêu cầu tải file lên S3, trình duyệt sẽ kiểm tra xem S3 có cho phép trang web đó truy cập hay không. Nếu không có cấu hình CORS, trình duyệt sẽ chặn yêu cầu này ngay lập tức vì lý do bảo mật.
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
 
-#### Các bước cấu hình trên Amazon S3
+![s3 cors](/images/5-Workshop/5.4-S3-upload/s3-cors.png)
 
-1. Truy cập vào **Amazon S3 Console** và chọn bucket `kts-smartagri-dev-raw-images`.
-2. Chuyển sang tab **Permissions** (Quyền).
-3. Cuộn xuống phần **Cross-origin resource sharing (CORS)** và nhấp vào **Edit**.
-4. Dán đoạn JSON dưới đây vào khung cấu hình và nhấn **Save changes**:
 
-```json
-[
-    {
-        "AllowedHeaders": ["*"],
-        "AllowedMethods": ["PUT", "POST", "GET"],
-        "AllowedOrigins": ["*"],
-        "ExposeHeaders": ["ETag"],
-        "MaxAgeSeconds": 3000
-    }
-]
+Tạo file cấu hình:
+
+Trong production, thay localhost bằng domain CloudFront/frontend thật. Không dùng `*` khi không cần thiết.
+
+#### API Gateway CORS
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![api presign options](/images/5-Workshop/5.4-S3-upload/api-presign-options.png)
+
+
+`OPTIONS /presign` phải trả về:
+
+```text
+Access-Control-Allow-Origin: <frontend-origin>
+Access-Control-Allow-Headers: Authorization,Content-Type
+Access-Control-Allow-Methods: POST,OPTIONS
 ```
+
+Presign Lambda cũng phải trả các header CORS tương ứng trong response thật.
+
+#### Kiểm tra preflight
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![presign preflight](/images/5-Workshop/5.4-S3-upload/presign-preflight.png)
+
+
+Kỳ vọng `HTTP/1.1 200 OK` và đủ ba header CORS.

@@ -1,29 +1,56 @@
 ---
-title: "Tải ảnh lên S3"
-date: 2024-01-01
+title: "Kiểm thử upload"
+date: 2026-07-18
 weight: 3
 chapter: false
-pre: " <b> 5.4.3 </b> "
+pre: " <b> 5.4.3. </b> "
 ---
 
-#### Tải ảnh lên qua Giao diện Web
+#### 1. Gọi Presign API từ frontend
 
-Trong bước này, chúng ta sẽ kiểm tra tính năng tải ảnh. Theo như sơ đồ kiến trúc, client (frontend) sẽ gọi qua API Gateway & Lambda để lấy một Pre-signed URL, sau đó sử dụng URL này để tải ảnh trực tiếp lên bucket S3 một cách bảo mật.
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
 
-1. Mở trình duyệt web và truy cập vào đường dẫn frontend của ứng dụng (domain CloudFront của bạn).
-2. Đăng nhập bằng tài khoản người dùng Cognito (nếu chưa đăng nhập).
-3. Tại giao diện upload, chọn một bức ảnh mẫu từ máy tính của bạn và nhấn nút **Upload**.
-4. Đợi thông báo thành công xác nhận quá trình tải ảnh thông qua Pre-signed URL đã hoàn tất.
+![frontend upload](/images/5-Workshop/5.4-S3-upload/frontend-upload.png)
 
-![upload-ui](/images/5-Workshop/5.4-S3-upload/upload-ui.png)
 
-#### Kiểm tra Object trong S3 Bucket
+Sau khi đăng nhập, chọn một ảnh lá và bắt đầu upload. Frontend gửi:
 
-Bây giờ, chúng ta sẽ kiểm tra xem ảnh đã được lưu thành công vào đúng bucket trên S3 hay chưa.
+```json
+{
+  "filename": "leaf.jpg",
+  "contentType": "image/jpeg"
+}
+```
 
-1. Truy cập vào AWS Management Console và đi đến **S3 console**.
-2. Ở menu bên trái, chọn **Buckets**.
-3. Nhấn vào tên bucket **Raw Images** của bạn (bucket được cấu hình để chứa ảnh thô).
-4. Bạn sẽ thấy file ảnh vừa tải lên xuất hiện trong danh sách các objects.
+Response hợp lệ gồm:
 
-![check bucket](/images/5-Workshop/5.4-S3-upload/check-bucket.png)
+```json
+{
+  "upload_url": "<redacted>",
+  "s3_key": "uploads/<cognito-sub>/<date>/<uuid>_leaf.jpg",
+  "image_id": "<uuid>",
+  "expiration": 900,
+  "metadata": {
+    "user-id": "<cognito-sub>",
+    "original-name": "leaf.jpg"
+  }
+}
+```
+
+#### 2. Kiểm tra object
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![s3 raw object](/images/5-Workshop/5.4-S3-upload/s3-raw-object.png)
+
+
+Xác nhận:
+
+- `ContentType` là MIME type thật.
+- Metadata có `user-id` và `original-name`.
+- Object được mã hóa server-side.
+- Key nằm dưới prefix của chính người dùng.
+
+{{% notice warning %}}
+Không chụp hoặc đăng pre-signed URL. URL chứa chữ ký tạm thời và có thể upload object trong thời gian còn hiệu lực.
+{{% /notice %}}

@@ -1,94 +1,148 @@
 ---
-title: "AI Inference"
-date: 2026-07-10
+title: "Triển khai AI inference"
+date: 2026-07-18
 weight: 5
 chapter: false
-pre: " <b> 5.5 </b> "
+pre: " <b> 5.5. </b> "
 ---
 
-Trong phần này, chúng ta sẽ cấu hình **AI Inference** để phân tích hình ảnh cây trồng sau khi người dùng tải ảnh thành công lên Amazon S3. Hệ thống sử dụng **AWS Lambda (Container Image)** để chạy mô hình học sâu (Deep Learning), dự đoán bệnh trên lá cây và lưu kết quả phân tích vào Amazon DynamoDB.
+#### Mục tiêu
 
-Luồng xử lý này hoàn toàn **Serverless**, giúp hệ thống tự động mở rộng theo số lượng yêu cầu mà không cần quản lý máy chủ.
+Phần này đóng gói ResNet-50 và Python runtime thành Lambda container image, push lên Amazon ECR, cấu hình Rekognition validation gate và kết nối SQS với Inference Lambda.
 
-![AI Inference Architecture](/images/5-Workshop/5.5-AI-inference/ai-inference-flow.png)
+![Architecture Flow](/images/5-Workshop/5.5-AI-inference/diagram4.png)
 
-#### Luồng xử lý AI
+Inference image chỉ chứa một checkpoint production:
 
-1. Sau khi người dùng tải ảnh lên **Amazon S3 (Raw Images Bucket)**, Frontend gửi yêu cầu phân tích đến **Amazon API Gateway**.
-
-2. API Gateway xác thực JWT Token từ **Amazon Cognito** nhằm đảm bảo chỉ người dùng đã đăng nhập mới được phép sử dụng dịch vụ AI.
-
-![API Gateway](/images/5-Workshop/5.5-AI-inference/api-gateway.png)
-
-3. API Gateway kích hoạt **Inference Lambda** được triển khai dưới dạng **Container Image** lưu trữ trên **Amazon ECR**.
-
-![Lambda Container](/images/5-Workshop/5.5-AI-inference/lambda-container.png)
-
-4. Lambda tải ảnh từ **Amazon S3**, thực hiện các bước tiền xử lý gồm:
-
-- Resize ảnh về kích thước của mô hình.
-- Chuẩn hóa dữ liệu đầu vào.
-- Chuyển đổi Tensor.
-- Nạp mô hình AI.
-
-![Image Preprocessing](/images/5-Workshop/5.5-AI-inference/preprocessing.png)
-
-5. Mô hình AI tiến hành suy luận (Inference) để dự đoán loại bệnh của cây trồng và tính toán độ tin cậy (Confidence Score).
-
-Ví dụ kết quả:
-
-```json
-{
-  "class": "Tomato___Early_blight",
-  "confidence": 0.9876
-}
+```text
+best_resnet_model.pth
 ```
 
-![Prediction Result](/images/5-Workshop/5.5-AI-inference/prediction.png)
+Mô hình nhận ảnh `224 x 224`, chuẩn hóa theo ImageNet và trả một trong 38 lớp PlantVillage. `class_names.json` phải giữ đúng thứ tự class khi train.
 
-6. Sau khi suy luận thành công, Lambda lưu toàn bộ kết quả vào **Amazon DynamoDB**, bao gồm:
+#### 1. Build container image
 
-- User ID
-- Tên ảnh
-- Loại bệnh
-- Confidence
-- Thời gian phân tích
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
 
-![DynamoDB](/images/5-Workshop/5.5-AI-inference/dynamodb.png)
+![docker build success](/images/5-Workshop/5.5-AI-inference/docker-build-success.png)
 
-7. Nếu Confidence thấp hơn ngưỡng cho phép hoặc phát hiện bệnh nghiêm trọng, Lambda sẽ gửi thông báo thông qua **Amazon SNS** để cảnh báo người dùng.
 
-![SNS](/images/5-Workshop/5.5-AI-inference/sns.png)
+Hai tùy chọn `--provenance=false` và `--sbom=false` tạo single-platform manifest phù hợp với Lambda container image.
 
-8. Frontend nhận phản hồi từ API Gateway và hiển thị kết quả phân tích cho người dùng.
+Kiểm tra checkpoint:
 
-Ví dụ:
+Kết quả chỉ có `best_resnet_model.pth`, `class_names.json` và `model_config.json`.
 
-```
-Plant : Tomato
+#### 2. Smoke test model local
 
-Disease : Early Blight
+Kỳ vọng:
 
-Confidence : 98.76%
-
-Status : Success
+```text
+resnet 38
 ```
 
-![Frontend Result](/images/5-Workshop/5.5-AI-inference/frontend-result.png)
+#### 3. Push image lên ECR
 
----
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
 
-#### Tổng kết
+![ecr image](/images/5-Workshop/5.5-AI-inference/ecr-image.png)
 
-Trong phần này chúng ta đã triển khai thành công dịch vụ **AI Inference** trên nền tảng AWS Serverless.
 
-Toàn bộ quy trình bao gồm:
+Kiểm tra `imageManifestMediaType` phải là:
 
-- API Gateway tiếp nhận yêu cầu.
-- Xác thực người dùng bằng Amazon Cognito.
-- AWS Lambda (Container Image) thực hiện suy luận AI.
-- Amazon S3 lưu trữ ảnh đầu vào.
-- Amazon DynamoDB lưu lịch sử phân tích.
-- Amazon SNS gửi cảnh báo khi cần thiết.
+```text
+application/vnd.oci.image.manifest.v1+json
+```
 
-Kiến trúc này giúp hệ thống mở rộng linh hoạt, giảm chi phí vận hành và đáp ứng tốt các yêu cầu phân tích hình ảnh cây trồng theo thời gian thực.
+#### 4. Tạo DynamoDB table
+
+Tạo table `kts-smartagri-dev-inference-results`:
+
+- Partition key: `image_id` kiểu String.
+- Billing mode: **On-demand (PAY_PER_REQUEST)**.
+- Encryption: AWS owned key hoặc customer managed key theo yêu cầu.
+
+GSI `user_id-index` sẽ được thêm ở phần 5.6.
+
+#### 5. Cấp quyền cho Inference Lambda
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![lambda permissions](/images/5-Workshop/5.5-AI-inference/lambda-permissions.png)
+
+
+Execution role chỉ cần:
+
+- `s3:GetObject` trên raw bucket.
+- `s3:PutObject` trên processed bucket.
+- `dynamodb:PutItem` trên result table.
+- `rekognition:DetectLabels` trên `*`.
+- `sqs:ReceiveMessage`, `sqs:DeleteMessage`, `sqs:GetQueueAttributes` trên inference queue.
+- Quyền ghi CloudWatch Logs.
+
+{{% notice warning %}}
+Không dùng AdministratorAccess hoặc quyền `s3:*`. Lambda lấy owner từ metadata `user-id` đã được ký trong pre-signed URL.
+{{% /notice %}}
+
+#### 6. Cấu hình Rekognition Image gate
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![rekognition diagram test](/images/5-Workshop/5.5-AI-inference/rekognition-diagram-test.png)
+
+![rekognition leaf test](/images/5-Workshop/5.5-AI-inference/rekognition-leaf-test.png)
+
+
+Trước khi tải ảnh vào PyTorch, Lambda gọi `DetectLabels` trên S3 object:
+
+```python
+response = rekognition.detect_labels(
+    Image={"S3Object": {"Bucket": bucket, "Name": key}},
+    Features=["GENERAL_LABELS"],
+    MaxLabels=20,
+    MinConfidence=90,
+)
+```
+
+Quy tắc:
+
+```text
+Leaf >= 90% và Plant >= 90%  -> chạy ResNet-50
+Thiếu một trong hai nhãn      -> status REJECTED
+```
+
+Ảnh bị từ chối không tạo processed image và frontend hiển thị: **Ảnh không hợp lệ, vui lòng chọn ảnh lá cây rõ nét.**
+
+#### 7. Tạo hoặc cập nhật Inference Lambda
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![lambda image config](/images/5-Workshop/5.5-AI-inference/lambda-image-config.png)
+
+![lambda environment](/images/5-Workshop/5.5-AI-inference/lambda-environment.png)
+
+
+| Thuộc tính | Giá trị |
+|---|---|
+| Function name | `kts-smartagri-dev-inference-lambda` |
+| Package type | Image |
+| Architecture | x86_64 |
+| Memory | 2048 MB |
+| Timeout | 120 giây |
+| Ephemeral storage | 512 MB |
+| `MODEL_NAME` | `resnet` |
+| `PROCESSED_BUCKET` | processed bucket |
+| `RESULT_TABLE` | DynamoDB table |
+| `LEAF_LABEL_MIN_CONFIDENCE` | `90` |
+
+
+#### 8. Kết nối SQS event source
+
+Thực hiện bước này trên AWS Management Console, kiểm tra kỹ tên tài nguyên, Region và các giá trị cấu hình trước khi lưu. Sau khi hoàn tất, đối chiếu màn hình với hình bên dưới để chắc chắn tài nguyên đã được tạo đúng và đang ở trạng thái sẵn sàng.
+
+![sqs lambda trigger](/images/5-Workshop/5.5-AI-inference/sqs-lambda-trigger.png)
+
+
+Batch size `1` giúp cô lập ảnh lỗi và kiểm soát memory khi mỗi request tải model/image.
+
+#### 9. Xác minh deployment
