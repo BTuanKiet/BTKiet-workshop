@@ -18,7 +18,7 @@ pre: " <b> 1.11. </b> "
 
 | Ngày | Công việc chi tiết | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | - Thực hành Amazon DynamoDB Immersion Day: nghiên cứu ứng dụng nâng cao và thực hành chuỗi bài Lab gồm LHOL, LADV, LGME và LMR. | 29/06/2026 | 29/06/2026 | [Amazon DynamoDB](https://000039.awsstudygroup.com/vi/) |
+| Thứ 2 | - Thực hành Xây dựng ứng dụng nâng cao với Amazon DynamoDB. | 29/06/2026 | 29/06/2026 | [Amazon DynamoDB](https://000039.awsstudygroup.com/vi/) |
 | Thứ 3 | - Thực hành AWS Step Functions: điều phối các workflow, làm việc với các trạng thái xử lý và thiết lập cơ chế xử lý lỗi (Retry/Catch). | 30/06/2026 | 30/06/2026 | [AWS Step Functions](https://000047.awsstudygroup.com/vi/) |
 | Thứ 4 | - Thực hành Storage Performance Workshop: tối ưu thông lượng khi thao tác với tệp nhỏ trên S3 và cấu hình hiệu suất nâng cao cho Amazon EFS. | 01/07/2026 | 01/07/2026 | [Storage Performance Workshop](https://000068.awsstudygroup.com/vi/) |
 | Thứ 5 | - Phân tích và áp dụng Savings Plans: mua và áp dụng các gói tiết kiệm chi phí cho EC2 và RDS.<br>- Trực quan hóa chi phí: giám sát theo tài khoản, kiểm tra tỷ lệ bao phủ SP và RI, kết xuất báo cáo EC2 tùy chỉnh. | 02/07/2026 | 03/07/2026 | [Savings Plans](https://000042.awsstudygroup.com/vi/)<br>[Cost Visualization](https://000034.awsstudygroup.com/vi/) |

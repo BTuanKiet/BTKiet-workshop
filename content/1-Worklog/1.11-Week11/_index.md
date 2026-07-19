@@ -18,7 +18,7 @@ pre: " <b> 1.11. </b> "
 
 | Day | Detailed tasks | Start date | Completion date | Reference materials |
 | --- | --- | --- | --- | --- |
-| Monday | - Practiced Amazon DynamoDB Immersion Day: studied advanced application design and completed the full lab series including LHOL, LADV, LGME, and LMR. | 29/06/2026 | 29/06/2026 | [Amazon DynamoDB](https://000039.awsstudygroup.com/) |
+| Monday | - Practiced building advanced applications with Amazon DynamoDB. | 29/06/2026 | 29/06/2026 | [Amazon DynamoDB](https://000039.awsstudygroup.com/) |
 | Tuesday | - Practiced AWS Step Functions: orchestrated workflows, worked in depth with processing states, and configured error handling mechanisms (Retry/Catch). | 30/06/2026 | 30/06/2026 | [AWS Step Functions](https://000047.awsstudygroup.com/) |
 | Wednesday | - Completed Storage Performance Workshop: optimized S3 throughput for small file operations and configured enhanced performance mode for Amazon EFS. | 01/07/2026 | 01/07/2026 | [Storage Performance Workshop](https://000068.awsstudygroup.com/) |
 | Thursday | - Analyzed and applied Savings Plans: purchased and applied cost-saving plans for EC2 and RDS services.<br>- Cost visualization: monitored costs by account, checked SP and RI coverage rates, and generated custom EC2 reports. | 02/07/2026 | 03/07/2026 | [Savings Plans](https://000042.awsstudygroup.com/)<br>[Cost Visualization](https://000034.awsstudygroup.com/) |
