@@ -7,7 +7,7 @@ pre: " <b> 1. </b> "
 ---
 
 
-Trang worklog này ghi lại hành trình thực tập AWS trong 12 tuần, diễn ra từ ngày 17/04/2026 đến 30/07/2026 tại AWS Việt Nam. Nội dung chính tập trung vào các kỹ năng thực hành về điện toán đám mây, quản trị hạ tầng, bảo mật, tự động hóa và tối ưu chi phí trên AWS.
+Trang worklog này ghi lại hành trình thực tập AWS trong 12 tuần, diễn ra từ ngày 17/04/2026 đến 12/07/2026 tại AWS Việt Nam. Nội dung chính tập trung vào các kỹ năng thực hành về điện toán đám mây, quản trị hạ tầng, bảo mật, tự động hóa và tối ưu chi phí trên AWS.
 
 ### Tổng quan tiến độ theo tuần
 
